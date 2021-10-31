@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.stackedWidget = QtWidgets.QStackedWidget(self.frame)
         self.stackedWidget.setStyleSheet(" \n"
-"background-color: rgb(255, 255, 255);")
+        "background-color: rgb(255, 255, 255);")
         self.stackedWidget.setObjectName("stackedWidget")
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")

@@ -7,6 +7,8 @@ import sys
 import inventory as inventory
 import AddStock as AddStock
 import SearchManage as SearchManage
+import login as login
+import sales as sales
 
 import sqlite3
 
@@ -20,6 +22,44 @@ except sqlite3.Error as error:
 
 
 #CLASSES
+class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
+        def __init__(self):
+            super(LoginWindow,self).__init__()
+            #setting up the first window
+            self.setupUi(self)
+            self.loginbtn.clicked.connect(self.Auth)
+        
+        def Auth(self):
+            c = connection.cursor()
+            c.execute('''CREATE TABLE IF NOT EXISTS USERS (
+                id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+                user_no  INTEGER UNIQUE NOT NULL,
+                name VARCHAR NOT NULL,
+                role VARCHAR NOT NULL,
+                id_no INTEGER NOT NULL,
+                dob DATE NOT NULL,
+                gender VARCHAR NOT NULL,
+                date_emp DATE NOT NULL,
+                end_date DATE NOT NULL,
+                remarks LONGTEXT NOT NULL,
+                password VARCHAR NOT NULL)''')
+            p = self.pin.text()
+            r = c.execute("SELECT role FROM users WHERE password=?", (p,))
+            for item in c:    
+                role = item[0]
+            if not role:
+                warn("WRONG CREDENTIALS TRY AGAIN!!")
+            if role == "ADMIN":
+                self.window = Main()
+                self.window.show()
+                self.hide()
+            elif role == "CASHIER":
+                self.window = salesWindow()
+                self.window.show()
+                self.hide()
+            else:
+                warn("WRONG CREDENTIALS TRY AGAIN!!")
+            
 class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
         def __init__(self):
                 super(Main,self).__init__()
@@ -36,13 +76,20 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
         def showdialog(self):
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Information)
-
             msg.setText("This is a message box")
             msg.setInformativeText("This is additional information")
             msg.setWindowTitle("MessageBox demo")
             msg.setDetailedText("The details are as follows:")
             msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             msg.exec()
+
+class salesWindow(sales.Ui_Sales, QtWidgets.QMainWindow):
+    def __init__(self):
+            super(salesWindow,self).__init__()
+            #setting up the first window
+            self.setupUi(self)
+
+
 
 class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
         def __init__(self):
@@ -86,22 +133,46 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?);"""
                 vars = (item_code, item_name, quantity, price, supplier, var_date, exp_date, remarks,)
                 c.execute(sql, vars,)            
-                connection.commit()            
-            except sqlite3.Error as error:
-                print("Item code already exists")
+                connection.commit()
+                c.close
+                dialog("Item Saved Successfully")           
+            except:
+                warn("The Item Code already exists")
+            self.lineEdit_3.clear()
+            self.lineEdit_4.clear()
+            self.doubleSpinBox.setValue(0.00)
+            self.spinBox.setValue(0)
+            self.lineEdit_6.clear()
+            self.textEdit.clear()
 
 class SearchManageWindow(SearchManage.Ui_Dialog, QtWidgets.QDialog):
         def __init__(self):
                 super(SearchManageWindow,self).__init__()
                 self.setupUi(self)
 
-        
+#informational msg
+def dialog(w):
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Information)
+    msg.setText(w)
+    msg.setWindowTitle("hint")
+    msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+    msg.exec()   
+    
+#warning msg   
+def warn(w):
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Warning)
+    msg.setText(w)
+    msg.setWindowTitle("warning")
+    msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+    msg.exec()     
 
 #APP LAUNCH
 if __name__ == "__main__":
         #create an application
         app = QtWidgets.QApplication(sys.argv)
-        w = Main()
+        w = LoginWindow()
         #show the window and start the app
         w.show()
         app.exec_()
