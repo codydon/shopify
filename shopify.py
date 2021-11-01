@@ -44,12 +44,16 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
                 remarks LONGTEXT NOT NULL,
                 password VARCHAR NOT NULL)''')
             p = self.pin.text()
-            r = c.execute("SELECT role FROM users WHERE password=?", (p,))
+            c.execute("SELECT role FROM users WHERE password=?", (p,))
             for item in c:    
                 role = item[0]
-            if not role:
-                warn("WRONG CREDENTIALS TRY AGAIN!!")
-            if role == "ADMIN":
+            d = connection.cursor()
+            d.execute("SELECT COUNT(role) FROM users WHERE password=?", (p,))   
+            for count in d:    
+                n = count[0]
+            if n == 0: 
+                warn("WRONG CREDENTIALS. TRY AGAIN!!")
+            elif role == "ADMIN":
                 self.window = Main()
                 self.window.show()
                 self.hide()
