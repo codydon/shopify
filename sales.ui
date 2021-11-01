@@ -39,6 +39,9 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <item row="0" column="0" colspan="3">
      <widget class="QFrame" name="navbar">
       <property name="minimumSize">
@@ -152,60 +155,6 @@ color: rgb(255, 255, 255);</string>
            <string>Current Store:</string>
           </property>
          </widget>
-         <widget class="QComboBox" name="cashier">
-          <property name="geometry">
-           <rect>
-            <x>170</x>
-            <y>40</y>
-            <width>171</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="acceptDrops">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-color: rgb(255, 255, 255);
-</string>
-          </property>
-          <property name="editable">
-           <bool>false</bool>
-          </property>
-          <property name="currentText">
-           <string>Admin</string>
-          </property>
-          <property name="maxVisibleItems">
-           <number>20</number>
-          </property>
-          <property name="duplicatesEnabled">
-           <bool>true</bool>
-          </property>
-          <item>
-           <property name="text">
-            <string>Admin</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Dan</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Synthia</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>New Item</string>
-           </property>
-          </item>
-         </widget>
          <widget class="QDateTimeEdit" name="date">
           <property name="geometry">
            <rect>
@@ -273,46 +222,83 @@ color: rgb(255, 255, 255);</string>
            <enum>Qt::Vertical</enum>
           </property>
          </widget>
-         <widget class="QComboBox" name="cashier_2">
+         <widget class="QComboBox" name="comboBox_6">
           <property name="geometry">
            <rect>
             <x>10</x>
             <y>40</y>
-            <width>141</width>
+            <width>131</width>
             <height>31</height>
            </rect>
           </property>
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
+          <property name="minimumSize">
+           <size>
+            <width>23</width>
+            <height>31</height>
+           </size>
           </property>
-          <property name="acceptDrops">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-color: rgb(255, 255, 255);</string>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>35</height>
+           </size>
           </property>
           <property name="editable">
-           <bool>false</bool>
-          </property>
-          <property name="currentText">
-           <string>Main</string>
-          </property>
-          <property name="maxVisibleItems">
-           <number>20</number>
-          </property>
-          <property name="duplicatesEnabled">
            <bool>true</bool>
           </property>
           <item>
            <property name="text">
-            <string>Main</string>
+            <string>Cash</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Sub-Branch</string>
+            <string>Main Store</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Store2</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QComboBox" name="comboBox_7">
+          <property name="geometry">
+           <rect>
+            <x>220</x>
+            <y>40</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>23</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="editable">
+           <bool>true</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>Cash</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Main Store</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Store2</string>
            </property>
           </item>
          </widget>
@@ -320,101 +306,6 @@ color: rgb(255, 255, 255);</string>
        </item>
       </layout>
      </widget>
-    </item>
-    <item row="1" column="0" colspan="3">
-     <layout class="QGridLayout" name="gridLayout">
-      <property name="sizeConstraint">
-       <enum>QLayout::SetMinimumSize</enum>
-      </property>
-      <property name="topMargin">
-       <number>50</number>
-      </property>
-      <property name="bottomMargin">
-       <number>50</number>
-      </property>
-      <item row="0" column="0">
-       <widget class="QComboBox" name="comboBox">
-        <property name="minimumSize">
-         <size>
-          <width>99</width>
-          <height>47</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>1000</width>
-          <height>47</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>24</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="acceptDrops">
-         <bool>true</bool>
-        </property>
-        <property name="toolTip">
-         <string>Choose item(s)</string>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QComboBox {
-    padding: 1px 18px 1px 3px;
-    min-width: 6em;
-	background-color:transparent;
-	border:8px;
-	border-bottom: 2px solid gray;
-
-}</string>
-        </property>
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <property name="maxVisibleItems">
-         <number>100</number>
-        </property>
-        <property name="insertPolicy">
-         <enum>QComboBox::InsertAtTop</enum>
-        </property>
-        <item>
-         <property name="text">
-          <string>Home</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Sugar asdda sda sdas d asdwe rwe r wer  wer we rtwegh fh fgh fgh fghfg</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Maize</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Biscuit 45g</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Cooking oil</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
     </item>
     <item row="2" column="0" colspan="3">
      <widget class="QFrame" name="list_2">
@@ -1386,7 +1277,7 @@ QHeaderView::section {
       <property name="minimumSize">
        <size>
         <width>400</width>
-        <height>200</height>
+        <height>161</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -1405,7 +1296,7 @@ QHeaderView::section {
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>70</y>
+         <y>60</y>
          <width>341</width>
          <height>41</height>
         </rect>
@@ -1416,7 +1307,7 @@ QHeaderView::section {
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>35</height>
+            <height>31</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -1455,7 +1346,7 @@ QHeaderView::section {
           <property name="minimumSize">
            <size>
             <width>50</width>
-            <height>35</height>
+            <height>31</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -1479,7 +1370,7 @@ color: rgb(255, 255, 255);</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>50</y>
+         <y>40</y>
          <width>111</width>
          <height>20</height>
         </rect>
@@ -1501,10 +1392,10 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="pushButton_5">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>130</y>
-         <width>141</width>
-         <height>41</height>
+         <x>250</x>
+         <y>110</y>
+         <width>111</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1528,25 +1419,12 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </widget>
     </item>
-    <item row="3" column="1">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>45</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
     <item row="3" column="2">
      <widget class="QFrame" name="frame">
       <property name="minimumSize">
        <size>
-        <width>400</width>
-        <height>200</height>
+        <width>341</width>
+        <height>161</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -1567,8 +1445,8 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLineEdit" name="lineEdit_3">
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>50</y>
+         <x>120</x>
+         <y>40</y>
          <width>211</width>
          <height>31</height>
         </rect>
@@ -1580,10 +1458,10 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="pushButton_2">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>140</y>
-         <width>331</width>
-         <height>41</height>
+         <x>120</x>
+         <y>120</y>
+         <width>211</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1608,8 +1486,8 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>60</y>
+         <x>20</x>
+         <y>50</y>
          <width>91</width>
          <height>20</height>
         </rect>
@@ -1631,7 +1509,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>50</x>
+         <x>20</x>
          <y>90</y>
          <width>121</width>
          <height>20</height>
@@ -1654,7 +1532,7 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
-         <x>50</x>
+         <x>20</x>
          <y>20</y>
          <width>91</width>
          <height>20</height>
@@ -1680,8 +1558,8 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>10</y>
+         <x>120</x>
+         <y>0</y>
          <width>211</width>
          <height>31</height>
         </rect>
@@ -1729,39 +1607,35 @@ border-bottom: 1px solid #00394D;</string>
         <bool>false</bool>
        </property>
       </widget>
-      <widget class="QComboBox" name="cashier_3">
+      <widget class="QComboBox" name="comboBox_5">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>90</y>
-         <width>201</width>
+         <x>122</x>
+         <y>80</y>
+         <width>211</width>
          <height>31</height>
         </rect>
        </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
+       <property name="minimumSize">
+        <size>
+         <width>211</width>
+         <height>31</height>
+        </size>
        </property>
-       <property name="acceptDrops">
-        <bool>true</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border-color: rgb(255, 255, 255);
-</string>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>35</height>
+        </size>
        </property>
        <property name="editable">
-        <bool>false</bool>
-       </property>
-       <property name="currentText">
-        <string>Mpesa</string>
-       </property>
-       <property name="maxVisibleItems">
-        <number>20</number>
-       </property>
-       <property name="duplicatesEnabled">
         <bool>true</bool>
        </property>
+       <item>
+        <property name="text">
+         <string>Cash</string>
+        </property>
+       </item>
        <item>
         <property name="text">
          <string>Mpesa</string>
@@ -1769,11 +1643,112 @@ border-bottom: 1px solid #00394D;</string>
        </item>
        <item>
         <property name="text">
-         <string>Cheque</string>
+         <string>Account</string>
         </property>
        </item>
       </widget>
      </widget>
+    </item>
+    <item row="1" column="0" colspan="3">
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMinimumSize</enum>
+      </property>
+      <property name="topMargin">
+       <number>30</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QComboBox" name="comboBox">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>47</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1000</width>
+          <height>47</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>24</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string>Choose item(s)</string>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+        <property name="maxVisibleItems">
+         <number>100</number>
+        </property>
+        <property name="insertPolicy">
+         <enum>QComboBox::InsertAtTop</enum>
+        </property>
+        <item>
+         <property name="text">
+          <string>Home</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sugar asdda sda sdas d asdwe rwe r wer  wer we rtwegh fh fgh fgh fghfg</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Maize</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Biscuit 45g</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Cooking oil</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
