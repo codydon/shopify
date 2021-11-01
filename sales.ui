@@ -1484,7 +1484,7 @@ color: rgb(255, 255, 255);</string>
         <string>Customer Account:</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="newcustomer">
        <property name="geometry">
         <rect>
          <x>250</x>
@@ -1550,7 +1550,7 @@ color: rgb(255, 255, 255);</string>
         <set>Qt::ImhDigitsOnly|Qt::ImhPreferNumbers</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="sale">
        <property name="geometry">
         <rect>
          <x>400</x>
@@ -1756,7 +1756,7 @@ border-bottom: 1px solid #00394D;</string>
        <number>5</number>
       </property>
       <item row="0" column="0">
-       <widget class="QComboBox" name="saling">
+       <widget class="QComboBox" name="itemsale">
         <property name="minimumSize">
          <size>
           <width>0</width>
