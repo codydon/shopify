@@ -1807,31 +1807,6 @@ border-bottom: 1px solid #00394D;</string>
         <property name="frame">
          <bool>true</bool>
         </property>
-        <item>
-         <property name="text">
-          <string>Home</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Sugar asdda sda sdas d asdwe rwe r wer  wer we rtwegh fh fgh fgh fghfg</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Maize</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Biscuit 45g</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Cooking oil</string>
-         </property>
-        </item>
        </widget>
       </item>
      </layout>

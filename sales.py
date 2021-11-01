@@ -1139,11 +1139,6 @@ class Ui_Sales(object):
         self.itemsale.setInsertPolicy(QtWidgets.QComboBox.InsertAtTop)
         self.itemsale.setFrame(True)
         self.itemsale.setObjectName("itemsale")
-        self.itemsale.addItem("")
-        self.itemsale.addItem("")
-        self.itemsale.addItem("")
-        self.itemsale.addItem("")
-        self.itemsale.addItem("")
         self.gridLayout.addWidget(self.itemsale, 0, 0, 1, 1)
         self.gridLayout_4.addLayout(self.gridLayout, 1, 0, 1, 3)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -1251,11 +1246,6 @@ class Ui_Sales(object):
         self.comboBox_5.setItemText(1, _translate("Sales", "Mpesa"))
         self.comboBox_5.setItemText(2, _translate("Sales", "Account"))
         self.itemsale.setToolTip(_translate("Sales", "Choose item(s)"))
-        self.itemsale.setItemText(0, _translate("Sales", "Home"))
-        self.itemsale.setItemText(1, _translate("Sales", "Sugar asdda sda sdas d asdwe rwe r wer  wer we rtwegh fh fgh fgh fghfg"))
-        self.itemsale.setItemText(2, _translate("Sales", "Maize"))
-        self.itemsale.setItemText(3, _translate("Sales", "Biscuit 45g"))
-        self.itemsale.setItemText(4, _translate("Sales", "Cooking oil"))
 
 
 if __name__ == "__main__":

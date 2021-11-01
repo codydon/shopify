@@ -79,9 +79,8 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
                 mycounter = mycounter+1
         
         except Exception:
-            QMessageBox.warning(QMessageBox(), 'Error', 'Could find Record for Specified ID.')
-          
-
+            QMessageBox.warning(QMessageBox(), 'Error', 'Could find Product  Record from the Database.')
+        conn.close()
     def add_us(self):
         username = input("New username: ")
         password = input("New password: ")
