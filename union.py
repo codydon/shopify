@@ -162,34 +162,9 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
         except Exception:
             QMessageBox.warning(QMessageBox(), 'Error', 'Could find Product  Record from the Database.')
         conn.close()
-    def add_us(self):
-        username = input("New username: ")
-        password = input("New password: ")
-        self.add_user(username, password)
-    def add_user(self, username, password):
-        
-        query = "INSERT INTO login (username, password) VALUES (?, ?)"
-        cursor.execute(query, (username, password))
-        conn.commit()
+    
 
-    def check_user(self, username, password):
-        query = 'SELECT * FROM login WHERE username = ? AND password = ?'
-        cursor.execute(query, (username, password))
-        result = cursor.fetchone()
-        conn.commit()
-        print('[DEBUG][check] result:', result)
-        return result
-
-    def login(self):
-        username = self.email.text()
-        password = self.pin.text()
-        if self.check_user(username, password):
-            self.errorsms.setText("You are logged in")
-            self.w = Mainclass()
-            self.w.show()
-            self.hide()
-        else:
-            self.errorsms.setText("Check your credentials! ")
+    
     def closeEvent(self, event):
         sys.exit(0)
     
