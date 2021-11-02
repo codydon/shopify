@@ -52,6 +52,10 @@ class ExtendedComboBox(QComboBox):
         self.setFocusPolicy(Qt.StrongFocus)
         self.setEditable(True)
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
+        self.setGeometry(250, 215, 40, 120)
+        self.setFixedWidth(900)
+        self.setFixedHeight(50)
+        self.setWindowTitle("SearchMe!")
 
         # add a filter model to filter matching items
         self.pFilterModel = QSortFilterProxyModel(self)
@@ -63,6 +67,10 @@ class ExtendedComboBox(QComboBox):
         # always show all (filtered) completions
         self.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
         self.setCompleter(self.completer)
+        choosebutton = QPushButton('Click me', self)
+        #choosebutton.clicked.connect(self.clickMethod)
+        choosebutton.resize(100,32)
+        choosebutton.move(50, 50) 
 
         # connect signals
         self.lineEdit().textEdited.connect(self.pFilterModel.setFilterFixedString)
@@ -110,6 +118,7 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
         #functional buttons
         self.newcustomer.clicked.connect(self.createtempSales)
         self.salepop.clicked.connect(self.listItems)
+        self.hidepop.clicked.connect(self.hidesale)
         self.listItems();
         self.date.setDateTime(QDateTime.currentDateTime())
 
@@ -130,6 +139,9 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
         cursor.execute(query)
         conn.commit()
         print("temp table created")
+    def hidesale(self):
+        self.combo = ExtendedComboBox()
+        self.combo.hide()
     def listItems(self):
         try:
             conn = sqlite3.connect("shopify.db")
@@ -137,14 +149,12 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
             query = "SELECT * FROM STOCK  "
             cursor.execute(query)
             itemstore = cursor.fetchall()
-            string_list = ['hola muchachos', 'adios amigos', 'hello world', 'good bye']
             self.combo = ExtendedComboBox()
-            #combo.addItems(string_list)
             
             mycounter=0
             for item in itemstore:
                 self.combo.addItem(itemstore[mycounter][3])
-                print(itemstore[mycounter][2])
+                #print(itemstore[mycounter][2])
                 mycounter = mycounter+1
             self.combo.resize(600, 40)
             self.combo.show()
