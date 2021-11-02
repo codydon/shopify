@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(853, 606)
+        MainWindow.resize(834, 606)
         MainWindow.setStyleSheet(u"background-color: #00394D;")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -251,6 +251,37 @@ class Ui_MainWindow(object):
         self.frame_3.setStyleSheet(u"background-color: #00394D;")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
+        self.gridLayout_5 = QGridLayout(self.frame_3)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.horizontalSpacer = QSpacerItem(403, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_5.addItem(self.horizontalSpacer, 0, 0, 1, 1)
+
+        self.frame_ok = QFrame(self.frame_3)
+        self.frame_ok.setObjectName(u"frame_ok")
+        self.frame_ok.setMaximumSize(QSize(450, 16777215))
+        self.frame_ok.setStyleSheet(u"background-color: green;\n"
+"border-radius: 5px;")
+        self.frame_ok.setFrameShape(QFrame.StyledPanel)
+        self.frame_ok.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.frame_ok)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.label_ok = QLabel(self.frame_ok)
+        self.label_ok.setObjectName(u"label_ok")
+        self.label_ok.setMinimumSize(QSize(400, 41))
+        self.label_ok.setMaximumSize(QSize(311, 41))
+        self.label_ok.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+"")
+        self.label_ok.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_3.addWidget(self.label_ok)
+
+
+        self.gridLayout_5.addWidget(self.frame_ok, 0, 1, 1, 1)
+
 
         self.gridLayout_2.addWidget(self.frame_3, 0, 0, 1, 2)
 
@@ -304,6 +335,9 @@ class Ui_MainWindow(object):
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Items", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Add Purchase", None))
+#if QT_CONFIG(shortcut)
+        self.pushButton_3.setShortcut(QCoreApplication.translate("MainWindow", u"P", None))
+#endif // QT_CONFIG(shortcut)
         self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Add Expense", None))
         self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"Payments", None))
         self.pushButton_9.setText(QCoreApplication.translate("MainWindow", u"Vital Stats", None))
@@ -311,5 +345,6 @@ class Ui_MainWindow(object):
         self.pushButton_11.setText(QCoreApplication.translate("MainWindow", u"Add Reminder", None))
         self.pushButton_12.setText(QCoreApplication.translate("MainWindow", u"Contacts", None))
         self.pushButton_13.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
+        self.label_ok.setText(QCoreApplication.translate("MainWindow", u"ok", None))
     # retranslateUi
 
