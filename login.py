@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\login.ui'
+# Form implementation generated from reading ui file 'login.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -114,6 +114,22 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.loginbtn.setObjectName("loginbtn")
+        self.frame_error = QtWidgets.QFrame(self.frame)
+        self.frame_error.setGeometry(QtCore.QRect(80, 10, 450, 30))
+        self.frame_error.setMaximumSize(QtCore.QSize(450, 16777215))
+        self.frame_error.setStyleSheet("background-color: rgb(255, 85, 127);\n"
+"border-radius: 5px;")
+        self.frame_error.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_error.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_error.setObjectName("frame_error")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_error)
+        self.horizontalLayout_3.setContentsMargins(10, 3, 10, 3)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_error = QtWidgets.QLabel(self.frame_error)
+        self.label_error.setStyleSheet("color: rgb(35, 35, 35);")
+        self.label_error.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_error.setObjectName("label_error")
+        self.horizontalLayout_3.addWidget(self.label_error)
         self.gridLayout.addWidget(self.frame, 1, 1, 2, 1)
         spacerItem2 = QtWidgets.QSpacerItem(70, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem2, 2, 2, 1, 1)
@@ -131,13 +147,7 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "Welcome To Shopify"))
         self.pin.setPlaceholderText(_translate("MainWindow", "Enter pin-Code"))
         self.loginbtn.setText(_translate("MainWindow", "Access"))
+        self.label_error.setText(_translate("MainWindow", "Error"))
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+

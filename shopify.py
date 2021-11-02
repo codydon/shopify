@@ -9,8 +9,10 @@ import AddStock as AddStock
 import SearchManage as SearchManage
 import login as login
 import sales as sales
-
+import AddPurchase as AddPurchase
+import datetime
 import sqlite3
+currentdatetime = datetime.datetime.now()
 
 try:
     connection = sqlite3.connect('shopify.db')
@@ -27,9 +29,26 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
             super(LoginWindow,self).__init__()
             #setting up the first window
             self.setupUi(self)
+            self.frame_error.hide()
             self.loginbtn.clicked.connect(self.Auth)
-        
+            #initializing keypress event function
+            
+        stylePopupError = (
+            "background-color: rgb(255, 85, 127); border-radius: 5px;")
+      # keyboard key press events
+        def keyPressEvent(self, e):
+            if e.key() == Qt.Key_Enter:
+                self.Auth()
+       #Authentication         
         def Auth(self):
+            # hinding the error message after some time
+            def hideframeerror():
+                self.frame_error.hide()
+                 
+            def showMessage(message):
+                self.frame_error.show()
+                self.label_error.setText(message)
+                QtCore.QTimer.singleShot(5000,hideframeerror )
             c = connection.cursor()
             c.execute('''CREATE TABLE IF NOT EXISTS USERS (
                 id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
@@ -52,8 +71,12 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
             d.execute("SELECT COUNT(role) FROM users WHERE password=?", (p,))   
             for count in d:    
                 n = count[0]
-            if n == 0: 
-                warn("WRONG CREDENTIALS. TRY AGAIN!!")
+            if n == 0:
+                text = "WRONG CREDENTIALS. TRY AGAIN!!"
+                showMessage(text)
+                self.frame_error.setStyleSheet(self.stylePopupError)
+                #######
+    # to be discussed or done after a succeful login the respective windowss to wait for some time and display logged in successfully    
             elif role == "ADMIN":
                 self.window = Main()
                 self.window.show()
@@ -63,7 +86,10 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
                 self.window.show()
                 self.hide()
             else:
-                warn("WRONG CREDENTIALS TRY AGAIN!!")
+                text = "WRONG CREDENTIALS. TRY AGAIN!!"
+                showMessage(text)
+                self.frame_error.setStyleSheet(self.stylePopupError)
+                
             
 class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
         def __init__(self):
@@ -72,11 +98,15 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 self.setupUi(self)
                 #
                 self.pushButton_14.clicked.connect(self.AddStock)
+                self.pushButton_3.clicked.connect(self.Addpurchase)
 
 
         def AddStock(self):
             self.window = AddStockWindow()
             self.window.show()
+        def Addpurchase(self):
+            self.window=purchaseWindow()
+            self.window.show()    
 
         def showdialog(self):
             msg = QMessageBox()
@@ -95,6 +125,46 @@ class salesWindow(sales.Ui_Sales, QtWidgets.QMainWindow):
             self.setupUi(self)
 
 
+class purchaseWindow(AddPurchase.Ui_Dialog, QtWidgets.QDialog):
+    def __init__(self):
+        super(purchaseWindow, self).__init__()
+        self.setupUi(self)
+
+    def recordpurchase(self):
+        temp_date = self.dateEdit.date()
+        var_date = temp_date.toPyDate()
+        transactioncode = self.lineEdit_3.text()
+        quantity = self.doubleSpinBox.text()
+        supplier = self.lineEdit_6.text()
+        remarks = self.textEdit.toPlainText()
+        #db
+        c = connection.cursor()
+        c.execute('''CREATE TABLE IF NOT EXISTS PURCHASES (
+            id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+            transactionCode  VARCHAR UNIQUE NOT NULL,
+            quantity FLOAT NOT NULL,
+            supplier VARCHAR NOT NULL,
+            dateOfpurchase DATE NOT NULL,
+            remarks LONGTEXT NOT NULL,
+            daterecorded TIMESTAMP NOT NULL)''')
+
+        #insert stock item
+        try:
+            sql = """INSERT INTO STOCK (transactionCode,quantity,supplier, dateOfPurchase,remarks,daterecorded ) 
+                    VALUES (?, ?, ?, ?, ?, ?);"""
+            vars = (transactioncode,quantity,
+                    supplier, var_date, remarks,currentdatetime)
+            c.execute(sql, vars,)
+            connection.commit()
+            c.close
+            dialog("Purchase recorded Successfully")
+        except:
+            warn("The purchase already exists")
+        self.dateEdit.setDate(QDate.currentDate())
+        self.lineEdit_3.clear()
+        self.doubleSpinBox.setValue(0.00)
+        self.lineEdit_6.clear()
+        self.textEdit.clear()
 
 class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
         def __init__(self):
@@ -151,6 +221,13 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             self.spinBox.setValue(0)
             self.lineEdit_6.clear()
             self.textEdit.clear()
+
+
+
+    
+
+
+
 
 class SearchManageWindow(SearchManage.Ui_Dialog, QtWidgets.QDialog):
         def __init__(self):
