@@ -13,10 +13,8 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QPushButton, QVBox
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sqlite3
 
-conn = sqlite3.connect("users.db")
+conn = sqlite3.connect("shopify.db")
 cursor = conn.cursor()
-data = ["uasin-gishu","kericho","nandi"]
-
 
 class Mainclass(sales.Ui_Sales, QtWidgets.QMainWindow):
     def __init__(self):
@@ -49,6 +47,9 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
         self.setupUi(self)
         #self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        #functional buttons
+        self.newcustomer.clicked.connect(self.createtempSales)
+        self.listItems();
        
     
     def mousePressEvent(self, event):
@@ -59,15 +60,27 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
         #print(delta)
         self.move(self.x() + delta.x(), self.y() + delta.y())
         self.oldPos = event.globalPos()
-    def create_tableUser(self):
-        query = "CREATE TABLE IF NOT EXISTS login(username VARCHAR UNIQUE, password VARCHAR)"
+    def createtempSales(self):
+        query = "CREATE TABLE IF NOT EXISTS temp(id INTEGER PRIMARY KEY AUTOINCREMENT,item_code VARCHAR UNIQUE, item_name VARCHAR, price INTEGER, saleprice INTEGER, total INTEGER, quantity INTEGER)"
         cursor.execute(query)
         conn.commit()
-    def create_tableRecords(self):
-        query = "CREATE TABLE IF NOT EXISTS records(id INTEGER PRIMARY KEY AUTOINCREMENT, county VARCHAR, date VARCHAR, latitude INTEGER,longitude INTEGER,new INTEGER,recovered INTEGER,deceased INTEGER, info VARCHAR, pop VARCHAR)"
-        cursor.execute(query)
-        conn.commit()
-
+        print("temp table created")
+    def listItems(self):
+        try:
+            conn = sqlite3.connect("shopify.db")
+            cursor = conn.cursor()
+            query = "SELECT * FROM STOCK  "
+            cursor.execute(query)
+            itemstore = cursor.fetchall()
+            mycounter=0
+            for item in itemstore:
+                self.itemsale.addItem(itemstore[mycounter][1], itemstore[mycounter][2])
+                print(itemstore[mycounter][2])
+                mycounter = mycounter+1
+        
+        except Exception:
+            QMessageBox.warning(QMessageBox(), 'Error', 'Could find Product  Record from the Database.')
+        conn.close()
     def add_us(self):
         username = input("New username: ")
         password = input("New password: ")
