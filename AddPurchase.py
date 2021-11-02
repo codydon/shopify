@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\AddPurchase.ui'
+# Form implementation generated from reading ui file 'AddPurchase.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -148,11 +148,4 @@ class Ui_Dialog(object):
         self.label.setText(_translate("Dialog", "ADD PURCHASE"))
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
-    sys.exit(app.exec_())
+

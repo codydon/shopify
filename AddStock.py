@@ -216,12 +216,3 @@ class Ui_Dialog(object):
         self.pushButton.setToolTip(_translate("Dialog", "Search for iem in existing stock."))
         self.pushButton.setText(_translate("Dialog", "Search and Manage Items"))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
-    sys.exit(app.exec_())
