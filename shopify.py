@@ -43,6 +43,7 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
                 end_date DATE NOT NULL,
                 remarks LONGTEXT NOT NULL,
                 password VARCHAR NOT NULL)''')
+            print("USERS CREATED")
             p = self.pin.text()
             c.execute("SELECT role FROM users WHERE password=?", (p,))
             for item in c:    
@@ -123,7 +124,9 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             c.execute('''CREATE TABLE IF NOT EXISTS STOCK (
                 id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
                 item_code  VARCHAR UNIQUE NOT NULL,
+                category VARCHAR NOT NULL,
                 item_name VARCHAR NOT NULL,
+                description VARCHAR NOT NULL,
                 quantity FLOAT NOT NULL,
                 price DOUBLE NOT NULL,
                 supplier VARCHAR NOT NULL,
