@@ -31,24 +31,22 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
             self.setupUi(self)
             self.frame_error.hide()
             self.loginbtn.clicked.connect(self.Auth)
-            #initializing keypress event function
+           
             
         stylePopupError = (
             "background-color: rgb(255, 85, 127); border-radius: 5px;")
-      # keyboard key press events
-        def keyPressEvent(self, e):
-            if e.key() == Qt.Key_Enter:
-                self.Auth()
+        
        #Authentication         
         def Auth(self):
             # hinding the error message after some time
-            def hideframeerror():
+            def hideframe():
                 self.frame_error.hide()
+                
                  
             def showMessage(message):
                 self.frame_error.show()
                 self.label_error.setText(message)
-                QtCore.QTimer.singleShot(5000,hideframeerror )
+                QtCore.QTimer.singleShot(5000,hideframe)
             c = connection.cursor()
             c.execute('''CREATE TABLE IF NOT EXISTS USERS (
                 id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
@@ -75,8 +73,7 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
                 text = "WRONG CREDENTIALS. TRY AGAIN!!"
                 showMessage(text)
                 self.frame_error.setStyleSheet(self.stylePopupError)
-                #######
-    # to be discussed or done after a succeful login the respective windowss to wait for some time and display logged in successfully    
+           
             elif role == "ADMIN":
                 self.window = Main()
                 self.window.show()
@@ -97,9 +94,23 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 #setting up the first window
                 self.setupUi(self)
                 #
+       
+                self.frame_ok.hide()
                 self.pushButton_14.clicked.connect(self.AddStock)
                 self.pushButton_3.clicked.connect(self.Addpurchase)
-
+                self.Showstatus()
+        stylePopupOk = (
+            "background-color:green; border-radius: 5px;")
+        def Showstatus(self):
+            def hideframe():
+                self.frame_ok.hide()
+            def showMessage(message):
+                self.frame_ok.show()
+                self.label_ok.setText(message)
+                QtCore.QTimer.singleShot(5000,hideframe)
+            success = "You successfully logged in!!"
+            showMessage(success)
+            self.frame_ok.setStyleSheet(self.stylePopupOk)
 
         def AddStock(self):
             self.window = AddStockWindow()
@@ -129,6 +140,8 @@ class purchaseWindow(AddPurchase.Ui_Dialog, QtWidgets.QDialog):
     def __init__(self):
         super(purchaseWindow, self).__init__()
         self.setupUi(self)
+       
+        self.pushButton_2.clicked.connect(self.recordpurchase)
 
     def recordpurchase(self):
         temp_date = self.dateEdit.date()
@@ -150,7 +163,7 @@ class purchaseWindow(AddPurchase.Ui_Dialog, QtWidgets.QDialog):
 
         #insert stock item
         try:
-            sql = """INSERT INTO STOCK (transactionCode,quantity,supplier, dateOfPurchase,remarks,daterecorded ) 
+            sql = """INSERT INTO PURCHASES (transactionCode,quantity,supplier, dateOfPurchase,remarks,daterecorded ) 
                     VALUES (?, ?, ?, ?, ?, ?);"""
             vars = (transactioncode,quantity,
                     supplier, var_date, remarks,currentdatetime)

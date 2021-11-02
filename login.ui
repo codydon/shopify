@@ -225,6 +225,9 @@ border-radius:15px;
        <property name="text">
         <string>Access</string>
        </property>
+       <property name="shortcut">
+        <string>Return</string>
+       </property>
       </widget>
       <widget class="QFrame" name="frame_error">
        <property name="geometry">

@@ -147,7 +147,6 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "Welcome To Shopify"))
         self.pin.setPlaceholderText(_translate("MainWindow", "Enter pin-Code"))
         self.loginbtn.setText(_translate("MainWindow", "Access"))
+        self.loginbtn.setShortcut(_translate("MainWindow", "Return"))
         self.label_error.setText(_translate("MainWindow", "Error"))
-
-
 
