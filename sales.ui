@@ -2,16 +2,19 @@
 <ui version="4.0">
  <class>Sales</class>
  <widget class="QMainWindow" name="Sales">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>1002</width>
-    <height>628</height>
+    <height>598</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Shopify</string>
   </property>
   <property name="toolTip">
    <string>Make a sale</string>
@@ -42,6 +45,254 @@
     <property name="spacing">
      <number>0</number>
     </property>
+    <item row="2" column="2">
+     <widget class="QFrame" name="frame">
+      <property name="minimumSize">
+       <size>
+        <width>500</width>
+        <height>140</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>400</width>
+        <height>140</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLineEdit" name="lineEdit_3">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>90</y>
+         <width>211</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhDigitsOnly|Qt::ImhPreferNumbers</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>100</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#00394D;</string>
+       </property>
+       <property name="text">
+        <string>Amount:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>20</y>
+         <width>121</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#00394D;</string>
+       </property>
+       <property name="text">
+        <string>Payment:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>60</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#00394D;</string>
+       </property>
+       <property name="text">
+        <string>Total:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="total">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>50</y>
+         <width>211</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>SizeAllCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 0);
+border:none;
+padding: 1px 18px 1px 3px;
+min-width: 6em;
+background-color:transparent;
+border-bottom: 1px solid #00394D;</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhPreferNumbers</set>
+       </property>
+       <property name="text">
+        <string>5000</string>
+       </property>
+       <property name="maxLength">
+        <number>20000000</number>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Normal</enum>
+       </property>
+       <property name="cursorPosition">
+        <number>4</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_5">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>20</y>
+         <width>211</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>211</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Cash</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Mpesa</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Account</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="sale">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>20</y>
+         <width>71</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(0, 136, 0);
+border-radius:10px;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Sale</string>
+       </property>
+       <property name="shortcut">
+        <string>Ctrl+S</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
     <item row="0" column="0" colspan="3">
      <widget class="QFrame" name="navbar">
       <property name="minimumSize">
@@ -54,7 +305,7 @@
        <string notr="true">background-color: #00394D;</string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
@@ -64,38 +315,40 @@
         <widget class="QFrame" name="back">
          <property name="minimumSize">
           <size>
-           <width>80</width>
+           <width>120</width>
            <height>80</height>
           </size>
          </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="label">
+         <widget class="QPushButton" name="salepop">
           <property name="geometry">
            <rect>
             <x>20</x>
             <y>10</y>
-            <width>61</width>
-            <height>51</height>
+            <width>91</width>
+            <height>61</height>
            </rect>
           </property>
           <property name="font">
            <font>
-            <pointsize>26</pointsize>
+            <family>Ubuntu Mono</family>
+            <pointsize>30</pointsize>
+            <italic>false</italic>
            </font>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
            <string>◄</string>
+          </property>
+          <property name="shortcut">
+           <string>S</string>
           </property>
          </widget>
         </widget>
@@ -210,9 +463,9 @@ color: rgb(255, 255, 255);</string>
           <property name="geometry">
            <rect>
             <x>150</x>
-            <y>10</y>
+            <y>0</y>
             <width>21</width>
-            <height>91</height>
+            <height>111</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -305,12 +558,164 @@ color: rgb(255, 255, 255);</string>
            </property>
           </item>
          </widget>
+         <zorder>label_2</zorder>
+         <zorder>date</zorder>
+         <zorder>comboBox_6</zorder>
+         <zorder>comboBox_7</zorder>
+         <zorder>line</zorder>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
-    <item row="2" column="0" colspan="3">
+    <item row="2" column="0">
+     <widget class="QFrame" name="frame_3">
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>140</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>400</width>
+        <height>140</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QWidget" name="layoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>50</y>
+         <width>341</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QComboBox" name="comboBox_4">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="editable">
+           <bool>true</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>Choose Customer</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Caroline Chelop</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Felix Kiptum</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Anastesia</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: #00394D;
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Find</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#00394D;</string>
+       </property>
+       <property name="text">
+        <string>Customer Account:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="newcustomer">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>100</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #00394D;
+border-radius:10px;
+color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Add New</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="3">
      <widget class="QFrame" name="list_2">
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -1142,7 +1547,7 @@ QHeaderView::section {
           <bool>true</bool>
          </property>
          <property name="rowCount">
-          <number>6</number>
+          <number>4</number>
          </property>
          <attribute name="horizontalHeaderVisible">
           <bool>true</bool>
@@ -1154,7 +1559,7 @@ QHeaderView::section {
           <bool>true</bool>
          </attribute>
          <attribute name="horizontalHeaderStretchLastSection">
-          <bool>true</bool>
+          <bool>false</bool>
          </attribute>
          <attribute name="verticalHeaderCascadingSectionResizes">
           <bool>true</bool>
@@ -1167,17 +1572,7 @@ QHeaderView::section {
          </attribute>
          <row>
           <property name="text">
-           <string>New Row</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>New Row</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>New Row</string>
+           <string>1_____</string>
           </property>
          </row>
          <row/>
@@ -1185,7 +1580,7 @@ QHeaderView::section {
          <row/>
          <column>
           <property name="text">
-           <string>Id</string>
+           <string>Item_Id</string>
           </property>
          </column>
          <column>
@@ -1195,17 +1590,12 @@ QHeaderView::section {
          </column>
          <column>
           <property name="text">
-           <string>Cost</string>
+           <string>Price(Ksh.)</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Price</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>S.p</string>
+           <string>S.p(Ksh.)</string>
           </property>
           <property name="textAlignment">
            <set>AlignCenter</set>
@@ -1257,572 +1647,105 @@ QHeaderView::section {
            </color>
           </property>
          </column>
-         <item row="0" column="0">
+         <column>
           <property name="text">
-           <string>qweqwe</string>
+           <string>Delete</string>
           </property>
-         </item>
-         <item row="0" column="1">
-          <property name="text">
-           <string>wqeqwe</string>
-          </property>
-         </item>
-         <item row="0" column="2">
-          <property name="text">
-           <string>qweqw</string>
-          </property>
-         </item>
-         <item row="0" column="3">
-          <property name="text">
-           <string>qweqw</string>
-          </property>
-         </item>
-         <item row="0" column="4">
-          <property name="text">
-           <string>345</string>
-          </property>
-         </item>
-         <item row="0" column="5">
-          <property name="text">
-           <string>454</string>
-          </property>
-         </item>
-         <item row="0" column="6">
-          <property name="text">
-           <string>454</string>
-          </property>
-         </item>
+         </column>
          <item row="1" column="0">
           <property name="text">
-           <string>sdfsdfsdfsdfsdf sdfsdfsdfsdf</string>
+           <string>item001</string>
           </property>
          </item>
          <item row="1" column="1">
           <property name="text">
-           <string>ssdfs</string>
+           <string>Sugar 1kg</string>
           </property>
          </item>
          <item row="1" column="2">
           <property name="text">
-           <string>sfdsfsdfsdf sdf sdfsdfsdfsd</string>
+           <string>100</string>
           </property>
          </item>
          <item row="1" column="3">
           <property name="text">
-           <string>fgh</string>
+           <string>110</string>
           </property>
          </item>
          <item row="1" column="4">
           <property name="text">
-           <string>4545</string>
+           <string>2</string>
           </property>
          </item>
          <item row="1" column="5">
           <property name="text">
-           <string>454</string>
-          </property>
-         </item>
-         <item row="1" column="6">
-          <property name="text">
-           <string>45</string>
+           <string>220</string>
           </property>
          </item>
          <item row="2" column="0">
           <property name="text">
-           <string>asdas</string>
+           <string>item002</string>
           </property>
          </item>
          <item row="2" column="1">
           <property name="text">
-           <string>sdfsdf</string>
+           <string>Match box 120g</string>
           </property>
          </item>
          <item row="2" column="2">
           <property name="text">
-           <string>sdfsd</string>
+           <string>30</string>
           </property>
          </item>
          <item row="2" column="3">
           <property name="text">
-           <string>sdfs</string>
+           <string>25</string>
           </property>
          </item>
          <item row="2" column="4">
           <property name="text">
-           <string>45</string>
+           <string>5</string>
           </property>
          </item>
          <item row="2" column="5">
           <property name="text">
-           <string>45</string>
+           <string>125</string>
           </property>
          </item>
-         <item row="2" column="6">
+         <item row="3" column="0">
           <property name="text">
-           <string>45</string>
+           <string>item003</string>
+          </property>
+         </item>
+         <item row="3" column="1">
+          <property name="text">
+           <string>Cooking oil (Rina)</string>
+          </property>
+         </item>
+         <item row="3" column="2">
+          <property name="text">
+           <string>550</string>
+          </property>
+         </item>
+         <item row="3" column="3">
+          <property name="text">
+           <string>450</string>
+          </property>
+         </item>
+         <item row="3" column="4">
+          <property name="text">
+           <string>5</string>
+          </property>
+         </item>
+         <item row="3" column="5">
+          <property name="text">
+           <string>2500</string>
           </property>
          </item>
         </widget>
        </item>
       </layout>
      </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QFrame" name="frame_3">
-      <property name="minimumSize">
-       <size>
-        <width>400</width>
-        <height>140</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>400</width>
-        <height>140</height>
-       </size>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QWidget" name="layoutWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>50</y>
-         <width>341</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QComboBox" name="comboBox_4">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>31</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>35</height>
-           </size>
-          </property>
-          <property name="editable">
-           <bool>true</bool>
-          </property>
-          <item>
-           <property name="text">
-            <string>Choose Customer</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Caroline Chelop</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Felix Kiptum</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Anastesia</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton_4">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>31</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>35</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: #00394D;
-color: rgb(255, 255, 255);</string>
-          </property>
-          <property name="text">
-           <string>Find</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>30</y>
-         <width>111</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#00394D;</string>
-       </property>
-       <property name="text">
-        <string>Customer Account:</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="newcustomer">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>100</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: #00394D;
-border-radius:10px;
-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>Add New</string>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QFrame" name="frame">
-      <property name="minimumSize">
-       <size>
-        <width>500</width>
-        <height>140</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>400</width>
-        <height>140</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLineEdit" name="lineEdit_3">
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>90</y>
-         <width>211</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="inputMethodHints">
-        <set>Qt::ImhDigitsOnly|Qt::ImhPreferNumbers</set>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="sale">
-       <property name="geometry">
-        <rect>
-         <x>400</x>
-         <y>20</y>
-         <width>71</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(0, 136, 0);
-border-radius:10px;
-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>Sale</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_5">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>100</y>
-         <width>91</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#00394D;</string>
-       </property>
-       <property name="text">
-        <string>Amount:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_6">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>20</y>
-         <width>121</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#00394D;</string>
-       </property>
-       <property name="text">
-        <string>Payment:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_7">
-       <property name="geometry">
-        <rect>
-         <x>60</x>
-         <y>60</y>
-         <width>91</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:#00394D;</string>
-       </property>
-       <property name="text">
-        <string>Total:</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="total">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>50</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>SizeAllCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(170, 0, 0);
-border:none;
-padding: 1px 18px 1px 3px;
-min-width: 6em;
-background-color:transparent;
-border-bottom: 1px solid #00394D;</string>
-       </property>
-       <property name="inputMethodHints">
-        <set>Qt::ImhPreferNumbers</set>
-       </property>
-       <property name="text">
-        <string>5000</string>
-       </property>
-       <property name="maxLength">
-        <number>20000000</number>
-       </property>
-       <property name="echoMode">
-        <enum>QLineEdit::Normal</enum>
-       </property>
-       <property name="cursorPosition">
-        <number>4</number>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-       <property name="clearButtonEnabled">
-        <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_5">
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>20</y>
-         <width>211</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>211</width>
-         <height>31</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="editable">
-        <bool>true</bool>
-       </property>
-       <item>
-        <property name="text">
-         <string>Cash</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Mpesa</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Account</string>
-        </property>
-       </item>
-      </widget>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="3">
-     <layout class="QGridLayout" name="gridLayout">
-      <property name="sizeConstraint">
-       <enum>QLayout::SetMinimumSize</enum>
-      </property>
-      <property name="topMargin">
-       <number>30</number>
-      </property>
-      <property name="bottomMargin">
-       <number>5</number>
-      </property>
-      <item row="0" column="0">
-       <widget class="QComboBox" name="itemsale">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>47</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>1000</width>
-          <height>47</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <weight>50</weight>
-          <italic>true</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="acceptDrops">
-         <bool>true</bool>
-        </property>
-        <property name="toolTip">
-         <string>Choose item(s)</string>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <property name="maxVisibleItems">
-         <number>100</number>
-        </property>
-        <property name="insertPolicy">
-         <enum>QComboBox::InsertAtTop</enum>
-        </property>
-        <property name="frame">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="3" column="1">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
     </item>
    </layout>
   </widget>
