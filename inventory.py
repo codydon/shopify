@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(853, 606)
+        MainWindow.resize(834, 606)
         MainWindow.setStyleSheet("background-color: #00394D;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("background-color: #00394D;")
@@ -230,6 +230,31 @@ class Ui_MainWindow(object):
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
+        self.gridLayout_5 = QtWidgets.QGridLayout(self.frame_3)
+        self.gridLayout_5.setObjectName("gridLayout_5")
+        spacerItem = QtWidgets.QSpacerItem(403, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem, 0, 0, 1, 1)
+        self.frame_ok = QtWidgets.QFrame(self.frame_3)
+        self.frame_ok.setMaximumSize(QtCore.QSize(450, 16777215))
+        self.frame_ok.setStyleSheet("background-color: green;\n"
+"border-radius: 5px;")
+        self.frame_ok.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_ok.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_ok.setObjectName("frame_ok")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_ok)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_ok = QtWidgets.QLabel(self.frame_ok)
+        self.label_ok.setMinimumSize(QtCore.QSize(400, 41))
+        self.label_ok.setMaximumSize(QtCore.QSize(311, 41))
+        self.label_ok.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+"")
+        self.label_ok.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_ok.setObjectName("label_ok")
+        self.horizontalLayout_3.addWidget(self.label_ok)
+        self.gridLayout_5.addWidget(self.frame_ok, 0, 1, 1, 1)
         self.gridLayout_2.addWidget(self.frame_3, 0, 0, 1, 2)
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -282,6 +307,7 @@ class Ui_MainWindow(object):
         self.pushButton_11.setText(_translate("MainWindow", "Add Reminder"))
         self.pushButton_12.setText(_translate("MainWindow", "Contacts"))
         self.pushButton_13.setText(_translate("MainWindow", "Logout"))
+        self.label_ok.setText(_translate("MainWindow", "ok"))
 
 
 
