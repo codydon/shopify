@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\inventory.ui'
+# Form implementation generated from reading ui file 'inventory.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.stackedWidget = QtWidgets.QStackedWidget(self.frame)
         self.stackedWidget.setStyleSheet(" \n"
-        "background-color: rgb(255, 255, 255);")
+"background-color: rgb(255, 255, 255);")
         self.stackedWidget.setObjectName("stackedWidget")
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")
@@ -274,6 +274,7 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "Dashboard"))
         self.pushButton_2.setText(_translate("MainWindow", "Items"))
         self.pushButton_3.setText(_translate("MainWindow", "Add Purchase"))
+        self.pushButton_3.setShortcut(_translate("MainWindow", "P"))
         self.pushButton_4.setText(_translate("MainWindow", "Add Expense"))
         self.pushButton_8.setText(_translate("MainWindow", "Payments"))
         self.pushButton_9.setText(_translate("MainWindow", "Vital Stats"))
@@ -281,5 +282,6 @@ class Ui_MainWindow(object):
         self.pushButton_11.setText(_translate("MainWindow", "Add Reminder"))
         self.pushButton_12.setText(_translate("MainWindow", "Contacts"))
         self.pushButton_13.setText(_translate("MainWindow", "Logout"))
+
 
 

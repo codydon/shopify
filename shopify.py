@@ -31,14 +31,11 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
             self.setupUi(self)
             self.frame_error.hide()
             self.loginbtn.clicked.connect(self.Auth)
-            #initializing keypress event function
+           
             
         stylePopupError = (
             "background-color: rgb(255, 85, 127); border-radius: 5px;")
-      # keyboard key press events
-        def keyPressEvent(self, e):
-            if e.key() == Qt.Key_Enter:
-                self.Auth()
+     
        #Authentication         
         def Auth(self):
             # hinding the error message after some time
@@ -129,6 +126,8 @@ class purchaseWindow(AddPurchase.Ui_Dialog, QtWidgets.QDialog):
     def __init__(self):
         super(purchaseWindow, self).__init__()
         self.setupUi(self)
+       
+        self.pushButton_2.clicked.connect(self.recordpurchase)
 
     def recordpurchase(self):
         temp_date = self.dateEdit.date()
@@ -150,7 +149,7 @@ class purchaseWindow(AddPurchase.Ui_Dialog, QtWidgets.QDialog):
 
         #insert stock item
         try:
-            sql = """INSERT INTO STOCK (transactionCode,quantity,supplier, dateOfPurchase,remarks,daterecorded ) 
+            sql = """INSERT INTO PURCHASES (transactionCode,quantity,supplier, dateOfPurchase,remarks,daterecorded ) 
                     VALUES (?, ?, ?, ?, ?, ?);"""
             vars = (transactioncode,quantity,
                     supplier, var_date, remarks,currentdatetime)

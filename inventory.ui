@@ -391,6 +391,9 @@ background-color: #00394D;
           <property name="text">
            <string>Add Purchase</string>
           </property>
+          <property name="shortcut">
+           <string>P</string>
+          </property>
          </widget>
          <widget class="QPushButton" name="pushButton_4">
           <property name="geometry">
