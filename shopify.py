@@ -60,7 +60,6 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
                 end_date DATE NOT NULL,
                 remarks LONGTEXT NOT NULL,
                 password VARCHAR NOT NULL)''')
-            print("USERS CREATED")
             p = self.pin.text()
             c.execute("SELECT role FROM users WHERE password=?", (p,))
             for item in c:    
@@ -119,15 +118,7 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
             self.window=purchaseWindow()
             self.window.show()    
 
-        def showdialog(self):
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("This is a message box")
-            msg.setInformativeText("This is additional information")
-            msg.setWindowTitle("MessageBox demo")
-            msg.setDetailedText("The details are as follows:")
-            msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-            msg.exec()
+        
 
 class salesWindow(sales.Ui_Sales, QtWidgets.QMainWindow):
     def __init__(self):
@@ -195,7 +186,10 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             temp_date = self.dateEdit.date() 
             var_date = temp_date.toPyDate()
             item_code = self.lineEdit_3.text()
+            category = self.comboBox.currentText()
             item_name = self.lineEdit_4.text()
+            description = self.lineEdit_5.text()
+            volume_weight = self.lineEdit_7.text()
             quantity = self.doubleSpinBox.text()
             price = self.spinBox.value()
             exp_temp = self.dateEdit_2.date()
@@ -210,6 +204,7 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
                 category VARCHAR NOT NULL,
                 item_name VARCHAR NOT NULL,
                 description VARCHAR NOT NULL,
+                volume_weight VARCHAR NOT NULL,
                 quantity FLOAT NOT NULL,
                 price DOUBLE NOT NULL,
                 supplier VARCHAR NOT NULL,
@@ -219,9 +214,9 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
 
             #insert stock item
             try:
-                sql = """INSERT INTO STOCK (item_code, item_name, quantity, price, supplier, date_added, exp_date, remarks ) 
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?);"""
-                vars = (item_code, item_name, quantity, price, supplier, var_date, exp_date, remarks,)
+                sql = """INSERT INTO STOCK (item_code, category, item_name, description,volume_weight, quantity, price, supplier, date_added, exp_date, remarks ) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"""
+                vars = (item_code, category, item_name, description,volume_weight, quantity, price, supplier, var_date, exp_date, remarks,)
                 c.execute(sql, vars,)            
                 connection.commit()
                 c.close
@@ -230,10 +225,12 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
                 warn("The Item Code already exists")
             self.lineEdit_3.clear()
             self.lineEdit_4.clear()
+            self.lineEdit_5.clear()
             self.doubleSpinBox.setValue(0.00)
             self.spinBox.setValue(0)
-            self.lineEdit_6.clear()
+            self.lineEdit_7.clear()
             self.textEdit.clear()
+            #set default value of the combobox
 
 
 
