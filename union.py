@@ -52,6 +52,10 @@ class ExtendedComboBox(QComboBox):
         self.setFocusPolicy(Qt.StrongFocus)
         self.setEditable(True)
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
+        self.setGeometry(250, 215, 40, 120)
+        self.setFixedWidth(900)
+        self.setFixedHeight(50)
+        self.setWindowTitle("SearchMe!")
 
         # add a filter model to filter matching items
         self.pFilterModel = QSortFilterProxyModel(self)
@@ -63,6 +67,10 @@ class ExtendedComboBox(QComboBox):
         # always show all (filtered) completions
         self.completer.setCompletionMode(QCompleter.UnfilteredPopupCompletion)
         self.setCompleter(self.completer)
+        choosebutton = QPushButton('Click me', self)
+        #choosebutton.clicked.connect(self.clickMethod)
+        choosebutton.resize(100,32)
+        choosebutton.move(50, 50) 
 
         # connect signals
         self.lineEdit().textEdited.connect(self.pFilterModel.setFilterFixedString)
@@ -110,6 +118,7 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
         #functional buttons
         self.newcustomer.clicked.connect(self.createtempSales)
         self.salepop.clicked.connect(self.listItems)
+        self.hidepop.clicked.connect(self.hidesale)
         self.listItems();
         self.date.setDateTime(QDateTime.currentDateTime())
 
@@ -130,6 +139,9 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
         cursor.execute(query)
         conn.commit()
         print("temp table created")
+    def hidesale(self):
+        self.combo = ExtendedComboBox()
+        self.combo.hide()
     def listItems(self):
         try:
             conn = sqlite3.connect("shopify.db")
@@ -137,14 +149,12 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
             query = "SELECT * FROM STOCK  "
             cursor.execute(query)
             itemstore = cursor.fetchall()
-            string_list = ['hola muchachos', 'adios amigos', 'hello world', 'good bye']
             self.combo = ExtendedComboBox()
-            #combo.addItems(string_list)
             
             mycounter=0
             for item in itemstore:
                 self.combo.addItem(itemstore[mycounter][3])
-                print(itemstore[mycounter][2])
+                #print(itemstore[mycounter][2])
                 mycounter = mycounter+1
             self.combo.resize(600, 40)
             self.combo.show()
@@ -152,34 +162,9 @@ class MyActions(sales.Ui_Sales, QtWidgets.QMainWindow):
         except Exception:
             QMessageBox.warning(QMessageBox(), 'Error', 'Could find Product  Record from the Database.')
         conn.close()
-    def add_us(self):
-        username = input("New username: ")
-        password = input("New password: ")
-        self.add_user(username, password)
-    def add_user(self, username, password):
-        
-        query = "INSERT INTO login (username, password) VALUES (?, ?)"
-        cursor.execute(query, (username, password))
-        conn.commit()
+    
 
-    def check_user(self, username, password):
-        query = 'SELECT * FROM login WHERE username = ? AND password = ?'
-        cursor.execute(query, (username, password))
-        result = cursor.fetchone()
-        conn.commit()
-        print('[DEBUG][check] result:', result)
-        return result
-
-    def login(self):
-        username = self.email.text()
-        password = self.pin.text()
-        if self.check_user(username, password):
-            self.errorsms.setText("You are logged in")
-            self.w = Mainclass()
-            self.w.show()
-            self.hide()
-        else:
-            self.errorsms.setText("Check your credentials! ")
+    
     def closeEvent(self, event):
         sys.exit(0)
     
