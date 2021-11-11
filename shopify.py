@@ -392,7 +392,7 @@ class SearchManageWindow(SearchManage.Ui_Dialog, QtWidgets.QDialog):
                     q = ("UPDATE  stock SET ("+column+") = ? WHERE id = ?;")
                     c.execute(q, [current_text, p_id])
                     connection.commit()
-                    dialog("Item updated from stock successfully!")
+                    dialog("Stock updated successfully!")
                 except:
                     warn("Error on update!")
             else:
