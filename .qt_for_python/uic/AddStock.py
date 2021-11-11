@@ -190,7 +190,6 @@ class Ui_Dialog(object):
         self.label_10.setGeometry(QRect(230, 140, 81, 20))
         self.label_10.setStyleSheet(u"font: 63 8pt \"Yu Gothic UI Semibold\";")
         self.comboBox = QComboBox(Dialog)
-        self.comboBox.addItem("")
         self.comboBox.setObjectName(u"comboBox")
         self.comboBox.setGeometry(QRect(20, 160, 131, 31))
         self.comboBox.setStyleSheet(u"background-color: rgb(255, 255, 255);")
@@ -206,6 +205,17 @@ class Ui_Dialog(object):
         self.lineEdit_7.setObjectName(u"lineEdit_7")
         self.lineEdit_7.setGeometry(QRect(460, 160, 311, 31))
         self.lineEdit_7.setStyleSheet(u"")
+        self.pushButton_3 = QPushButton(Dialog)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setGeometry(QRect(100, 140, 41, 21))
+        self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_3.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"	background-color: rgb(57, 114, 171);\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: rgb(85, 170, 255);\n"
+"}")
 #if QT_CONFIG(shortcut)
         self.label_2.setBuddy(self.dateEdit)
         self.label_3.setBuddy(self.lineEdit_3)
@@ -260,10 +270,12 @@ class Ui_Dialog(object):
         self.pushButton.setText(QCoreApplication.translate("Dialog", u"Search and Manage Items", None))
         self.lineEdit_5.setPlaceholderText("")
         self.label_10.setText(QCoreApplication.translate("Dialog", u"DESCRIPTION :", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("Dialog", u"food", None))
-
         self.label_11.setText(QCoreApplication.translate("Dialog", u"CATEGORY :", None))
-        self.label_12.setText(QCoreApplication.translate("Dialog", u"VOLUME /WEIGHT:", None))
+        self.label_12.setText(QCoreApplication.translate("Dialog", u"MEASUREMENTS :", None))
         self.lineEdit_7.setPlaceholderText(QCoreApplication.translate("Dialog", u"e.g: ml, cm, kg, g, watts e.t.c", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_3.setToolTip(QCoreApplication.translate("Dialog", u"click to add new category", None))
+#endif // QT_CONFIG(tooltip)
+        self.pushButton_3.setText(QCoreApplication.translate("Dialog", u"+", None))
     # retranslateUi
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\SearchManage.ui'
+# Form implementation generated from reading ui file 'SearchManage.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -55,6 +55,9 @@ class Ui_Dialog(object):
         self.radioButton_6 = QtWidgets.QRadioButton(self.groupBox)
         self.radioButton_6.setGeometry(QtCore.QRect(290, 60, 82, 17))
         self.radioButton_6.setObjectName("radioButton_6")
+        self.radioButton_7 = QtWidgets.QRadioButton(self.groupBox)
+        self.radioButton_7.setGeometry(QtCore.QRect(420, 60, 82, 17))
+        self.radioButton_7.setObjectName("radioButton_7")
         self.frame = QtWidgets.QFrame(Dialog)
         self.frame.setGeometry(QtCore.QRect(0, 0, 631, 61))
         self.frame.setStyleSheet("background-color: #00394D;")
@@ -77,13 +80,13 @@ class Ui_Dialog(object):
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
-        self.widget = QtWidgets.QWidget(Dialog)
-        self.widget.setGeometry(QtCore.QRect(230, 370, 391, 41))
-        self.widget.setObjectName("widget")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.widget)
+        self.layoutWidget = QtWidgets.QWidget(Dialog)
+        self.layoutWidget.setGeometry(QtCore.QRect(230, 370, 391, 41))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.lineEdit_5 = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit_5 = QtWidgets.QLineEdit(self.layoutWidget)
         self.lineEdit_5.setMinimumSize(QtCore.QSize(0, 30))
         self.lineEdit_5.setStyleSheet("QLineEdit {\n"
 "     border: 1px solid gray;\n"
@@ -98,7 +101,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.addWidget(self.lineEdit_5)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.pushButton = QtWidgets.QPushButton(self.widget)
+        self.pushButton = QtWidgets.QPushButton(self.layoutWidget)
         self.pushButton.setMinimumSize(QtCore.QSize(80, 25))
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet("\n"
@@ -117,7 +120,7 @@ class Ui_Dialog(object):
 "")
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout.addWidget(self.pushButton)
-        self.pushButton_2 = QtWidgets.QPushButton(self.widget)
+        self.pushButton_2 = QtWidgets.QPushButton(self.layoutWidget)
         self.pushButton_2.setMinimumSize(QtCore.QSize(65, 25))
         self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_2.setStyleSheet("\n"
@@ -161,10 +164,11 @@ class Ui_Dialog(object):
         self.radioButton_4.setText(_translate("Dialog", "Expiry Date"))
         self.radioButton_5.setText(_translate("Dialog", "Date Added"))
         self.radioButton_6.setText(_translate("Dialog", "Price"))
+        self.radioButton_7.setText(_translate("Dialog", "Category"))
         self.label.setText(_translate("Dialog", "SEARCH & MANAGE STOCK"))
         self.lineEdit_5.setPlaceholderText(_translate("Dialog", "Enter Item ID"))
         self.pushButton.setToolTip(_translate("Dialog", "update item information"))
-        self.pushButton.setText(_translate("Dialog", "EDIT"))
+        self.pushButton.setText(_translate("Dialog", "UPDATE"))
         self.pushButton_2.setToolTip(_translate("Dialog", "deletes an item"))
         self.pushButton_2.setText(_translate("Dialog", "DELETE"))
 

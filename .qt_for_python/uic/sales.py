@@ -17,7 +17,8 @@ class Ui_Sales(object):
     def setupUi(self, Sales):
         if not Sales.objectName():
             Sales.setObjectName(u"Sales")
-        Sales.resize(1002, 628)
+        Sales.setWindowModality(Qt.WindowModal)
+        Sales.resize(1002, 598)
         Sales.setAutoFillBackground(False)
         Sales.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         Sales.setDocumentMode(False)
@@ -27,27 +28,109 @@ class Ui_Sales(object):
         self.gridLayout_4.setSpacing(0)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.frame = QFrame(self.centralwidget)
+        self.frame.setObjectName(u"frame")
+        self.frame.setMinimumSize(QSize(500, 140))
+        self.frame.setMaximumSize(QSize(400, 140))
+        self.frame.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.frame.setFrameShape(QFrame.NoFrame)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.lineEdit_3 = QLineEdit(self.frame)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setGeometry(QRect(180, 90, 211, 41))
+        self.lineEdit_3.setInputMethodHints(Qt.ImhDigitsOnly|Qt.ImhPreferNumbers)
+        self.label_5 = QLabel(self.frame)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(60, 100, 91, 20))
+        font = QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet(u"color:#00394D;")
+        self.label_6 = QLabel(self.frame)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(60, 20, 121, 20))
+        self.label_6.setFont(font)
+        self.label_6.setStyleSheet(u"color:#00394D;")
+        self.label_7 = QLabel(self.frame)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(60, 60, 91, 20))
+        self.label_7.setFont(font)
+        self.label_7.setStyleSheet(u"color:#00394D;")
+        self.total = QLineEdit(self.frame)
+        self.total.setObjectName(u"total")
+        self.total.setEnabled(False)
+        self.total.setGeometry(QRect(180, 50, 211, 31))
+        self.total.setFont(font)
+        self.total.setCursor(QCursor(Qt.SizeAllCursor))
+        self.total.setStyleSheet(u"color: rgb(170, 0, 0);\n"
+"border:none;\n"
+"padding: 1px 18px 1px 3px;\n"
+"min-width: 6em;\n"
+"background-color:transparent;\n"
+"border-bottom: 1px solid #00394D;")
+        self.total.setInputMethodHints(Qt.ImhPreferNumbers)
+        self.total.setMaxLength(20000000)
+        self.total.setEchoMode(QLineEdit.Normal)
+        self.total.setCursorPosition(4)
+        self.total.setAlignment(Qt.AlignCenter)
+        self.total.setReadOnly(True)
+        self.total.setClearButtonEnabled(False)
+        self.comboBox_5 = QComboBox(self.frame)
+        self.comboBox_5.addItem("")
+        self.comboBox_5.addItem("")
+        self.comboBox_5.addItem("")
+        self.comboBox_5.setObjectName(u"comboBox_5")
+        self.comboBox_5.setGeometry(QRect(180, 20, 211, 31))
+        self.comboBox_5.setMinimumSize(QSize(211, 31))
+        self.comboBox_5.setMaximumSize(QSize(16777215, 35))
+        self.comboBox_5.setEditable(True)
+        self.sale = QPushButton(self.frame)
+        self.sale.setObjectName(u"sale")
+        self.sale.setGeometry(QRect(400, 20, 71, 111))
+        self.sale.setStyleSheet(u"background-color: rgb(0, 136, 0);\n"
+"border-radius:10px;\n"
+"color: rgb(255, 255, 255);")
+        self.sale.setCheckable(True)
+        self.sale.setAutoDefault(False)
+        self.sale.setFlat(False)
+
+        self.gridLayout_4.addWidget(self.frame, 2, 2, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer, 2, 1, 1, 1)
+
         self.navbar = QFrame(self.centralwidget)
         self.navbar.setObjectName(u"navbar")
         self.navbar.setMinimumSize(QSize(0, 100))
         self.navbar.setStyleSheet(u"background-color: #00394D;")
-        self.navbar.setFrameShape(QFrame.StyledPanel)
+        self.navbar.setFrameShape(QFrame.NoFrame)
         self.navbar.setFrameShadow(QFrame.Raised)
         self.gridLayout_2 = QGridLayout(self.navbar)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.back = QFrame(self.navbar)
         self.back.setObjectName(u"back")
-        self.back.setMinimumSize(QSize(80, 80))
-        self.back.setFrameShape(QFrame.StyledPanel)
+        self.back.setMinimumSize(QSize(120, 80))
+        self.back.setFrameShape(QFrame.NoFrame)
         self.back.setFrameShadow(QFrame.Raised)
-        self.label = QLabel(self.back)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(20, 10, 61, 51))
-        font = QFont()
-        font.setPointSize(26)
-        self.label.setFont(font)
-        self.label.setCursor(QCursor(Qt.PointingHandCursor))
-        self.label.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.salepop = QPushButton(self.back)
+        self.salepop.setObjectName(u"salepop")
+        self.salepop.setGeometry(QRect(20, 10, 91, 61))
+        font1 = QFont()
+        font1.setFamily(u"Ubuntu Mono")
+        font1.setPointSize(30)
+        font1.setItalic(False)
+        self.salepop.setFont(font1)
+        self.salepop.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.hidepop = QPushButton(self.back)
+        self.hidepop.setObjectName(u"hidepop")
+        self.hidepop.setGeometry(QRect(40, 20, 61, 41))
+        self.hidepop.setFont(font1)
+        self.hidepop.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.hidepop.raise_()
+        self.salepop.raise_()
 
         self.gridLayout_2.addWidget(self.back, 0, 0, 1, 1)
 
@@ -66,13 +149,13 @@ class Ui_Sales(object):
         self.label_2 = QLabel(self.frame_2)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(10, 20, 121, 21))
-        font1 = QFont()
-        font1.setPointSize(10)
-        self.label_2.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(10)
+        self.label_2.setFont(font2)
         self.date = QDateTimeEdit(self.frame_2)
         self.date.setObjectName(u"date")
         self.date.setGeometry(QRect(170, 20, 161, 22))
-        self.date.setFont(font1)
+        self.date.setFont(font2)
         self.date.setLayoutDirection(Qt.LeftToRight)
         self.date.setWrapping(False)
         self.date.setFrame(False)
@@ -86,7 +169,7 @@ class Ui_Sales(object):
         self.date.setCalendarPopup(False)
         self.line = QFrame(self.frame_2)
         self.line.setObjectName(u"line")
-        self.line.setGeometry(QRect(150, 10, 21, 91))
+        self.line.setGeometry(QRect(150, 0, 21, 111))
         self.line.setStyleSheet(u"background-color: none;")
         self.line.setFrameShape(QFrame.VLine)
         self.line.setFrameShadow(QFrame.Sunken)
@@ -109,11 +192,73 @@ class Ui_Sales(object):
         self.comboBox_7.setMaximumSize(QSize(16777215, 35))
         self.comboBox_7.setStyleSheet(u"")
         self.comboBox_7.setEditable(True)
+        self.label_2.raise_()
+        self.date.raise_()
+        self.comboBox_6.raise_()
+        self.comboBox_7.raise_()
+        self.line.raise_()
 
         self.gridLayout_2.addWidget(self.frame_2, 0, 2, 1, 1)
 
 
         self.gridLayout_4.addWidget(self.navbar, 0, 0, 1, 3)
+
+        self.frame_3 = QFrame(self.centralwidget)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setMinimumSize(QSize(400, 140))
+        self.frame_3.setMaximumSize(QSize(400, 140))
+        self.frame_3.setFrameShape(QFrame.NoFrame)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.layoutWidget_2 = QWidget(self.frame_3)
+        self.layoutWidget_2.setObjectName(u"layoutWidget_2")
+        self.layoutWidget_2.setGeometry(QRect(20, 50, 341, 41))
+        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget_2)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.comboBox_4 = QComboBox(self.layoutWidget_2)
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.setObjectName(u"comboBox_4")
+        self.comboBox_4.setMinimumSize(QSize(0, 31))
+        self.comboBox_4.setMaximumSize(QSize(16777215, 35))
+        self.comboBox_4.setEditable(True)
+
+        self.horizontalLayout_2.addWidget(self.comboBox_4)
+
+        self.pushButton_4 = QPushButton(self.layoutWidget_2)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setMinimumSize(QSize(50, 31))
+        self.pushButton_4.setMaximumSize(QSize(50, 35))
+        self.pushButton_4.setStyleSheet(u"background-color: #00394D;\n"
+"color: rgb(255, 255, 255);")
+
+        self.horizontalLayout_2.addWidget(self.pushButton_4)
+
+        self.label_8 = QLabel(self.frame_3)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(20, 30, 111, 20))
+        font3 = QFont()
+        font3.setPointSize(8)
+        font3.setBold(True)
+        font3.setWeight(75)
+        self.label_8.setFont(font3)
+        self.label_8.setStyleSheet(u"color:#00394D;")
+        self.newcustomer = QPushButton(self.frame_3)
+        self.newcustomer.setObjectName(u"newcustomer")
+        self.newcustomer.setGeometry(QRect(250, 100, 111, 31))
+        font4 = QFont()
+        font4.setPointSize(11)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.newcustomer.setFont(font4)
+        self.newcustomer.setCursor(QCursor(Qt.PointingHandCursor))
+        self.newcustomer.setStyleSheet(u"background-color: #00394D;\n"
+"border-radius:10px;\n"
+"color: rgb(255, 255, 255);")
+
+        self.gridLayout_4.addWidget(self.frame_3, 2, 0, 1, 1)
 
         self.list_2 = QFrame(self.centralwidget)
         self.list_2.setObjectName(u"list_2")
@@ -130,82 +275,72 @@ class Ui_Sales(object):
         self.list.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
         self.list.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.list.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         brush = QBrush(QColor(52, 101, 164, 255))
         brush.setStyle(Qt.NoBrush)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        __qtablewidgetitem3.setTextAlignment(Qt.AlignCenter);
+        __qtablewidgetitem3.setBackground(QColor(255, 171, 74));
+        __qtablewidgetitem3.setForeground(brush);
+        self.list.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
         __qtablewidgetitem4.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem4.setBackground(QColor(255, 171, 74));
-        __qtablewidgetitem4.setForeground(brush);
+        __qtablewidgetitem4.setBackground(QColor(40, 186, 8));
         self.list.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         __qtablewidgetitem5.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem5.setBackground(QColor(40, 186, 8));
+        __qtablewidgetitem5.setBackground(QColor(252, 73, 13));
         self.list.setHorizontalHeaderItem(5, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
-        __qtablewidgetitem6.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem6.setBackground(QColor(252, 73, 13));
         self.list.setHorizontalHeaderItem(6, __qtablewidgetitem6)
-        if (self.list.rowCount() < 6):
-            self.list.setRowCount(6)
+        if (self.list.rowCount() < 4):
+            self.list.setRowCount(4)
         __qtablewidgetitem7 = QTableWidgetItem()
         self.list.setVerticalHeaderItem(0, __qtablewidgetitem7)
         __qtablewidgetitem8 = QTableWidgetItem()
-        self.list.setVerticalHeaderItem(1, __qtablewidgetitem8)
+        self.list.setItem(1, 0, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
-        self.list.setVerticalHeaderItem(2, __qtablewidgetitem9)
+        self.list.setItem(1, 1, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
-        self.list.setItem(0, 0, __qtablewidgetitem10)
+        self.list.setItem(1, 2, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
-        self.list.setItem(0, 1, __qtablewidgetitem11)
+        self.list.setItem(1, 3, __qtablewidgetitem11)
         __qtablewidgetitem12 = QTableWidgetItem()
-        self.list.setItem(0, 2, __qtablewidgetitem12)
+        self.list.setItem(1, 4, __qtablewidgetitem12)
         __qtablewidgetitem13 = QTableWidgetItem()
-        self.list.setItem(0, 3, __qtablewidgetitem13)
+        self.list.setItem(1, 5, __qtablewidgetitem13)
         __qtablewidgetitem14 = QTableWidgetItem()
-        self.list.setItem(0, 4, __qtablewidgetitem14)
+        self.list.setItem(2, 0, __qtablewidgetitem14)
         __qtablewidgetitem15 = QTableWidgetItem()
-        self.list.setItem(0, 5, __qtablewidgetitem15)
+        self.list.setItem(2, 1, __qtablewidgetitem15)
         __qtablewidgetitem16 = QTableWidgetItem()
-        self.list.setItem(0, 6, __qtablewidgetitem16)
+        self.list.setItem(2, 2, __qtablewidgetitem16)
         __qtablewidgetitem17 = QTableWidgetItem()
-        self.list.setItem(1, 0, __qtablewidgetitem17)
+        self.list.setItem(2, 3, __qtablewidgetitem17)
         __qtablewidgetitem18 = QTableWidgetItem()
-        self.list.setItem(1, 1, __qtablewidgetitem18)
+        self.list.setItem(2, 4, __qtablewidgetitem18)
         __qtablewidgetitem19 = QTableWidgetItem()
-        self.list.setItem(1, 2, __qtablewidgetitem19)
+        self.list.setItem(2, 5, __qtablewidgetitem19)
         __qtablewidgetitem20 = QTableWidgetItem()
-        self.list.setItem(1, 3, __qtablewidgetitem20)
+        self.list.setItem(3, 0, __qtablewidgetitem20)
         __qtablewidgetitem21 = QTableWidgetItem()
-        self.list.setItem(1, 4, __qtablewidgetitem21)
+        self.list.setItem(3, 1, __qtablewidgetitem21)
         __qtablewidgetitem22 = QTableWidgetItem()
-        self.list.setItem(1, 5, __qtablewidgetitem22)
+        self.list.setItem(3, 2, __qtablewidgetitem22)
         __qtablewidgetitem23 = QTableWidgetItem()
-        self.list.setItem(1, 6, __qtablewidgetitem23)
+        self.list.setItem(3, 3, __qtablewidgetitem23)
         __qtablewidgetitem24 = QTableWidgetItem()
-        self.list.setItem(2, 0, __qtablewidgetitem24)
+        self.list.setItem(3, 4, __qtablewidgetitem24)
         __qtablewidgetitem25 = QTableWidgetItem()
-        self.list.setItem(2, 1, __qtablewidgetitem25)
-        __qtablewidgetitem26 = QTableWidgetItem()
-        self.list.setItem(2, 2, __qtablewidgetitem26)
-        __qtablewidgetitem27 = QTableWidgetItem()
-        self.list.setItem(2, 3, __qtablewidgetitem27)
-        __qtablewidgetitem28 = QTableWidgetItem()
-        self.list.setItem(2, 4, __qtablewidgetitem28)
-        __qtablewidgetitem29 = QTableWidgetItem()
-        self.list.setItem(2, 5, __qtablewidgetitem29)
-        __qtablewidgetitem30 = QTableWidgetItem()
-        self.list.setItem(2, 6, __qtablewidgetitem30)
+        self.list.setItem(3, 5, __qtablewidgetitem25)
         self.list.setObjectName(u"list")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.list.sizePolicy().hasHeightForWidth())
         self.list.setSizePolicy(sizePolicy)
-        font2 = QFont()
-        font2.setPointSize(12)
-        self.list.setFont(font2)
+        font5 = QFont()
+        font5.setPointSize(12)
+        self.list.setFont(font5)
         self.list.setLayoutDirection(Qt.LeftToRight)
         self.list.setStyleSheet(u"/* QScrollArea ------------------------------------------------------------\n"
 "\n"
@@ -1005,178 +1140,27 @@ class Ui_Sales(object):
         self.list.setSelectionBehavior(QAbstractItemView.SelectItems)
         self.list.setTextElideMode(Qt.ElideMiddle)
         self.list.setSortingEnabled(True)
-        self.list.setRowCount(6)
+        self.list.setRowCount(4)
         self.list.horizontalHeader().setVisible(True)
         self.list.horizontalHeader().setCascadingSectionResizes(True)
         self.list.horizontalHeader().setProperty("showSortIndicator", True)
-        self.list.horizontalHeader().setStretchLastSection(True)
+        self.list.horizontalHeader().setStretchLastSection(False)
         self.list.verticalHeader().setCascadingSectionResizes(True)
         self.list.verticalHeader().setProperty("showSortIndicator", True)
         self.list.verticalHeader().setStretchLastSection(True)
 
-        self.gridLayout_3.addWidget(self.list, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.list, 1, 0, 1, 1)
+
+        self.frame_4 = QFrame(self.list_2)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(0, 100))
+        self.frame_4.setFrameShape(QFrame.NoFrame)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+
+        self.gridLayout_3.addWidget(self.frame_4, 0, 0, 1, 1)
 
 
-        self.gridLayout_4.addWidget(self.list_2, 2, 0, 1, 3)
-
-        self.frame_3 = QFrame(self.centralwidget)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setMinimumSize(QSize(400, 140))
-        self.frame_3.setMaximumSize(QSize(400, 140))
-        self.frame_3.setFrameShape(QFrame.NoFrame)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.layoutWidget_2 = QWidget(self.frame_3)
-        self.layoutWidget_2.setObjectName(u"layoutWidget_2")
-        self.layoutWidget_2.setGeometry(QRect(20, 50, 341, 41))
-        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget_2)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.comboBox_4 = QComboBox(self.layoutWidget_2)
-        self.comboBox_4.addItem("")
-        self.comboBox_4.addItem("")
-        self.comboBox_4.addItem("")
-        self.comboBox_4.addItem("")
-        self.comboBox_4.setObjectName(u"comboBox_4")
-        self.comboBox_4.setMinimumSize(QSize(0, 31))
-        self.comboBox_4.setMaximumSize(QSize(16777215, 35))
-        self.comboBox_4.setEditable(True)
-
-        self.horizontalLayout_2.addWidget(self.comboBox_4)
-
-        self.pushButton_4 = QPushButton(self.layoutWidget_2)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setMinimumSize(QSize(50, 31))
-        self.pushButton_4.setMaximumSize(QSize(50, 35))
-        self.pushButton_4.setStyleSheet(u"background-color: #00394D;\n"
-"color: rgb(255, 255, 255);")
-
-        self.horizontalLayout_2.addWidget(self.pushButton_4)
-
-        self.label_8 = QLabel(self.frame_3)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setGeometry(QRect(20, 30, 111, 20))
-        font3 = QFont()
-        font3.setPointSize(8)
-        font3.setBold(True)
-        font3.setWeight(75)
-        self.label_8.setFont(font3)
-        self.label_8.setStyleSheet(u"color:#00394D;")
-        self.newcustomer = QPushButton(self.frame_3)
-        self.newcustomer.setObjectName(u"newcustomer")
-        self.newcustomer.setGeometry(QRect(250, 100, 111, 31))
-        font4 = QFont()
-        font4.setPointSize(11)
-        font4.setBold(True)
-        font4.setWeight(75)
-        self.newcustomer.setFont(font4)
-        self.newcustomer.setCursor(QCursor(Qt.PointingHandCursor))
-        self.newcustomer.setStyleSheet(u"background-color: #00394D;\n"
-"border-radius:10px;\n"
-"color: rgb(255, 255, 255);")
-
-        self.gridLayout_4.addWidget(self.frame_3, 3, 0, 1, 1)
-
-        self.frame = QFrame(self.centralwidget)
-        self.frame.setObjectName(u"frame")
-        self.frame.setMinimumSize(QSize(500, 140))
-        self.frame.setMaximumSize(QSize(400, 140))
-        self.frame.setStyleSheet(u"background-color: rgb(255, 255, 255);")
-        self.frame.setFrameShape(QFrame.NoFrame)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.lineEdit_3 = QLineEdit(self.frame)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setGeometry(QRect(180, 90, 211, 41))
-        self.lineEdit_3.setInputMethodHints(Qt.ImhDigitsOnly|Qt.ImhPreferNumbers)
-        self.sale = QPushButton(self.frame)
-        self.sale.setObjectName(u"sale")
-        self.sale.setGeometry(QRect(400, 20, 71, 111))
-        self.sale.setFont(font4)
-        self.sale.setCursor(QCursor(Qt.PointingHandCursor))
-        self.sale.setStyleSheet(u"background-color: rgb(0, 136, 0);\n"
-"border-radius:10px;\n"
-"color: rgb(255, 255, 255);")
-        self.label_5 = QLabel(self.frame)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(60, 100, 91, 20))
-        font5 = QFont()
-        font5.setPointSize(12)
-        font5.setBold(True)
-        font5.setWeight(75)
-        self.label_5.setFont(font5)
-        self.label_5.setStyleSheet(u"color:#00394D;")
-        self.label_6 = QLabel(self.frame)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setGeometry(QRect(60, 20, 121, 20))
-        self.label_6.setFont(font5)
-        self.label_6.setStyleSheet(u"color:#00394D;")
-        self.label_7 = QLabel(self.frame)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setGeometry(QRect(60, 60, 91, 20))
-        self.label_7.setFont(font5)
-        self.label_7.setStyleSheet(u"color:#00394D;")
-        self.total = QLineEdit(self.frame)
-        self.total.setObjectName(u"total")
-        self.total.setEnabled(False)
-        self.total.setGeometry(QRect(180, 50, 211, 31))
-        self.total.setFont(font5)
-        self.total.setCursor(QCursor(Qt.SizeAllCursor))
-        self.total.setStyleSheet(u"color: rgb(170, 0, 0);\n"
-"border:none;\n"
-"padding: 1px 18px 1px 3px;\n"
-"min-width: 6em;\n"
-"background-color:transparent;\n"
-"border-bottom: 1px solid #00394D;")
-        self.total.setInputMethodHints(Qt.ImhPreferNumbers)
-        self.total.setMaxLength(20000000)
-        self.total.setEchoMode(QLineEdit.Normal)
-        self.total.setCursorPosition(4)
-        self.total.setAlignment(Qt.AlignCenter)
-        self.total.setReadOnly(True)
-        self.total.setClearButtonEnabled(False)
-        self.comboBox_5 = QComboBox(self.frame)
-        self.comboBox_5.addItem("")
-        self.comboBox_5.addItem("")
-        self.comboBox_5.addItem("")
-        self.comboBox_5.setObjectName(u"comboBox_5")
-        self.comboBox_5.setGeometry(QRect(180, 20, 211, 31))
-        self.comboBox_5.setMinimumSize(QSize(211, 31))
-        self.comboBox_5.setMaximumSize(QSize(16777215, 35))
-        self.comboBox_5.setEditable(True)
-
-        self.gridLayout_4.addWidget(self.frame, 3, 2, 1, 1)
-
-        self.gridLayout = QGridLayout()
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setSizeConstraint(QLayout.SetMinimumSize)
-        self.gridLayout.setContentsMargins(-1, 30, -1, 5)
-        self.itemsale = QComboBox(self.centralwidget)
-        self.itemsale.setObjectName(u"itemsale")
-        self.itemsale.setMinimumSize(QSize(0, 47))
-        self.itemsale.setMaximumSize(QSize(1000, 47))
-        font6 = QFont()
-        font6.setPointSize(20)
-        font6.setBold(False)
-        font6.setItalic(True)
-        font6.setWeight(50)
-        self.itemsale.setFont(font6)
-        self.itemsale.setContextMenuPolicy(Qt.DefaultContextMenu)
-        self.itemsale.setAcceptDrops(True)
-        self.itemsale.setLayoutDirection(Qt.LeftToRight)
-        self.itemsale.setAutoFillBackground(True)
-        self.itemsale.setStyleSheet(u"")
-        self.itemsale.setEditable(True)
-        self.itemsale.setMaxVisibleItems(100)
-        self.itemsale.setInsertPolicy(QComboBox.InsertAtTop)
-        self.itemsale.setFrame(True)
-
-        self.gridLayout.addWidget(self.itemsale, 0, 0, 1, 1)
-
-
-        self.gridLayout_4.addLayout(self.gridLayout, 1, 0, 1, 3)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_4.addItem(self.horizontalSpacer, 3, 1, 1, 1)
+        self.gridLayout_4.addWidget(self.list_2, 1, 0, 1, 3)
 
         Sales.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(Sales)
@@ -1185,15 +1169,37 @@ class Ui_Sales(object):
 
         self.retranslateUi(Sales)
 
+        self.sale.setDefault(False)
+
+
         QMetaObject.connectSlotsByName(Sales)
     # setupUi
 
     def retranslateUi(self, Sales):
-        Sales.setWindowTitle(QCoreApplication.translate("Sales", u"MainWindow", None))
+        Sales.setWindowTitle(QCoreApplication.translate("Sales", u"Shopify", None))
 #if QT_CONFIG(tooltip)
         Sales.setToolTip(QCoreApplication.translate("Sales", u"Make a sale", None))
 #endif // QT_CONFIG(tooltip)
-        self.label.setText(QCoreApplication.translate("Sales", u"\u25c4", None))
+        self.label_5.setText(QCoreApplication.translate("Sales", u"Amount:", None))
+        self.label_6.setText(QCoreApplication.translate("Sales", u"Payment:", None))
+        self.label_7.setText(QCoreApplication.translate("Sales", u"Total:", None))
+        self.total.setText(QCoreApplication.translate("Sales", u"5000", None))
+        self.comboBox_5.setItemText(0, QCoreApplication.translate("Sales", u"Cash", None))
+        self.comboBox_5.setItemText(1, QCoreApplication.translate("Sales", u"Mpesa", None))
+        self.comboBox_5.setItemText(2, QCoreApplication.translate("Sales", u"Account", None))
+
+        self.sale.setText(QCoreApplication.translate("Sales", u"Sale", None))
+#if QT_CONFIG(shortcut)
+        self.sale.setShortcut(QCoreApplication.translate("Sales", u"Ctrl+S", None))
+#endif // QT_CONFIG(shortcut)
+        self.salepop.setText(QCoreApplication.translate("Sales", u"\u25c4", None))
+#if QT_CONFIG(shortcut)
+        self.salepop.setShortcut(QCoreApplication.translate("Sales", u"S", None))
+#endif // QT_CONFIG(shortcut)
+        self.hidepop.setText(QCoreApplication.translate("Sales", u"\u25c4", None))
+#if QT_CONFIG(shortcut)
+        self.hidepop.setShortcut(QCoreApplication.translate("Sales", u"Esc", None))
+#endif // QT_CONFIG(shortcut)
         self.label_2.setText(QCoreApplication.translate("Sales", u"Current Store:", None))
 #if QT_CONFIG(tooltip)
         self.date.setToolTip(QCoreApplication.translate("Sales", u"Today's Date", None))
@@ -1206,73 +1212,6 @@ class Ui_Sales(object):
         self.comboBox_7.setItemText(1, QCoreApplication.translate("Sales", u"Main Store", None))
         self.comboBox_7.setItemText(2, QCoreApplication.translate("Sales", u"Store2", None))
 
-        ___qtablewidgetitem = self.list.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("Sales", u"Id", None));
-        ___qtablewidgetitem1 = self.list.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("Sales", u"Item", None));
-        ___qtablewidgetitem2 = self.list.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("Sales", u"Cost", None));
-        ___qtablewidgetitem3 = self.list.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("Sales", u"Price", None));
-        ___qtablewidgetitem4 = self.list.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("Sales", u"S.p", None));
-        ___qtablewidgetitem5 = self.list.horizontalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("Sales", u"Quantity", None));
-        ___qtablewidgetitem6 = self.list.horizontalHeaderItem(6)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("Sales", u"Total", None));
-        ___qtablewidgetitem7 = self.list.verticalHeaderItem(0)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("Sales", u"New Row", None));
-        ___qtablewidgetitem8 = self.list.verticalHeaderItem(1)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("Sales", u"New Row", None));
-        ___qtablewidgetitem9 = self.list.verticalHeaderItem(2)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("Sales", u"New Row", None));
-
-        __sortingEnabled = self.list.isSortingEnabled()
-        self.list.setSortingEnabled(False)
-        ___qtablewidgetitem10 = self.list.item(0, 0)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("Sales", u"qweqwe", None));
-        ___qtablewidgetitem11 = self.list.item(0, 1)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("Sales", u"wqeqwe", None));
-        ___qtablewidgetitem12 = self.list.item(0, 2)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("Sales", u"qweqw", None));
-        ___qtablewidgetitem13 = self.list.item(0, 3)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("Sales", u"qweqw", None));
-        ___qtablewidgetitem14 = self.list.item(0, 4)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("Sales", u"345", None));
-        ___qtablewidgetitem15 = self.list.item(0, 5)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("Sales", u"454", None));
-        ___qtablewidgetitem16 = self.list.item(0, 6)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("Sales", u"454", None));
-        ___qtablewidgetitem17 = self.list.item(1, 0)
-        ___qtablewidgetitem17.setText(QCoreApplication.translate("Sales", u"sdfsdfsdfsdfsdf sdfsdfsdfsdf", None));
-        ___qtablewidgetitem18 = self.list.item(1, 1)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("Sales", u"ssdfs", None));
-        ___qtablewidgetitem19 = self.list.item(1, 2)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("Sales", u"sfdsfsdfsdf sdf sdfsdfsdfsd", None));
-        ___qtablewidgetitem20 = self.list.item(1, 3)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("Sales", u"fgh", None));
-        ___qtablewidgetitem21 = self.list.item(1, 4)
-        ___qtablewidgetitem21.setText(QCoreApplication.translate("Sales", u"4545", None));
-        ___qtablewidgetitem22 = self.list.item(1, 5)
-        ___qtablewidgetitem22.setText(QCoreApplication.translate("Sales", u"454", None));
-        ___qtablewidgetitem23 = self.list.item(1, 6)
-        ___qtablewidgetitem23.setText(QCoreApplication.translate("Sales", u"45", None));
-        ___qtablewidgetitem24 = self.list.item(2, 0)
-        ___qtablewidgetitem24.setText(QCoreApplication.translate("Sales", u"asdas", None));
-        ___qtablewidgetitem25 = self.list.item(2, 1)
-        ___qtablewidgetitem25.setText(QCoreApplication.translate("Sales", u"sdfsdf", None));
-        ___qtablewidgetitem26 = self.list.item(2, 2)
-        ___qtablewidgetitem26.setText(QCoreApplication.translate("Sales", u"sdfsd", None));
-        ___qtablewidgetitem27 = self.list.item(2, 3)
-        ___qtablewidgetitem27.setText(QCoreApplication.translate("Sales", u"sdfs", None));
-        ___qtablewidgetitem28 = self.list.item(2, 4)
-        ___qtablewidgetitem28.setText(QCoreApplication.translate("Sales", u"45", None));
-        ___qtablewidgetitem29 = self.list.item(2, 5)
-        ___qtablewidgetitem29.setText(QCoreApplication.translate("Sales", u"45", None));
-        ___qtablewidgetitem30 = self.list.item(2, 6)
-        ___qtablewidgetitem30.setText(QCoreApplication.translate("Sales", u"45", None));
-        self.list.setSortingEnabled(__sortingEnabled)
-
         self.comboBox_4.setItemText(0, QCoreApplication.translate("Sales", u"Choose Customer", None))
         self.comboBox_4.setItemText(1, QCoreApplication.translate("Sales", u"Caroline Chelop", None))
         self.comboBox_4.setItemText(2, QCoreApplication.translate("Sales", u"Felix Kiptum", None))
@@ -1281,17 +1220,62 @@ class Ui_Sales(object):
         self.pushButton_4.setText(QCoreApplication.translate("Sales", u"Find", None))
         self.label_8.setText(QCoreApplication.translate("Sales", u"Customer Account:", None))
         self.newcustomer.setText(QCoreApplication.translate("Sales", u"Add New", None))
-        self.sale.setText(QCoreApplication.translate("Sales", u"Sale", None))
-        self.label_5.setText(QCoreApplication.translate("Sales", u"Amount:", None))
-        self.label_6.setText(QCoreApplication.translate("Sales", u"Payment:", None))
-        self.label_7.setText(QCoreApplication.translate("Sales", u"Total:", None))
-        self.total.setText(QCoreApplication.translate("Sales", u"5000", None))
-        self.comboBox_5.setItemText(0, QCoreApplication.translate("Sales", u"Cash", None))
-        self.comboBox_5.setItemText(1, QCoreApplication.translate("Sales", u"Mpesa", None))
-        self.comboBox_5.setItemText(2, QCoreApplication.translate("Sales", u"Account", None))
+        ___qtablewidgetitem = self.list.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("Sales", u"Item_Id", None));
+        ___qtablewidgetitem1 = self.list.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("Sales", u"Item", None));
+        ___qtablewidgetitem2 = self.list.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Sales", u"Price(Ksh.)", None));
+        ___qtablewidgetitem3 = self.list.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("Sales", u"S.p(Ksh.)", None));
+        ___qtablewidgetitem4 = self.list.horizontalHeaderItem(4)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("Sales", u"Quantity", None));
+        ___qtablewidgetitem5 = self.list.horizontalHeaderItem(5)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("Sales", u"Total", None));
+        ___qtablewidgetitem6 = self.list.horizontalHeaderItem(6)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("Sales", u"Delete", None));
+        ___qtablewidgetitem7 = self.list.verticalHeaderItem(0)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("Sales", u"1_____", None));
 
-#if QT_CONFIG(tooltip)
-        self.itemsale.setToolTip(QCoreApplication.translate("Sales", u"Choose item(s)", None))
-#endif // QT_CONFIG(tooltip)
+        __sortingEnabled = self.list.isSortingEnabled()
+        self.list.setSortingEnabled(False)
+        ___qtablewidgetitem8 = self.list.item(1, 0)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("Sales", u"item001", None));
+        ___qtablewidgetitem9 = self.list.item(1, 1)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("Sales", u"Sugar 1kg", None));
+        ___qtablewidgetitem10 = self.list.item(1, 2)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("Sales", u"100", None));
+        ___qtablewidgetitem11 = self.list.item(1, 3)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("Sales", u"110", None));
+        ___qtablewidgetitem12 = self.list.item(1, 4)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("Sales", u"2", None));
+        ___qtablewidgetitem13 = self.list.item(1, 5)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("Sales", u"220", None));
+        ___qtablewidgetitem14 = self.list.item(2, 0)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("Sales", u"item002", None));
+        ___qtablewidgetitem15 = self.list.item(2, 1)
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("Sales", u"Match box 120g", None));
+        ___qtablewidgetitem16 = self.list.item(2, 2)
+        ___qtablewidgetitem16.setText(QCoreApplication.translate("Sales", u"30", None));
+        ___qtablewidgetitem17 = self.list.item(2, 3)
+        ___qtablewidgetitem17.setText(QCoreApplication.translate("Sales", u"25", None));
+        ___qtablewidgetitem18 = self.list.item(2, 4)
+        ___qtablewidgetitem18.setText(QCoreApplication.translate("Sales", u"5", None));
+        ___qtablewidgetitem19 = self.list.item(2, 5)
+        ___qtablewidgetitem19.setText(QCoreApplication.translate("Sales", u"125", None));
+        ___qtablewidgetitem20 = self.list.item(3, 0)
+        ___qtablewidgetitem20.setText(QCoreApplication.translate("Sales", u"item003", None));
+        ___qtablewidgetitem21 = self.list.item(3, 1)
+        ___qtablewidgetitem21.setText(QCoreApplication.translate("Sales", u"Cooking oil (Rina)", None));
+        ___qtablewidgetitem22 = self.list.item(3, 2)
+        ___qtablewidgetitem22.setText(QCoreApplication.translate("Sales", u"550", None));
+        ___qtablewidgetitem23 = self.list.item(3, 3)
+        ___qtablewidgetitem23.setText(QCoreApplication.translate("Sales", u"450", None));
+        ___qtablewidgetitem24 = self.list.item(3, 4)
+        ___qtablewidgetitem24.setText(QCoreApplication.translate("Sales", u"5", None));
+        ___qtablewidgetitem25 = self.list.item(3, 5)
+        ___qtablewidgetitem25.setText(QCoreApplication.translate("Sales", u"2500", None));
+        self.list.setSortingEnabled(__sortingEnabled)
+
     # retranslateUi
 

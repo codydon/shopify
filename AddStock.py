@@ -191,7 +191,6 @@ class Ui_Dialog(object):
         self.comboBox.setGeometry(QtCore.QRect(20, 160, 131, 31))
         self.comboBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
         self.label_11 = QtWidgets.QLabel(Dialog)
         self.label_11.setGeometry(QtCore.QRect(20, 140, 81, 20))
         self.label_11.setStyleSheet("font: 63 8pt \"Yu Gothic UI Semibold\";")
@@ -204,6 +203,17 @@ class Ui_Dialog(object):
         self.lineEdit_7.setGeometry(QtCore.QRect(460, 160, 311, 31))
         self.lineEdit_7.setStyleSheet("")
         self.lineEdit_7.setObjectName("lineEdit_7")
+        self.pushButton_3 = QtWidgets.QPushButton(Dialog)
+        self.pushButton_3.setGeometry(QtCore.QRect(100, 140, 41, 21))
+        self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_3.setStyleSheet("QPushButton{\n"
+"border:none;\n"
+"    background-color: rgb(57, 114, 171);\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_3.setObjectName("pushButton_3")
         self.label_2.setBuddy(self.dateEdit)
         self.label_3.setBuddy(self.lineEdit_3)
         self.label_4.setBuddy(self.doubleSpinBox)
@@ -250,10 +260,11 @@ class Ui_Dialog(object):
         self.pushButton.setToolTip(_translate("Dialog", "Search for iem in existing stock."))
         self.pushButton.setText(_translate("Dialog", "Search and Manage Items"))
         self.label_10.setText(_translate("Dialog", "DESCRIPTION :"))
-        self.comboBox.setItemText(0, _translate("Dialog", "food"))
         self.label_11.setText(_translate("Dialog", "CATEGORY :"))
-        self.label_12.setText(_translate("Dialog", "VOLUME /WEIGHT:"))
+        self.label_12.setText(_translate("Dialog", "MEASUREMENTS :"))
         self.lineEdit_7.setPlaceholderText(_translate("Dialog", "e.g: ml, cm, kg, g, watts e.t.c"))
+        self.pushButton_3.setToolTip(_translate("Dialog", "click to add new category"))
+        self.pushButton_3.setText(_translate("Dialog", "+"))
 
 
 if __name__ == "__main__":
