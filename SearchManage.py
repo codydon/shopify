@@ -86,23 +86,10 @@ class Ui_Dialog(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.lineEdit_5 = QtWidgets.QLineEdit(self.layoutWidget)
-        self.lineEdit_5.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_5.setStyleSheet("QLineEdit {\n"
-"     border: 1px solid gray;\n"
-"     border-radius: 15px;\n"
-"     padding: 0 8px;\n"
-"     background: white;\n"
-"     selection-background-color: darkgray;\n"
-" }")
-        self.lineEdit_5.setCursorMoveStyle(QtCore.Qt.VisualMoveStyle)
-        self.lineEdit_5.setClearButtonEnabled(True)
-        self.lineEdit_5.setObjectName("lineEdit_5")
-        self.horizontalLayout_2.addWidget(self.lineEdit_5)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.pushButton = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton.setMinimumSize(QtCore.QSize(80, 25))
+        self.pushButton.setMinimumSize(QtCore.QSize(80, 30))
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet("\n"
 "QPushButton{\n"
@@ -121,7 +108,7 @@ class Ui_Dialog(object):
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout.addWidget(self.pushButton)
         self.pushButton_2 = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(65, 25))
+        self.pushButton_2.setMinimumSize(QtCore.QSize(65, 30))
         self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_2.setStyleSheet("\n"
 "QPushButton{\n"
@@ -150,8 +137,7 @@ class Ui_Dialog(object):
         Dialog.setTabOrder(self.radioButton_2, self.radioButton_4)
         Dialog.setTabOrder(self.radioButton_4, self.radioButton_5)
         Dialog.setTabOrder(self.radioButton_5, self.tableWidget)
-        Dialog.setTabOrder(self.tableWidget, self.lineEdit_5)
-        Dialog.setTabOrder(self.lineEdit_5, self.pushButton)
+        Dialog.setTabOrder(self.tableWidget, self.pushButton)
         Dialog.setTabOrder(self.pushButton, self.pushButton_2)
 
     def retranslateUi(self, Dialog):
@@ -166,7 +152,6 @@ class Ui_Dialog(object):
         self.radioButton_6.setText(_translate("Dialog", "Price"))
         self.radioButton_7.setText(_translate("Dialog", "Category"))
         self.label.setText(_translate("Dialog", "SEARCH & MANAGE STOCK"))
-        self.lineEdit_5.setPlaceholderText(_translate("Dialog", "Enter Item ID"))
         self.pushButton.setToolTip(_translate("Dialog", "update item information"))
         self.pushButton.setText(_translate("Dialog", "UPDATE"))
         self.pushButton_2.setToolTip(_translate("Dialog", "deletes an item"))

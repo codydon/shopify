@@ -503,7 +503,7 @@ background-color: rgb(2, 90, 39);
     <string notr="true"/>
    </property>
    <property name="placeholderText">
-    <string/>
+    <string>e.g brand, color, shape e.t.c,,</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_10">

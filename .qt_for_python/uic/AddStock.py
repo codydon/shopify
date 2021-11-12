@@ -268,7 +268,7 @@ class Ui_Dialog(object):
         self.pushButton.setToolTip(QCoreApplication.translate("Dialog", u"Search for iem in existing stock.", None))
 #endif // QT_CONFIG(tooltip)
         self.pushButton.setText(QCoreApplication.translate("Dialog", u"Search and Manage Items", None))
-        self.lineEdit_5.setPlaceholderText("")
+        self.lineEdit_5.setPlaceholderText(QCoreApplication.translate("Dialog", u"e.g brand, color, shape e.t.c,,", None))
         self.label_10.setText(QCoreApplication.translate("Dialog", u"DESCRIPTION :", None))
         self.label_11.setText(QCoreApplication.translate("Dialog", u"CATEGORY :", None))
         self.label_12.setText(QCoreApplication.translate("Dialog", u"MEASUREMENTS :", None))

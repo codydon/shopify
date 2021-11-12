@@ -228,41 +228,13 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <widget class="QLineEdit" name="lineEdit_5">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit {
-     border: 1px solid gray;
-     border-radius: 15px;
-     padding: 0 8px;
-     background: white;
-     selection-background-color: darkgray;
- }</string>
-      </property>
-      <property name="placeholderText">
-       <string>Enter Item ID</string>
-      </property>
-      <property name="cursorMoveStyle">
-       <enum>Qt::VisualMoveStyle</enum>
-      </property>
-      <property name="clearButtonEnabled">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="pushButton">
         <property name="minimumSize">
          <size>
           <width>80</width>
-          <height>25</height>
+          <height>30</height>
          </size>
         </property>
         <property name="cursor">
@@ -297,7 +269,7 @@ border-radius:5px;
         <property name="minimumSize">
          <size>
           <width>65</width>
-          <height>25</height>
+          <height>30</height>
          </size>
         </property>
         <property name="cursor">
@@ -341,7 +313,6 @@ border-radius:5px;
   <tabstop>radioButton_4</tabstop>
   <tabstop>radioButton_5</tabstop>
   <tabstop>tableWidget</tabstop>
-  <tabstop>lineEdit_5</tabstop>
   <tabstop>pushButton</tabstop>
   <tabstop>pushButton_2</tabstop>
  </tabstops>
