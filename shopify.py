@@ -102,6 +102,16 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 self.frame_ok.hide()
                 self.pushButton_14.clicked.connect(self.AddStock)
                 self.pushButton_3.clicked.connect(self.Addpurchase)
+                self.pushButton_2.clicked.connect(
+                    lambda: self.stackedWidget.setCurrentWidget(self.page_2))
+                self.pushButton.clicked.connect(
+                    lambda: self.stackedWidget.setCurrentWidget(self.page))
+                self.radioButton_6.setChecked(True)
+                self.lineEdit_4.textChanged.connect(self.radio_selected)
+                self.pushButton_16.clicked.connect(self.delete_product)
+                self.pushButton_15.clicked.connect(self.edit_product)
+                self.tableWidget_2.selectionModel().selectionChanged.connect(self.on_select)
+            #self.field.returnPressed.connect(self.radio_selected)
                 self.Showstatus()
         stylePopupOk = (
             "background-color:green; border-radius: 5px;")
@@ -124,7 +134,102 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
             self.window=purchaseWindow()
             self.window.show()
 
-        
+        def on_select(self, selected):
+            for ix in selected.indexes():
+                #print('selected cell location row : {0}, column: {1}'.format(ix.row(), ix.column()))
+                global current_row
+                current_row = self.tableWidget_2.currentRow()
+                #print(current_row)
+                global cell_value
+                cell_value = self.tableWidget_2.item(current_row, 0).text()
+                break
+
+        def delete_product(self):
+            #cell_value = self.tableWidget.item(current_row, 0).text()
+            try:
+                q = ("DELETE FROM stock WHERE id = ?;")
+                c.execute(q, [cell_value])
+                connection.commit()
+                dialog("Item deleted from stock successfully!")
+            except:
+                warn("Error on delete!")
+            self.radio_selected()
+
+        def edit_product(self):
+            p_id = cell_value
+            current_column = self.tableWidget_2.currentColumn()
+            if current_column == 1:
+                column = 'item_code'
+            elif current_column == 2:
+                column = 'category'
+            elif current_column == 3:
+                column = 'item_name'
+            elif current_column == 4:
+                column = 'description'
+            elif current_column == 5:
+                column = 'measurement'
+            elif current_column == 6:
+                column = 'quantity'
+            elif current_column == 7:
+                column = 'price'
+            elif current_column == 8:
+                column = 'supplier'
+            elif current_column == 9:
+                column = 'date_added'
+            elif current_column == 10:
+                column = 'exp_date'
+            elif current_column == 11:
+                column = 'remarks'
+            else:
+                column = ' '
+            current_text = self.tableWidget_2.item(
+                current_row, current_column).text()
+            if current_column > 1:
+                try:
+                    q = ("UPDATE  stock SET ("+column+") = ? WHERE id = ?;")
+                    c.execute(q, [current_text, p_id])
+                    connection.commit()
+                    dialog("Stock updated successfully!")
+                except:
+                    warn("Error on update!")
+            else:
+                warn("wrong choice. try again!")
+            self.radio_selected()
+
+        def radio_selected(self):
+            user_inp = self.lineEdit_4.text()
+            if self.radioButton_6.isChecked():
+                clmn = 'item_name'
+            elif self.radioButton_12.isChecked():
+                clmn = 'supplier'
+            elif self.radioButton_11.isChecked():
+                clmn = 'item_code'
+            elif self.radioButton_10.isChecked():
+                clmn = 'exp_date'
+            elif self.radioButton_9.isChecked():
+                clmn = 'date_added'
+            elif self.radioButton_8.isChecked():
+                clmn = 'price'
+            elif self.radioButton_7.isChecked():
+                clmn = 'category'
+            else:
+                user_inp = ''
+
+            query = (" SELECT * FROM STOCK WHERE ("+clmn+") LIKE ( ? ||'%'); ")
+            r = c.execute(query, [user_inp])
+            res = r.fetchall()
+            #results = res[0]
+            self.tableWidget_2.setRowCount(0)
+            self.tableWidget_2.setColumnCount(12)
+            self.tableWidget_2.setHorizontalHeaderLabels(
+                ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remarks'])
+            self.tableWidget_2.hideColumn(0)
+            for row_number, row_data in enumerate(res):
+                self.tableWidget_2.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    self.tableWidget_2.setItem(
+                        row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
 
 
         
@@ -197,7 +302,7 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             for row in rows:
                     self.comboBox.addItem(str(row[0]))
             #
-            self.pushButton.clicked.connect(self.SearchManage)
+            
             self.pushButton_2.clicked.connect(self.AddItem)
             self.pushButton_3.clicked.connect(self.addcatg)
 
@@ -323,114 +428,9 @@ class AddCategoryWindow(AddCategory.Ui_Dialog, QtWidgets.QDialog):
         
 
 
-class SearchManageWindow(SearchManage.Ui_Dialog, QtWidgets.QDialog):
-        def __init__(self):
-            super(SearchManageWindow,self).__init__()
-            self.setupUi(self)
-            #
-            self.radioButton.setChecked(True) 
-            self.lineEdit_4.textChanged.connect(self.radio_selected)
-            self.pushButton_2.clicked.connect(self.delete_product)
-            self.pushButton.clicked.connect(self.edit_product)
-            self.tableWidget.selectionModel().selectionChanged.connect(self.on_select)
-           #self.field.returnPressed.connect(self.radio_selected)
-        
+
        
-        def on_select(self, selected):
-            for ix in selected.indexes():
-                #print('selected cell location row : {0}, column: {1}'.format(ix.row(), ix.column()))
-                global current_row
-                current_row = self.tableWidget.currentRow()
-                #print(current_row)
-                global cell_value
-                cell_value = self.tableWidget.item(current_row, 0).text()
-                break
-
-        def delete_product(self):
-            #cell_value = self.tableWidget.item(current_row, 0).text()
-            try:
-                q = ("DELETE FROM stock WHERE id = ?;")
-                c.execute(q, [cell_value])
-                connection.commit()
-                dialog("Item deleted from stock successfully!")
-            except:
-                warn("Error on delete!")
-            self.radio_selected()
-
         
-
-        def edit_product(self):
-            p_id = cell_value
-            current_column =  self.tableWidget.currentColumn()
-            if current_column == 1:
-                column = 'item_code'
-            elif current_column == 2:
-                column =  'category'
-            elif current_column == 3:
-                column =   'item_name'
-            elif current_column == 4:
-                column =   'description'
-            elif current_column == 5:
-                column =   'measurement'
-            elif current_column == 6:
-                column =   'quantity'
-            elif current_column == 7:
-                column =   'price'
-            elif current_column == 8:
-                column =   'supplier' 
-            elif current_column == 9:
-                column =  'date_added'
-            elif current_column == 10:
-                column =   'exp_date'
-            elif current_column == 11:
-                column =   'remarks'
-            else :
-                column =  ' '
-            current_text = self.tableWidget.item(current_row, current_column).text()
-            if current_column > 1:
-                try:
-                    q = ("UPDATE  stock SET ("+column+") = ? WHERE id = ?;")
-                    c.execute(q, [current_text, p_id])
-                    connection.commit()
-                    dialog("Stock updated successfully!")
-                except:
-                    warn("Error on update!")
-            else:
-                warn("wrong choice. try again!")
-            self.radio_selected()
-            
-        def radio_selected(self):                
-            user_inp = self.lineEdit_4.text()
-            if self.radioButton.isChecked():
-                clmn = 'item_name'
-            elif self.radioButton_2.isChecked():
-                clmn = 'supplier'
-            elif self.radioButton_3.isChecked():
-                clmn = 'item_code'
-            elif self.radioButton_4.isChecked():
-                clmn = 'exp_date'
-            elif self.radioButton_5.isChecked():
-                clmn = 'date_added'
-            elif self.radioButton_6.isChecked():
-                clmn = 'price'
-            elif self.radioButton_7.isChecked():
-                clmn = 'category'
-            else:
-                user_inp = ''
-            
-            query = (" SELECT * FROM STOCK WHERE ("+clmn+") LIKE ( ? ||'%'); ")
-            r = c.execute(query, [user_inp])
-            res = r.fetchall()
-            #results = res[0]
-            self.tableWidget.setRowCount(0)
-            self.tableWidget.setColumnCount(12)
-            self.tableWidget.setHorizontalHeaderLabels(['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remarks'])
-            self.tableWidget.hideColumn(0)
-            for row_number, row_data in enumerate(res):
-                self.tableWidget.insertRow(row_number)
-                for column_number, data in enumerate(row_data):
-                    self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
-                    
             
             
 

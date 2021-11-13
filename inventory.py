@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(834, 606)
+        MainWindow.resize(834, 613)
         MainWindow.setStyleSheet("background-color: #00394D;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("background-color: #00394D;")
@@ -32,6 +32,110 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_2.setSpacing(0)
         self.gridLayout_2.setObjectName("gridLayout_2")
+        self.frame_3 = QtWidgets.QFrame(self.frame)
+        self.frame_3.setMinimumSize(QtCore.QSize(0, 40))
+        self.frame_3.setStyleSheet("background-color: #00394D;")
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.gridLayout_5 = QtWidgets.QGridLayout(self.frame_3)
+        self.gridLayout_5.setObjectName("gridLayout_5")
+        self.frame_ok = QtWidgets.QFrame(self.frame_3)
+        self.frame_ok.setMaximumSize(QtCore.QSize(450, 16777215))
+        self.frame_ok.setStyleSheet("background-color: green;\n"
+"border-radius: 5px;")
+        self.frame_ok.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_ok.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_ok.setObjectName("frame_ok")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_ok)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_3.setSpacing(0)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_ok = QtWidgets.QLabel(self.frame_ok)
+        self.label_ok.setMinimumSize(QtCore.QSize(400, 41))
+        self.label_ok.setMaximumSize(QtCore.QSize(311, 41))
+        self.label_ok.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+"")
+        self.label_ok.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_ok.setObjectName("label_ok")
+        self.horizontalLayout_3.addWidget(self.label_ok)
+        self.gridLayout_5.addWidget(self.frame_ok, 0, 1, 1, 1)
+        spacerItem = QtWidgets.QSpacerItem(403, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.frame_3, 0, 0, 1, 2)
+        self.frame_2 = QtWidgets.QFrame(self.frame)
+        self.frame_2.setMinimumSize(QtCore.QSize(120, 0))
+        self.frame_2.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: #00394D;;\n"
+"color:white;\n"
+"border:none;\n"
+"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"  background-color:white;\n"
+"color:black;\n"
+" }\n"
+"QFrame{\n"
+"background-color: #00394D;\n"
+"}")
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.pushButton = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton.setGeometry(QtCore.QRect(0, 30, 121, 50))
+        self.pushButton.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton_2 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_2.setGeometry(QtCore.QRect(0, 80, 121, 50))
+        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_3 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_3.setGeometry(QtCore.QRect(0, 130, 121, 50))
+        self.pushButton_3.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.pushButton_4 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_4.setGeometry(QtCore.QRect(0, 180, 121, 50))
+        self.pushButton_4.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.pushButton_8 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_8.setGeometry(QtCore.QRect(0, 230, 121, 50))
+        self.pushButton_8.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_8.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_8.setObjectName("pushButton_8")
+        self.pushButton_9 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_9.setGeometry(QtCore.QRect(0, 280, 121, 50))
+        self.pushButton_9.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_9.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_9.setObjectName("pushButton_9")
+        self.pushButton_10 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_10.setGeometry(QtCore.QRect(0, 330, 121, 50))
+        self.pushButton_10.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_10.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_10.setObjectName("pushButton_10")
+        self.pushButton_11 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_11.setGeometry(QtCore.QRect(0, 380, 121, 50))
+        self.pushButton_11.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_11.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_11.setObjectName("pushButton_11")
+        self.pushButton_12 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_12.setGeometry(QtCore.QRect(0, 430, 121, 50))
+        self.pushButton_12.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_12.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_12.setObjectName("pushButton_12")
+        self.pushButton_13 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_13.setGeometry(QtCore.QRect(0, 480, 121, 50))
+        self.pushButton_13.setMinimumSize(QtCore.QSize(0, 50))
+        self.pushButton_13.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_13.setObjectName("pushButton_13")
+        self.gridLayout_2.addWidget(self.frame_2, 1, 0, 1, 1)
         self.stackedWidget = QtWidgets.QStackedWidget(self.frame)
         self.stackedWidget.setStyleSheet(" \n"
 "background-color: rgb(255, 255, 255);")
@@ -150,112 +254,126 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setObjectName("page_2")
-        self.stackedWidget.addWidget(self.page_2)
-        self.gridLayout_2.addWidget(self.stackedWidget, 1, 1, 1, 1)
-        self.frame_2 = QtWidgets.QFrame(self.frame)
-        self.frame_2.setMinimumSize(QtCore.QSize(120, 0))
-        self.frame_2.setStyleSheet("\n"
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.page_2)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.frame_4 = QtWidgets.QFrame(self.page_2)
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.frame_7 = QtWidgets.QFrame(self.frame_4)
+        self.frame_7.setGeometry(QtCore.QRect(30, 10, 631, 61))
+        self.frame_7.setStyleSheet("background-color: #00394D;")
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.label_5 = QtWidgets.QLabel(self.frame_7)
+        self.label_5.setGeometry(QtCore.QRect(190, 20, 221, 21))
+        font = QtGui.QFont()
+        font.setFamily("Yu Gothic UI Semibold")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet("color:rgb(255, 255, 255);")
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.groupBox_2 = QtWidgets.QGroupBox(self.frame_4)
+        self.groupBox_2.setGeometry(QtCore.QRect(40, 80, 611, 101))
+        self.groupBox_2.setStyleSheet("\n"
+"font: 63 10pt \"Yu Gothic UI Semibold\";\n"
+"QRadioButton::indicator {\n"
+"     width: 13px;\n"
+"     height: 13px;\n"
+"    font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+" }\n"
+"")
+        self.groupBox_2.setObjectName("groupBox_2")
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.groupBox_2)
+        self.lineEdit_4.setGeometry(QtCore.QRect(10, 20, 521, 31))
+        self.lineEdit_4.setStyleSheet("QLineEdit {\n"
+"     border: 1px solid gray;\n"
+"     border-radius: 15px;\n"
+"     padding: 0 8px;\n"
+"     background: white;\n"
+"     selection-background-color: darkgray;\n"
+" }")
+        self.lineEdit_4.setObjectName("lineEdit_4")
+        self.radioButton_6 = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_6.setGeometry(QtCore.QRect(20, 60, 91, 17))
+        self.radioButton_6.setObjectName("radioButton_6")
+        self.radioButton_12 = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_12.setGeometry(QtCore.QRect(20, 80, 82, 17))
+        self.radioButton_12.setObjectName("radioButton_12")
+        self.radioButton_11 = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_11.setGeometry(QtCore.QRect(150, 60, 91, 17))
+        self.radioButton_11.setObjectName("radioButton_11")
+        self.radioButton_10 = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_10.setGeometry(QtCore.QRect(150, 80, 91, 17))
+        self.radioButton_10.setObjectName("radioButton_10")
+        self.radioButton_9 = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_9.setGeometry(QtCore.QRect(290, 80, 91, 17))
+        self.radioButton_9.setObjectName("radioButton_9")
+        self.radioButton_8 = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_8.setGeometry(QtCore.QRect(290, 60, 82, 17))
+        self.radioButton_8.setObjectName("radioButton_8")
+        self.radioButton_7 = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_7.setGeometry(QtCore.QRect(420, 60, 82, 17))
+        self.radioButton_7.setObjectName("radioButton_7")
+        self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_4)
+        self.tableWidget_2.setGeometry(QtCore.QRect(40, 210, 611, 211))
+        self.tableWidget_2.setObjectName("tableWidget_2")
+        self.tableWidget_2.setColumnCount(0)
+        self.tableWidget_2.setRowCount(0)
+        self.layoutWidget = QtWidgets.QWidget(self.frame_4)
+        self.layoutWidget.setGeometry(QtCore.QRect(150, 450, 391, 41))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.pushButton_15 = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_15.setMinimumSize(QtCore.QSize(80, 30))
+        self.pushButton_15.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_15.setStyleSheet("\n"
 "QPushButton{\n"
-"background-color: #00394D;;\n"
-"color:white;\n"
+" background-color: #4CAF50;\n"
 "border:none;\n"
+"border-radius:5px;\n"
+"color:white;\n"
 "font: 63 12pt \"Yu Gothic UI Semibold\";\n"
 "}\n"
+"QPushButton:hover{\n"
+"background-color: rgb(2, 90, 39);\n"
+"border-radius:5px;\n"
+"}\n"
 "\n"
-"QPushButton:hover\n"
-"{\n"
-"  background-color:white;\n"
-"color:black;\n"
-" }\n"
-"QFrame{\n"
-"background-color: #00394D;\n"
-"}")
-        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_2.setObjectName("frame_2")
-        self.pushButton = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton.setGeometry(QtCore.QRect(0, 30, 121, 50))
-        self.pushButton.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_2.setGeometry(QtCore.QRect(0, 80, 121, 50))
-        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_3.setGeometry(QtCore.QRect(0, 130, 121, 50))
-        self.pushButton_3.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.pushButton_4 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_4.setGeometry(QtCore.QRect(0, 180, 121, 50))
-        self.pushButton_4.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.pushButton_8 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_8.setGeometry(QtCore.QRect(0, 230, 121, 50))
-        self.pushButton_8.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_8.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_8.setObjectName("pushButton_8")
-        self.pushButton_9 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_9.setGeometry(QtCore.QRect(0, 280, 121, 50))
-        self.pushButton_9.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_9.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_9.setObjectName("pushButton_9")
-        self.pushButton_10 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_10.setGeometry(QtCore.QRect(0, 330, 121, 50))
-        self.pushButton_10.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_10.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_10.setObjectName("pushButton_10")
-        self.pushButton_11 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_11.setGeometry(QtCore.QRect(0, 380, 121, 50))
-        self.pushButton_11.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_11.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_11.setObjectName("pushButton_11")
-        self.pushButton_12 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_12.setGeometry(QtCore.QRect(0, 430, 121, 50))
-        self.pushButton_12.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_12.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_12.setObjectName("pushButton_12")
-        self.pushButton_13 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_13.setGeometry(QtCore.QRect(0, 480, 121, 50))
-        self.pushButton_13.setMinimumSize(QtCore.QSize(0, 50))
-        self.pushButton_13.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_13.setObjectName("pushButton_13")
-        self.gridLayout_2.addWidget(self.frame_2, 1, 0, 1, 1)
-        self.frame_3 = QtWidgets.QFrame(self.frame)
-        self.frame_3.setMinimumSize(QtCore.QSize(0, 40))
-        self.frame_3.setStyleSheet("background-color: #00394D;")
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.gridLayout_5 = QtWidgets.QGridLayout(self.frame_3)
-        self.gridLayout_5.setObjectName("gridLayout_5")
-        spacerItem = QtWidgets.QSpacerItem(403, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_5.addItem(spacerItem, 0, 0, 1, 1)
-        self.frame_ok = QtWidgets.QFrame(self.frame_3)
-        self.frame_ok.setMaximumSize(QtCore.QSize(450, 16777215))
-        self.frame_ok.setStyleSheet("background-color: green;\n"
-"border-radius: 5px;")
-        self.frame_ok.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_ok.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_ok.setObjectName("frame_ok")
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_ok)
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_3.setSpacing(0)
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.label_ok = QtWidgets.QLabel(self.frame_ok)
-        self.label_ok.setMinimumSize(QtCore.QSize(400, 41))
-        self.label_ok.setMaximumSize(QtCore.QSize(311, 41))
-        self.label_ok.setStyleSheet("color: rgb(255, 255, 255);\n"
-"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
 "")
-        self.label_ok.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_ok.setObjectName("label_ok")
-        self.horizontalLayout_3.addWidget(self.label_ok)
-        self.gridLayout_5.addWidget(self.frame_ok, 0, 1, 1, 1)
-        self.gridLayout_2.addWidget(self.frame_3, 0, 0, 1, 2)
+        self.pushButton_15.setObjectName("pushButton_15")
+        self.horizontalLayout_7.addWidget(self.pushButton_15)
+        self.pushButton_16 = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_16.setMinimumSize(QtCore.QSize(65, 30))
+        self.pushButton_16.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_16.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: rgb(170, 58, 82);\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"color:white;\n"
+"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: rgb(255, 73, 106);\n"
+"border-radius:5px;\n"
+"}\n"
+"\n"
+"")
+        self.pushButton_16.setObjectName("pushButton_16")
+        self.horizontalLayout_7.addWidget(self.pushButton_16)
+        self.horizontalLayout_6.addLayout(self.horizontalLayout_7)
+        self.verticalLayout.addWidget(self.frame_4)
+        self.stackedWidget.addWidget(self.page_2)
+        self.gridLayout_2.addWidget(self.stackedWidget, 1, 1, 1, 1)
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.label.setBuddy(self.spinBox)
@@ -286,6 +404,18 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.label_ok.setText(_translate("MainWindow", "ok"))
+        self.pushButton.setText(_translate("MainWindow", "Dashboard"))
+        self.pushButton_2.setText(_translate("MainWindow", "Manage Stock"))
+        self.pushButton_3.setText(_translate("MainWindow", "Add Purchase"))
+        self.pushButton_3.setShortcut(_translate("MainWindow", "P"))
+        self.pushButton_4.setText(_translate("MainWindow", "Add Expense"))
+        self.pushButton_8.setText(_translate("MainWindow", "Payments"))
+        self.pushButton_9.setText(_translate("MainWindow", "Vital Stats"))
+        self.pushButton_10.setText(_translate("MainWindow", "Reports"))
+        self.pushButton_11.setText(_translate("MainWindow", "Add Reminder"))
+        self.pushButton_12.setText(_translate("MainWindow", "Contacts"))
+        self.pushButton_13.setText(_translate("MainWindow", "Logout"))
         self.groupBox.setTitle(_translate("MainWindow", "VITAL STATS OVERVIEW"))
         self.label_3.setText(_translate("MainWindow", "Search :"))
         self.radioButton.setText(_translate("MainWindow", "Stock"))
@@ -296,18 +426,26 @@ class Ui_MainWindow(object):
         self.pushButton_14.setText(_translate("MainWindow", "Add Item"))
         self.label.setText(_translate("MainWindow", "Show"))
         self.label_2.setText(_translate("MainWindow", "entries"))
-        self.pushButton.setText(_translate("MainWindow", "Dashboard"))
-        self.pushButton_2.setText(_translate("MainWindow", "Items"))
-        self.pushButton_3.setText(_translate("MainWindow", "Add Purchase"))
-        self.pushButton_3.setShortcut(_translate("MainWindow", "P"))
-        self.pushButton_4.setText(_translate("MainWindow", "Add Expense"))
-        self.pushButton_8.setText(_translate("MainWindow", "Payments"))
-        self.pushButton_9.setText(_translate("MainWindow", "Vital Stats"))
-        self.pushButton_10.setText(_translate("MainWindow", "Reports"))
-        self.pushButton_11.setText(_translate("MainWindow", "Add Reminder"))
-        self.pushButton_12.setText(_translate("MainWindow", "Contacts"))
-        self.pushButton_13.setText(_translate("MainWindow", "Logout"))
-        self.label_ok.setText(_translate("MainWindow", "ok"))
+        self.label_5.setText(_translate("MainWindow", "SEARCH & MANAGE STOCK"))
+        self.groupBox_2.setTitle(_translate("MainWindow", "search"))
+        self.radioButton_6.setText(_translate("MainWindow", "Item Name"))
+        self.radioButton_12.setText(_translate("MainWindow", "Supplier"))
+        self.radioButton_11.setText(_translate("MainWindow", "Item Code"))
+        self.radioButton_10.setText(_translate("MainWindow", "Expiry Date"))
+        self.radioButton_9.setText(_translate("MainWindow", "Date Added"))
+        self.radioButton_8.setText(_translate("MainWindow", "Price"))
+        self.radioButton_7.setText(_translate("MainWindow", "Category"))
+        self.pushButton_15.setToolTip(_translate("MainWindow", "update item information"))
+        self.pushButton_15.setText(_translate("MainWindow", "UPDATE"))
+        self.pushButton_16.setToolTip(_translate("MainWindow", "deletes an item"))
+        self.pushButton_16.setText(_translate("MainWindow", "DELETE"))
 
 
-
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
