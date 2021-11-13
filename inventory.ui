@@ -425,7 +425,7 @@ background-color: #00394D;
 background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_4">
@@ -647,8 +647,8 @@ font: 63 8pt &quot;Yu Gothic UI Semibold&quot;;
           </layout>
          </widget>
          <widget class="QWidget" name="page_2">
-          <layout class="QVBoxLayout" name="verticalLayout">
-           <item>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="0">
             <widget class="QFrame" name="frame_4">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -656,63 +656,65 @@ font: 63 8pt &quot;Yu Gothic UI Semibold&quot;;
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <widget class="QFrame" name="frame_7">
-              <property name="geometry">
-               <rect>
-                <x>30</x>
-                <y>10</y>
-                <width>631</width>
-                <height>61</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: #00394D;</string>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <widget class="QLabel" name="label_5">
-               <property name="geometry">
-                <rect>
-                 <x>190</x>
-                 <y>20</y>
-                 <width>221</width>
-                 <height>21</height>
-                </rect>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Yu Gothic UI Semibold</family>
-                 <pointsize>12</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:rgb(255, 255, 255);</string>
-               </property>
-               <property name="text">
-                <string>SEARCH &amp; MANAGE STOCK</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </widget>
-             <widget class="QGroupBox" name="groupBox_2">
-              <property name="geometry">
-               <rect>
-                <x>40</x>
-                <y>80</y>
-                <width>611</width>
-                <height>101</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
+             <layout class="QGridLayout" name="gridLayout_9">
+              <item row="0" column="0" colspan="3">
+               <widget class="QFrame" name="frame_7">
+                <property name="minimumSize">
+                 <size>
+                  <width>671</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: #00394D;</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_6">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_5">
+                   <property name="font">
+                    <font>
+                     <family>Yu Gothic UI Semibold</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color:rgb(255, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>SEARCH &amp; MANAGE STOCK</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="3">
+               <widget class="QGroupBox" name="groupBox_2">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>126</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
 font: 63 10pt &quot;Yu Gothic UI Semibold&quot;;
 QRadioButton::indicator {
      width: 13px;
@@ -720,159 +722,154 @@ QRadioButton::indicator {
 	font: 63 12pt &quot;Yu Gothic UI Semibold&quot;;
  }
 </string>
-              </property>
-              <property name="title">
-               <string>search</string>
-              </property>
-              <widget class="QLineEdit" name="lineEdit_4">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>20</y>
-                 <width>521</width>
-                 <height>31</height>
-                </rect>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLineEdit {
+                </property>
+                <property name="title">
+                 <string>search</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_7">
+                 <item row="2" column="0">
+                  <widget class="QRadioButton" name="radioButton_6">
+                   <property name="text">
+                    <string>Item Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QRadioButton" name="radioButton_11">
+                   <property name="text">
+                    <string>Item Code</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="3">
+                  <widget class="QRadioButton" name="radioButton_7">
+                   <property name="minimumSize">
+                    <size>
+                     <width>358</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Category</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="2">
+                  <widget class="QRadioButton" name="radioButton_8">
+                   <property name="text">
+                    <string>Price</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QRadioButton" name="radioButton_12">
+                   <property name="text">
+                    <string>Supplier</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QRadioButton" name="radioButton_10">
+                   <property name="text">
+                    <string>Expiry Date</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="2">
+                  <widget class="QRadioButton" name="radioButton_9">
+                   <property name="text">
+                    <string>Date Added</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0" colspan="4">
+                  <widget class="QLineEdit" name="lineEdit_4">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>35</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLineEdit {
      border: 1px solid gray;
      border-radius: 15px;
      padding: 0 8px;
      background: white;
      selection-background-color: darkgray;
  }</string>
-               </property>
-              </widget>
-              <widget class="QRadioButton" name="radioButton_6">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>60</y>
-                 <width>91</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Item Name</string>
-               </property>
-              </widget>
-              <widget class="QRadioButton" name="radioButton_12">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>80</y>
-                 <width>82</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Supplier</string>
-               </property>
-              </widget>
-              <widget class="QRadioButton" name="radioButton_11">
-               <property name="geometry">
-                <rect>
-                 <x>150</x>
-                 <y>60</y>
-                 <width>91</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Item Code</string>
-               </property>
-              </widget>
-              <widget class="QRadioButton" name="radioButton_10">
-               <property name="geometry">
-                <rect>
-                 <x>150</x>
-                 <y>80</y>
-                 <width>91</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Expiry Date</string>
-               </property>
-              </widget>
-              <widget class="QRadioButton" name="radioButton_9">
-               <property name="geometry">
-                <rect>
-                 <x>290</x>
-                 <y>80</y>
-                 <width>91</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Date Added</string>
-               </property>
-              </widget>
-              <widget class="QRadioButton" name="radioButton_8">
-               <property name="geometry">
-                <rect>
-                 <x>290</x>
-                 <y>60</y>
-                 <width>82</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Price</string>
-               </property>
-              </widget>
-              <widget class="QRadioButton" name="radioButton_7">
-               <property name="geometry">
-                <rect>
-                 <x>420</x>
-                 <y>60</y>
-                 <width>82</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Category</string>
-               </property>
-              </widget>
-             </widget>
-             <widget class="QTableWidget" name="tableWidget_2">
-              <property name="geometry">
-               <rect>
-                <x>40</x>
-                <y>210</y>
-                <width>611</width>
-                <height>211</height>
-               </rect>
-              </property>
-             </widget>
-             <widget class="QWidget" name="layoutWidget">
-              <property name="geometry">
-               <rect>
-                <x>150</x>
-                <y>450</y>
-                <width>391</width>
-                <height>41</height>
-               </rect>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_6">
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_7">
-                 <item>
-                  <widget class="QPushButton" name="pushButton_15">
-                   <property name="minimumSize">
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="3">
+                  <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
                     <size>
-                     <width>80</width>
-                     <height>30</height>
+                     <width>40</width>
+                     <height>20</height>
                     </size>
                    </property>
-                   <property name="cursor">
-                    <cursorShape>PointingHandCursor</cursorShape>
-                   </property>
-                   <property name="toolTip">
-                    <string>update item information</string>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="3">
+               <widget class="QTableWidget" name="tableWidget_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>674</width>
+                  <height>250</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>13000</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>450</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="3" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QPushButton" name="pushButton_15">
+                  <property name="minimumSize">
+                   <size>
+                    <width>120</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="toolTip">
+                   <string>update item information</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">
 QPushButton{
  background-color: #4CAF50;
 border:none;
@@ -886,28 +883,34 @@ border-radius:5px;
 }
 
 </string>
-                   </property>
-                   <property name="text">
-                    <string>UPDATE</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton_16">
-                   <property name="minimumSize">
-                    <size>
-                     <width>65</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="cursor">
-                    <cursorShape>PointingHandCursor</cursorShape>
-                   </property>
-                   <property name="toolTip">
-                    <string>deletes an item</string>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">
+                  </property>
+                  <property name="text">
+                   <string>UPDATE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_16">
+                  <property name="minimumSize">
+                   <size>
+                    <width>120</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>150</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="toolTip">
+                   <string>deletes an item</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">
 QPushButton{
 background-color: rgb(170, 58, 82);
 border:none;
@@ -921,16 +924,28 @@ border-radius:5px;
 }
 
 </string>
-                   </property>
-                   <property name="text">
-                    <string>DELETE</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
+                  </property>
+                  <property name="text">
+                   <string>DELETE</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="3" column="2">
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>

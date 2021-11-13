@@ -306,10 +306,6 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             self.pushButton_2.clicked.connect(self.AddItem)
             self.pushButton_3.clicked.connect(self.addcatg)
 
-        def SearchManage(self):
-            self.window = SearchManageWindow()
-            self.window.show()
-
         def addcatg(self):
             self.window = AddCategoryWindow()
             self.window.show()
