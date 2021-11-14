@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(834, 613)
+        MainWindow.resize(835, 613)
         MainWindow.setStyleSheet("background-color: #00394D;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("background-color: #00394D;")
@@ -144,10 +144,201 @@ class Ui_MainWindow(object):
         self.page.setObjectName("page")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.page)
         self.gridLayout_4.setObjectName("gridLayout_4")
+        self.pushButton_14 = QtWidgets.QPushButton(self.page)
+        self.pushButton_14.setMaximumSize(QtCore.QSize(108, 16777215))
+        self.pushButton_14.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_14.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: #00394D;\n"
+"color:white;\n"
+"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"background-color: rgb(54, 109, 163);\n"
+" }")
+        self.pushButton_14.setObjectName("pushButton_14")
+        self.gridLayout_4.addWidget(self.pushButton_14, 0, 0, 1, 3)
+        self.groupBox_3 = QtWidgets.QGroupBox(self.page)
+        self.groupBox_3.setMinimumSize(QtCore.QSize(581, 126))
+        self.groupBox_3.setMaximumSize(QtCore.QSize(16777215, 126))
+        self.groupBox_3.setStyleSheet("\n"
+"font: 63 10pt \"Yu Gothic UI Semibold\";\n"
+"QRadioButton::indicator {\n"
+"     width: 13px;\n"
+"     height: 13px;\n"
+"    font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+" }\n"
+"")
+        self.groupBox_3.setObjectName("groupBox_3")
+        self.gridLayout_10 = QtWidgets.QGridLayout(self.groupBox_3)
+        self.gridLayout_10.setObjectName("gridLayout_10")
+        self.radioItemName = QtWidgets.QRadioButton(self.groupBox_3)
+        self.radioItemName.setObjectName("radioItemName")
+        self.gridLayout_10.addWidget(self.radioItemName, 2, 0, 1, 1)
+        self.radioItemCode = QtWidgets.QRadioButton(self.groupBox_3)
+        self.radioItemCode.setObjectName("radioItemCode")
+        self.gridLayout_10.addWidget(self.radioItemCode, 2, 1, 1, 1)
+        self.radioCategory = QtWidgets.QRadioButton(self.groupBox_3)
+        self.radioCategory.setMinimumSize(QtCore.QSize(358, 0))
+        self.radioCategory.setObjectName("radioCategory")
+        self.gridLayout_10.addWidget(self.radioCategory, 2, 3, 1, 1)
+        self.radioPrice = QtWidgets.QRadioButton(self.groupBox_3)
+        self.radioPrice.setObjectName("radioPrice")
+        self.gridLayout_10.addWidget(self.radioPrice, 2, 2, 1, 1)
+        self.radioSupplier = QtWidgets.QRadioButton(self.groupBox_3)
+        self.radioSupplier.setObjectName("radioSupplier")
+        self.gridLayout_10.addWidget(self.radioSupplier, 3, 0, 1, 1)
+        self.radioExpiryDate = QtWidgets.QRadioButton(self.groupBox_3)
+        self.radioExpiryDate.setObjectName("radioExpiryDate")
+        self.gridLayout_10.addWidget(self.radioExpiryDate, 3, 1, 1, 1)
+        self.radioDateAdded = QtWidgets.QRadioButton(self.groupBox_3)
+        self.radioDateAdded.setObjectName("radioDateAdded")
+        self.gridLayout_10.addWidget(self.radioDateAdded, 3, 2, 1, 1)
+        self.lineSearchProduct = QtWidgets.QLineEdit(self.groupBox_3)
+        self.lineSearchProduct.setMinimumSize(QtCore.QSize(0, 35))
+        self.lineSearchProduct.setStyleSheet("QLineEdit {\n"
+"     border: 1px solid gray;\n"
+"     border-radius: 15px;\n"
+"     padding: 0 8px;\n"
+"     background: white;\n"
+"     selection-background-color: darkgray;\n"
+" }")
+        self.lineSearchProduct.setObjectName("lineSearchProduct")
+        self.gridLayout_10.addWidget(self.lineSearchProduct, 0, 0, 1, 4)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_10.addItem(spacerItem1, 3, 3, 1, 1)
+        self.gridLayout_4.addWidget(self.groupBox_3, 0, 3, 2, 2)
+        self.label = QtWidgets.QLabel(self.page)
+        font = QtGui.QFont()
+        font.setFamily("Yu Gothic UI Semibold")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.label.setFont(font)
+        self.label.setStyleSheet("QLabel{\n"
+"font: 63 8pt \"Yu Gothic UI Semibold\";\n"
+"}\n"
+"")
+        self.label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label.setObjectName("label")
+        self.gridLayout_4.addWidget(self.label, 1, 0, 1, 1)
+        self.spinBox = QtWidgets.QSpinBox(self.page)
+        self.spinBox.setMinimumSize(QtCore.QSize(0, 25))
+        self.spinBox.setMaximumSize(QtCore.QSize(35, 16777215))
+        self.spinBox.setObjectName("spinBox")
+        self.gridLayout_4.addWidget(self.spinBox, 1, 1, 1, 1)
+        self.label_2 = QtWidgets.QLabel(self.page)
+        font = QtGui.QFont()
+        font.setFamily("Yu Gothic UI Semibold")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("QLabel{\n"
+"font: 63 8pt \"Yu Gothic UI Semibold\";\n"
+"}\n"
+"")
+        self.label_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout_4.addWidget(self.label_2, 1, 2, 1, 1)
+        self.stockTable = QtWidgets.QTableWidget(self.page)
+        self.stockTable.setMinimumSize(QtCore.QSize(691, 241))
+        self.stockTable.setMaximumSize(QtCore.QSize(16777215, 250))
+        self.stockTable.setObjectName("stockTable")
+        self.stockTable.setColumnCount(0)
+        self.stockTable.setRowCount(0)
+        self.gridLayout_4.addWidget(self.stockTable, 2, 0, 1, 5)
+        spacerItem2 = QtWidgets.QSpacerItem(399, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem2, 3, 0, 1, 4)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.updateStockBtn = QtWidgets.QPushButton(self.page)
+        self.updateStockBtn.setMinimumSize(QtCore.QSize(120, 30))
+        self.updateStockBtn.setMaximumSize(QtCore.QSize(150, 30))
+        self.updateStockBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.updateStockBtn.setStyleSheet("\n"
+"QPushButton{\n"
+" background-color: #4CAF50;\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"color:white;\n"
+"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: rgb(2, 90, 39);\n"
+"border-radius:5px;\n"
+"}\n"
+"\n"
+"")
+        self.updateStockBtn.setObjectName("updateStockBtn")
+        self.horizontalLayout.addWidget(self.updateStockBtn)
+        self.deleteStockBtn = QtWidgets.QPushButton(self.page)
+        self.deleteStockBtn.setMinimumSize(QtCore.QSize(120, 30))
+        self.deleteStockBtn.setMaximumSize(QtCore.QSize(150, 30))
+        self.deleteStockBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.deleteStockBtn.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: rgb(170, 58, 82);\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"color:white;\n"
+"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: rgb(255, 73, 106);\n"
+"border-radius:5px;\n"
+"}\n"
+"\n"
+"")
+        self.deleteStockBtn.setObjectName("deleteStockBtn")
+        self.horizontalLayout.addWidget(self.deleteStockBtn)
+        self.gridLayout_4.addLayout(self.horizontalLayout, 3, 4, 1, 1)
         self.groupBox = QtWidgets.QGroupBox(self.page)
+        self.groupBox.setMinimumSize(QtCore.QSize(0, 111))
         self.groupBox.setObjectName("groupBox")
-        self.gridLayout_4.addWidget(self.groupBox, 3, 0, 1, 5)
-        self.frame_5 = QtWidgets.QFrame(self.page)
+        self.gridLayout_4.addWidget(self.groupBox, 4, 0, 1, 5)
+        self.stackedWidget.addWidget(self.page)
+        self.page_2 = QtWidgets.QWidget()
+        self.page_2.setObjectName("page_2")
+        self.frame_4 = QtWidgets.QFrame(self.page_2)
+        self.frame_4.setGeometry(QtCore.QRect(9, 9, 694, 532))
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.frame_7 = QtWidgets.QFrame(self.frame_4)
+        self.frame_7.setGeometry(QtCore.QRect(10, 10, 671, 70))
+        self.frame_7.setMinimumSize(QtCore.QSize(671, 70))
+        self.frame_7.setMaximumSize(QtCore.QSize(16777215, 100))
+        self.frame_7.setStyleSheet("background-color: #00394D;")
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.gridLayout_6 = QtWidgets.QGridLayout(self.frame_7)
+        self.gridLayout_6.setObjectName("gridLayout_6")
+        self.label_5 = QtWidgets.QLabel(self.frame_7)
+        font = QtGui.QFont()
+        font.setFamily("Yu Gothic UI Semibold")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet("color:rgb(255, 255, 255);")
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.gridLayout_6.addWidget(self.label_5, 0, 0, 1, 1)
+        self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_4)
+        self.tableWidget_2.setGeometry(QtCore.QRect(10, 218, 674, 250))
+        self.tableWidget_2.setMinimumSize(QtCore.QSize(674, 250))
+        self.tableWidget_2.setMaximumSize(QtCore.QSize(16777215, 13000))
+        self.tableWidget_2.setObjectName("tableWidget_2")
+        self.tableWidget_2.setColumnCount(0)
+        self.tableWidget_2.setRowCount(0)
+        self.frame_5 = QtWidgets.QFrame(self.frame_4)
+        self.frame_5.setGeometry(QtCore.QRect(30, 100, 400, 75))
         self.frame_5.setMinimumSize(QtCore.QSize(400, 75))
         self.frame_5.setMaximumSize(QtCore.QSize(500, 16777215))
         self.frame_5.setStyleSheet("QRadioButton{\n"
@@ -194,199 +385,6 @@ class Ui_MainWindow(object):
         self.lineEdit.setClearButtonEnabled(True)
         self.lineEdit.setObjectName("lineEdit")
         self.gridLayout_3.addWidget(self.lineEdit, 1, 1, 1, 5)
-        self.gridLayout_4.addWidget(self.frame_5, 0, 4, 2, 1)
-        self.tableWidget = QtWidgets.QTableWidget(self.page)
-        self.tableWidget.setMinimumSize(QtCore.QSize(0, 0))
-        self.tableWidget.setMaximumSize(QtCore.QSize(16777215, 250))
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(0)
-        self.tableWidget.setRowCount(0)
-        self.gridLayout_4.addWidget(self.tableWidget, 2, 0, 1, 5)
-        self.pushButton_14 = QtWidgets.QPushButton(self.page)
-        self.pushButton_14.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_14.setStyleSheet("\n"
-"QPushButton{\n"
-"background-color: #00394D;\n"
-"color:white;\n"
-"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
-"}\n"
-"\n"
-"QPushButton:hover\n"
-"{\n"
-"background-color: rgb(54, 109, 163);\n"
-" }")
-        self.pushButton_14.setObjectName("pushButton_14")
-        self.gridLayout_4.addWidget(self.pushButton_14, 0, 0, 1, 1)
-        self.spinBox = QtWidgets.QSpinBox(self.page)
-        self.spinBox.setMinimumSize(QtCore.QSize(0, 25))
-        self.spinBox.setObjectName("spinBox")
-        self.gridLayout_4.addWidget(self.spinBox, 1, 2, 1, 1)
-        self.label = QtWidgets.QLabel(self.page)
-        font = QtGui.QFont()
-        font.setFamily("Yu Gothic UI Semibold")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(7)
-        self.label.setFont(font)
-        self.label.setStyleSheet("QLabel{\n"
-"font: 63 8pt \"Yu Gothic UI Semibold\";\n"
-"}\n"
-"")
-        self.label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label.setObjectName("label")
-        self.gridLayout_4.addWidget(self.label, 1, 1, 1, 1)
-        self.label_2 = QtWidgets.QLabel(self.page)
-        font = QtGui.QFont()
-        font.setFamily("Yu Gothic UI Semibold")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(7)
-        self.label_2.setFont(font)
-        self.label_2.setStyleSheet("QLabel{\n"
-"font: 63 8pt \"Yu Gothic UI Semibold\";\n"
-"}\n"
-"")
-        self.label_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_2.setObjectName("label_2")
-        self.gridLayout_4.addWidget(self.label_2, 1, 3, 1, 1)
-        self.stackedWidget.addWidget(self.page)
-        self.page_2 = QtWidgets.QWidget()
-        self.page_2.setObjectName("page_2")
-        self.gridLayout_8 = QtWidgets.QGridLayout(self.page_2)
-        self.gridLayout_8.setObjectName("gridLayout_8")
-        self.frame_4 = QtWidgets.QFrame(self.page_2)
-        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_4.setObjectName("frame_4")
-        self.gridLayout_9 = QtWidgets.QGridLayout(self.frame_4)
-        self.gridLayout_9.setObjectName("gridLayout_9")
-        self.frame_7 = QtWidgets.QFrame(self.frame_4)
-        self.frame_7.setMinimumSize(QtCore.QSize(671, 70))
-        self.frame_7.setMaximumSize(QtCore.QSize(16777215, 100))
-        self.frame_7.setStyleSheet("background-color: #00394D;")
-        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_7.setObjectName("frame_7")
-        self.gridLayout_6 = QtWidgets.QGridLayout(self.frame_7)
-        self.gridLayout_6.setObjectName("gridLayout_6")
-        self.label_5 = QtWidgets.QLabel(self.frame_7)
-        font = QtGui.QFont()
-        font.setFamily("Yu Gothic UI Semibold")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_5.setFont(font)
-        self.label_5.setStyleSheet("color:rgb(255, 255, 255);")
-        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_5.setObjectName("label_5")
-        self.gridLayout_6.addWidget(self.label_5, 0, 0, 1, 1)
-        self.gridLayout_9.addWidget(self.frame_7, 0, 0, 1, 3)
-        self.groupBox_2 = QtWidgets.QGroupBox(self.frame_4)
-        self.groupBox_2.setMaximumSize(QtCore.QSize(16777215, 126))
-        self.groupBox_2.setStyleSheet("\n"
-"font: 63 10pt \"Yu Gothic UI Semibold\";\n"
-"QRadioButton::indicator {\n"
-"     width: 13px;\n"
-"     height: 13px;\n"
-"    font: 63 12pt \"Yu Gothic UI Semibold\";\n"
-" }\n"
-"")
-        self.groupBox_2.setObjectName("groupBox_2")
-        self.gridLayout_7 = QtWidgets.QGridLayout(self.groupBox_2)
-        self.gridLayout_7.setObjectName("gridLayout_7")
-        self.radioButton_6 = QtWidgets.QRadioButton(self.groupBox_2)
-        self.radioButton_6.setObjectName("radioButton_6")
-        self.gridLayout_7.addWidget(self.radioButton_6, 2, 0, 1, 1)
-        self.radioButton_11 = QtWidgets.QRadioButton(self.groupBox_2)
-        self.radioButton_11.setObjectName("radioButton_11")
-        self.gridLayout_7.addWidget(self.radioButton_11, 2, 1, 1, 1)
-        self.radioButton_7 = QtWidgets.QRadioButton(self.groupBox_2)
-        self.radioButton_7.setMinimumSize(QtCore.QSize(358, 0))
-        self.radioButton_7.setObjectName("radioButton_7")
-        self.gridLayout_7.addWidget(self.radioButton_7, 2, 3, 1, 1)
-        self.radioButton_8 = QtWidgets.QRadioButton(self.groupBox_2)
-        self.radioButton_8.setObjectName("radioButton_8")
-        self.gridLayout_7.addWidget(self.radioButton_8, 2, 2, 1, 1)
-        self.radioButton_12 = QtWidgets.QRadioButton(self.groupBox_2)
-        self.radioButton_12.setObjectName("radioButton_12")
-        self.gridLayout_7.addWidget(self.radioButton_12, 3, 0, 1, 1)
-        self.radioButton_10 = QtWidgets.QRadioButton(self.groupBox_2)
-        self.radioButton_10.setObjectName("radioButton_10")
-        self.gridLayout_7.addWidget(self.radioButton_10, 3, 1, 1, 1)
-        self.radioButton_9 = QtWidgets.QRadioButton(self.groupBox_2)
-        self.radioButton_9.setObjectName("radioButton_9")
-        self.gridLayout_7.addWidget(self.radioButton_9, 3, 2, 1, 1)
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.groupBox_2)
-        self.lineEdit_4.setMinimumSize(QtCore.QSize(0, 35))
-        self.lineEdit_4.setStyleSheet("QLineEdit {\n"
-"     border: 1px solid gray;\n"
-"     border-radius: 15px;\n"
-"     padding: 0 8px;\n"
-"     background: white;\n"
-"     selection-background-color: darkgray;\n"
-" }")
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.gridLayout_7.addWidget(self.lineEdit_4, 0, 0, 1, 4)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_7.addItem(spacerItem1, 3, 3, 1, 1)
-        self.gridLayout_9.addWidget(self.groupBox_2, 1, 0, 1, 3)
-        self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_4)
-        self.tableWidget_2.setMinimumSize(QtCore.QSize(674, 250))
-        self.tableWidget_2.setMaximumSize(QtCore.QSize(16777215, 13000))
-        self.tableWidget_2.setObjectName("tableWidget_2")
-        self.tableWidget_2.setColumnCount(0)
-        self.tableWidget_2.setRowCount(0)
-        self.gridLayout_9.addWidget(self.tableWidget_2, 2, 0, 1, 3)
-        spacerItem2 = QtWidgets.QSpacerItem(450, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_9.addItem(spacerItem2, 3, 0, 1, 1)
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.pushButton_15 = QtWidgets.QPushButton(self.frame_4)
-        self.pushButton_15.setMinimumSize(QtCore.QSize(120, 30))
-        self.pushButton_15.setMaximumSize(QtCore.QSize(150, 30))
-        self.pushButton_15.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_15.setStyleSheet("\n"
-"QPushButton{\n"
-" background-color: #4CAF50;\n"
-"border:none;\n"
-"border-radius:5px;\n"
-"color:white;\n"
-"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: rgb(2, 90, 39);\n"
-"border-radius:5px;\n"
-"}\n"
-"\n"
-"")
-        self.pushButton_15.setObjectName("pushButton_15")
-        self.horizontalLayout.addWidget(self.pushButton_15)
-        self.pushButton_16 = QtWidgets.QPushButton(self.frame_4)
-        self.pushButton_16.setMinimumSize(QtCore.QSize(120, 30))
-        self.pushButton_16.setMaximumSize(QtCore.QSize(150, 30))
-        self.pushButton_16.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_16.setStyleSheet("\n"
-"QPushButton{\n"
-"background-color: rgb(170, 58, 82);\n"
-"border:none;\n"
-"border-radius:5px;\n"
-"color:white;\n"
-"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: rgb(255, 73, 106);\n"
-"border-radius:5px;\n"
-"}\n"
-"\n"
-"")
-        self.pushButton_16.setObjectName("pushButton_16")
-        self.horizontalLayout.addWidget(self.pushButton_16)
-        self.gridLayout_9.addLayout(self.horizontalLayout, 3, 1, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_9.addItem(spacerItem3, 3, 2, 1, 1)
-        self.gridLayout_8.addWidget(self.frame_4, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.page_2)
         self.gridLayout_2.addWidget(self.stackedWidget, 1, 1, 1, 1)
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
@@ -395,7 +393,7 @@ class Ui_MainWindow(object):
         self.label_2.setBuddy(self.spinBox)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.pushButton, self.pushButton_2)
         MainWindow.setTabOrder(self.pushButton_2, self.pushButton_3)
@@ -408,13 +406,7 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.pushButton_12, self.pushButton_13)
         MainWindow.setTabOrder(self.pushButton_13, self.pushButton_14)
         MainWindow.setTabOrder(self.pushButton_14, self.spinBox)
-        MainWindow.setTabOrder(self.spinBox, self.radioButton)
-        MainWindow.setTabOrder(self.radioButton, self.radioButton_2)
-        MainWindow.setTabOrder(self.radioButton_2, self.radioButton_3)
-        MainWindow.setTabOrder(self.radioButton_3, self.radioButton_4)
-        MainWindow.setTabOrder(self.radioButton_4, self.radioButton_5)
-        MainWindow.setTabOrder(self.radioButton_5, self.lineEdit)
-        MainWindow.setTabOrder(self.lineEdit, self.tableWidget)
+        MainWindow.setTabOrder(self.spinBox, self.stockTable)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -431,29 +423,29 @@ class Ui_MainWindow(object):
         self.pushButton_11.setText(_translate("MainWindow", "Add Reminder"))
         self.pushButton_12.setText(_translate("MainWindow", "Contacts"))
         self.pushButton_13.setText(_translate("MainWindow", "Logout"))
+        self.pushButton_14.setText(_translate("MainWindow", "Add Item"))
+        self.groupBox_3.setTitle(_translate("MainWindow", "search product"))
+        self.radioItemName.setText(_translate("MainWindow", "Item Name"))
+        self.radioItemCode.setText(_translate("MainWindow", "Item Code"))
+        self.radioCategory.setText(_translate("MainWindow", "Category"))
+        self.radioPrice.setText(_translate("MainWindow", "Price"))
+        self.radioSupplier.setText(_translate("MainWindow", "Supplier"))
+        self.radioExpiryDate.setText(_translate("MainWindow", "Expiry Date"))
+        self.radioDateAdded.setText(_translate("MainWindow", "Date Added"))
+        self.label.setText(_translate("MainWindow", "Show"))
+        self.label_2.setText(_translate("MainWindow", "entries"))
+        self.updateStockBtn.setToolTip(_translate("MainWindow", "update item information"))
+        self.updateStockBtn.setText(_translate("MainWindow", "UPDATE"))
+        self.deleteStockBtn.setToolTip(_translate("MainWindow", "deletes an item"))
+        self.deleteStockBtn.setText(_translate("MainWindow", "DELETE"))
         self.groupBox.setTitle(_translate("MainWindow", "VITAL STATS OVERVIEW"))
+        self.label_5.setText(_translate("MainWindow", "SEARCH & MANAGE STOCK"))
         self.label_3.setText(_translate("MainWindow", "Search :"))
         self.radioButton.setText(_translate("MainWindow", "Stock"))
         self.radioButton_2.setText(_translate("MainWindow", "Serial No"))
         self.radioButton_3.setText(_translate("MainWindow", "Invoice"))
         self.radioButton_4.setText(_translate("MainWindow", "Client"))
         self.radioButton_5.setText(_translate("MainWindow", "Supplier"))
-        self.pushButton_14.setText(_translate("MainWindow", "Add Item"))
-        self.label.setText(_translate("MainWindow", "Show"))
-        self.label_2.setText(_translate("MainWindow", "entries"))
-        self.label_5.setText(_translate("MainWindow", "SEARCH & MANAGE STOCK"))
-        self.groupBox_2.setTitle(_translate("MainWindow", "search"))
-        self.radioButton_6.setText(_translate("MainWindow", "Item Name"))
-        self.radioButton_11.setText(_translate("MainWindow", "Item Code"))
-        self.radioButton_7.setText(_translate("MainWindow", "Category"))
-        self.radioButton_8.setText(_translate("MainWindow", "Price"))
-        self.radioButton_12.setText(_translate("MainWindow", "Supplier"))
-        self.radioButton_10.setText(_translate("MainWindow", "Expiry Date"))
-        self.radioButton_9.setText(_translate("MainWindow", "Date Added"))
-        self.pushButton_15.setToolTip(_translate("MainWindow", "update item information"))
-        self.pushButton_15.setText(_translate("MainWindow", "UPDATE"))
-        self.pushButton_16.setToolTip(_translate("MainWindow", "deletes an item"))
-        self.pushButton_16.setText(_translate("MainWindow", "DELETE"))
 
 
 if __name__ == "__main__":

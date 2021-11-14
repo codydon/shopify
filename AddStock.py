@@ -145,29 +145,6 @@ class Ui_Dialog(object):
         self.label.setStyleSheet("font: 63 12pt \"Yu Gothic UI Semibold\";\n"
 "")
         self.label.setObjectName("label")
-        self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(610, 30, 171, 31))
-        font = QtGui.QFont()
-        font.setFamily("Arial Black")
-        font.setPointSize(8)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
-        self.pushButton.setFont(font)
-        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton.setStyleSheet("\n"
-"QPushButton{\n"
-"background-color: green;\n"
-"border:none;\n"
-"color:white;\n"
-"\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: rgb(2, 90, 39);\n"
-"}\n"
-"\n"
-"")
-        self.pushButton.setObjectName("pushButton")
         self.spinBox = QtWidgets.QSpinBox(Dialog)
         self.spinBox.setGeometry(QtCore.QRect(220, 220, 201, 31))
         self.spinBox.setStyleSheet("padding-right: 15px; /* make room for the arrows */\n"
@@ -227,7 +204,6 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
-        Dialog.setTabOrder(self.pushButton, self.dateEdit)
         Dialog.setTabOrder(self.dateEdit, self.lineEdit_3)
         Dialog.setTabOrder(self.lineEdit_3, self.lineEdit_4)
         Dialog.setTabOrder(self.lineEdit_4, self.comboBox)
@@ -256,8 +232,6 @@ class Ui_Dialog(object):
         self.dateEdit.setDisplayFormat(_translate("Dialog", "d/M/yyyy"))
         self.label_9.setText(_translate("Dialog", "ITEM NAME :"))
         self.label.setText(_translate("Dialog", "ADD  ITEM"))
-        self.pushButton.setToolTip(_translate("Dialog", "Search for iem in existing stock."))
-        self.pushButton.setText(_translate("Dialog", "Search and Manage Items"))
         self.lineEdit_5.setPlaceholderText(_translate("Dialog", "e.g brand, color, shape e.t.c,,"))
         self.label_10.setText(_translate("Dialog", "DESCRIPTION :"))
         self.label_11.setText(_translate("Dialog", "CATEGORY :"))

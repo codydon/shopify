@@ -424,48 +424,6 @@ color:rgb(255, 255, 255);</string>
      <string>ADD  ITEM</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>30</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial Black</family>
-      <pointsize>8</pointsize>
-      <weight>75</weight>
-      <italic>false</italic>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="toolTip">
-     <string>Search for iem in existing stock.</string>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-QPushButton{
-background-color: green;
-border:none;
-color:white;
-
-}
-QPushButton:hover{
-background-color: rgb(2, 90, 39);
-}
-
-</string>
-    </property>
-    <property name="text">
-     <string>Search and Manage Items</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QSpinBox" name="spinBox">
    <property name="geometry">
@@ -622,7 +580,6 @@ background-color: rgb(85, 170, 255);
   </widget>
  </widget>
  <tabstops>
-  <tabstop>pushButton</tabstop>
   <tabstop>dateEdit</tabstop>
   <tabstop>lineEdit_3</tabstop>
   <tabstop>lineEdit_4</tabstop>

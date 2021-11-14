@@ -10,7 +10,6 @@ import sys
 import inventory as inventory
 import AddStock as AddStock
 import AddCategory as AddCategory
-import SearchManage as SearchManage
 import login as login
 import sales as sales
 import AddPurchase as AddPurchase
@@ -47,7 +46,6 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
             def hideframe():
                 self.frame_error.hide()
                 
-                 
             def showMessage(message):
                 self.frame_error.show()
                 self.label_error.setText(message)
@@ -106,11 +104,11 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                     lambda: self.stackedWidget.setCurrentWidget(self.page_2))
                 self.pushButton.clicked.connect(
                     lambda: self.stackedWidget.setCurrentWidget(self.page))
-                self.radioButton_6.setChecked(True)
-                self.lineEdit_4.textChanged.connect(self.radio_selected)
-                self.pushButton_16.clicked.connect(self.delete_product)
-                self.pushButton_15.clicked.connect(self.edit_product)
-                self.tableWidget_2.selectionModel().selectionChanged.connect(self.on_select)
+                self.radioItemName.setChecked(True)
+                self.lineSearchProduct.textChanged.connect(self.radio_selected)
+                self.deleteStockBtn.clicked.connect(self.delete_product)
+                self.updateStockBtn.clicked.connect(self.edit_product)
+                self.stockTable.selectionModel().selectionChanged.connect(self.on_select)
             #self.field.returnPressed.connect(self.radio_selected)
                 self.Showstatus()
         stylePopupOk = (
@@ -138,10 +136,10 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
             for ix in selected.indexes():
                 #print('selected cell location row : {0}, column: {1}'.format(ix.row(), ix.column()))
                 global current_row
-                current_row = self.tableWidget_2.currentRow()
+                current_row = self.stockTable.currentRow()
                 #print(current_row)
                 global cell_value
-                cell_value = self.tableWidget_2.item(current_row, 0).text()
+                cell_value = self.stockTable.item(current_row, 0).text()
                 break
 
         def delete_product(self):
@@ -157,7 +155,7 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
 
         def edit_product(self):
             p_id = cell_value
-            current_column = self.tableWidget_2.currentColumn()
+            current_column = self.stockTable.currentColumn()
             if current_column == 1:
                 column = 'item_code'
             elif current_column == 2:
@@ -182,7 +180,7 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 column = 'remarks'
             else:
                 column = ' '
-            current_text = self.tableWidget_2.item(
+            current_text = self.stockTable.item(
                 current_row, current_column).text()
             if current_column > 1:
                 try:
@@ -197,20 +195,20 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
             self.radio_selected()
 
         def radio_selected(self):
-            user_inp = self.lineEdit_4.text()
-            if self.radioButton_6.isChecked():
+            user_inp = self.lineSearchProduct.text()
+            if self.radioItemName.isChecked():
                 clmn = 'item_name'
-            elif self.radioButton_12.isChecked():
+            elif self.radioSupplier.isChecked():
                 clmn = 'supplier'
-            elif self.radioButton_11.isChecked():
+            elif self.radioItemCode.isChecked():
                 clmn = 'item_code'
-            elif self.radioButton_10.isChecked():
+            elif self.radioExpiryDate.isChecked():
                 clmn = 'exp_date'
-            elif self.radioButton_9.isChecked():
+            elif self.radioDateAdded.isChecked():
                 clmn = 'date_added'
-            elif self.radioButton_8.isChecked():
+            elif self.radioPrice.isChecked():
                 clmn = 'price'
-            elif self.radioButton_7.isChecked():
+            elif self.radioCategory.isChecked():
                 clmn = 'category'
             else:
                 user_inp = ''
@@ -219,20 +217,15 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
             r = c.execute(query, [user_inp])
             res = r.fetchall()
             #results = res[0]
-            self.tableWidget_2.setRowCount(0)
-            self.tableWidget_2.setColumnCount(12)
-            self.tableWidget_2.setHorizontalHeaderLabels(
+            self.stockTable.setRowCount(0)
+            self.stockTable.setColumnCount(12)
+            self.stockTable.setHorizontalHeaderLabels(
                 ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remarks'])
-            self.tableWidget_2.hideColumn(0)
+            self.stockTable.hideColumn(0)
             for row_number, row_data in enumerate(res):
-                self.tableWidget_2.insertRow(row_number)
+                self.stockTable.insertRow(row_number)
                 for column_number, data in enumerate(row_data):
-                    self.tableWidget_2.setItem(
-                        row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
-
-
-
-        
+                    self.stockTable.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 
 class salesWindow(sales.Ui_Sales, QtWidgets.QMainWindow):
     def __init__(self):
@@ -375,11 +368,6 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
                 self.spinBox.setValue(0)
                 self.lineEdit_7.clear()
                 self.textEdit.clear()
-        
-
-           
-            #set default value of the combobox
-
 
 class AddCategoryWindow(AddCategory.Ui_Dialog, QtWidgets.QDialog):
     def __init__(self):
@@ -408,27 +396,18 @@ class AddCategoryWindow(AddCategory.Ui_Dialog, QtWidgets.QDialog):
                 try:
                     c.execute("SELECT category FROM categories ORDER BY category ASC;")
                     rows = c.fetchall()
+                    cb_stock.clear()
                     for row in rows:
                         cb_stock.addItem(str(row[0]))
-                        connection.commit()
-                    
+                        connection.commit()                    
                 except Exception as e:
                     warn("The sync not done!!!")
                     print("the sync not done!!", e)
 
                 dialog("Category Saved Successfully")           
             except:                    
-                warn("The category already exists. Try again!")
-            
-            self.lineEdit.clear()
-        
-
-
-
-       
-        
-            
-            
+                warn("The category already exists. Try again!")            
+            self.lineEdit.clear()    
 
 
 #informational msg
@@ -453,7 +432,7 @@ def warn(w):
 if __name__ == "__main__":
         #create an application
         app = QtWidgets.QApplication(sys.argv)
-        w = LoginWindow()
+        w = Main()
         #show the window and start the app
         w.show()
         app.exec_()

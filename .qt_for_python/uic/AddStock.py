@@ -148,29 +148,6 @@ class Ui_Dialog(object):
         self.label.setGeometry(QRect(290, 20, 81, 21))
         self.label.setStyleSheet(u"font: 63 12pt \"Yu Gothic UI Semibold\";\n"
 "")
-        self.pushButton = QPushButton(self.frame)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(610, 30, 171, 31))
-        font1 = QFont()
-        font1.setFamily(u"Arial Black")
-        font1.setPointSize(8)
-        font1.setBold(True)
-        font1.setItalic(False)
-        font1.setWeight(75)
-        self.pushButton.setFont(font1)
-        self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton.setStyleSheet(u"\n"
-"QPushButton{\n"
-"background-color: green;\n"
-"border:none;\n"
-"color:white;\n"
-"\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: rgb(2, 90, 39);\n"
-"}\n"
-"\n"
-"")
         self.spinBox = QSpinBox(Dialog)
         self.spinBox.setObjectName(u"spinBox")
         self.spinBox.setGeometry(QRect(220, 220, 201, 31))
@@ -229,7 +206,6 @@ class Ui_Dialog(object):
         self.label_11.setBuddy(self.comboBox)
         self.label_12.setBuddy(self.lineEdit_7)
 #endif // QT_CONFIG(shortcut)
-        QWidget.setTabOrder(self.pushButton, self.dateEdit)
         QWidget.setTabOrder(self.dateEdit, self.lineEdit_3)
         QWidget.setTabOrder(self.lineEdit_3, self.lineEdit_4)
         QWidget.setTabOrder(self.lineEdit_4, self.comboBox)
@@ -264,10 +240,6 @@ class Ui_Dialog(object):
         self.dateEdit.setDisplayFormat(QCoreApplication.translate("Dialog", u"d/M/yyyy", None))
         self.label_9.setText(QCoreApplication.translate("Dialog", u"ITEM NAME :", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"ADD  ITEM", None))
-#if QT_CONFIG(tooltip)
-        self.pushButton.setToolTip(QCoreApplication.translate("Dialog", u"Search for iem in existing stock.", None))
-#endif // QT_CONFIG(tooltip)
-        self.pushButton.setText(QCoreApplication.translate("Dialog", u"Search and Manage Items", None))
         self.lineEdit_5.setPlaceholderText(QCoreApplication.translate("Dialog", u"e.g brand, color, shape e.t.c,,", None))
         self.label_10.setText(QCoreApplication.translate("Dialog", u"DESCRIPTION :", None))
         self.label_11.setText(QCoreApplication.translate("Dialog", u"CATEGORY :", None))
