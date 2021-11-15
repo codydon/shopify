@@ -143,7 +143,7 @@
     <string>SUPPLIER :</string>
    </property>
    <property name="buddy">
-    <cstring>lineEdit_6</cstring>
+    <cstring>comboBox_2</cstring>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
@@ -232,30 +232,17 @@ border-radius:15px;
     <string notr="true"/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_6">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>220</y>
-     <width>311</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-   <property name="placeholderText">
-    <string>supplier's company name/ owner</string>
-   </property>
-  </widget>
   <widget class="QDateEdit" name="dateEdit">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>100</y>
-     <width>131</width>
+     <width>151</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
@@ -282,9 +269,12 @@ border-radius:15px;
     <rect>
      <x>20</x>
      <y>280</y>
-     <width>131</width>
+     <width>151</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
@@ -298,9 +288,12 @@ border-radius:15px;
     <rect>
      <x>20</x>
      <y>220</y>
-     <width>131</width>
+     <width>151</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">padding-right: 15px; /* make room for the arrows */
@@ -336,6 +329,9 @@ border-radius:15px;
      <width>361</width>
      <height>71</height>
     </rect>
+   </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="mouseTracking">
     <bool>true</bool>
@@ -410,7 +406,7 @@ color:rgb(255, 255, 255);</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>340</x>
       <y>20</y>
       <width>81</width>
       <height>21</height>
@@ -434,6 +430,9 @@ color:rgb(255, 255, 255);</string>
      <height>31</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">padding-right: 15px; /* make room for the arrows */
 
@@ -443,6 +442,9 @@ color:rgb(255, 255, 255);</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="showGroupSeparator" stdset="0">
+    <bool>true</bool>
    </property>
    <property name="maximum">
     <number>1000000000</number>
@@ -488,7 +490,7 @@ color:rgb(255, 255, 255);</string>
     <rect>
      <x>20</x>
      <y>160</y>
-     <width>131</width>
+     <width>151</width>
      <height>31</height>
     </rect>
    </property>
@@ -553,8 +555,52 @@ color:rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>110</x>
      <y>140</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>click to add new category</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border:none;
+	background-color: rgb(57, 114, 171);
+}
+QPushButton:hover{
+background-color: rgb(85, 170, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>+</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>220</y>
+     <width>301</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>200</y>
      <width>41</width>
      <height>21</height>
     </rect>
@@ -584,11 +630,13 @@ background-color: rgb(85, 170, 255);
   <tabstop>lineEdit_3</tabstop>
   <tabstop>lineEdit_4</tabstop>
   <tabstop>comboBox</tabstop>
+  <tabstop>pushButton_3</tabstop>
   <tabstop>lineEdit_5</tabstop>
   <tabstop>lineEdit_7</tabstop>
   <tabstop>doubleSpinBox</tabstop>
   <tabstop>spinBox</tabstop>
-  <tabstop>lineEdit_6</tabstop>
+  <tabstop>comboBox_2</tabstop>
+  <tabstop>pushButton_4</tabstop>
   <tabstop>dateEdit_2</tabstop>
   <tabstop>textEdit</tabstop>
   <tabstop>pushButton_2</tabstop>

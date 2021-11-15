@@ -38,6 +38,9 @@
    <property name="placeholderText">
     <string>category name</string>
    </property>
+   <property name="clearButtonEnabled">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
@@ -113,5 +116,22 @@ color:rgb(255, 255, 255);</string>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>Dialog</sender>
+   <signal>accepted()</signal>
+   <receiver>lineEdit</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>92</x>
+     <y>82</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

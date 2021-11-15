@@ -26,6 +26,7 @@ class Ui_Dialog(object):
 "     selection-background-color: darkgray;\n"
 " }\n"
 "")
+        self.lineEdit.setClearButtonEnabled(True)
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton = QtWidgets.QPushButton(Dialog)
         self.pushButton.setGeometry(QtCore.QRect(140, 160, 131, 31))
@@ -62,6 +63,7 @@ class Ui_Dialog(object):
         self.label.setObjectName("label")
 
         self.retranslateUi(Dialog)
+        Dialog.accepted.connect(self.lineEdit.setFocus)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):

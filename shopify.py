@@ -3,13 +3,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtCore import QDate, QTime, QDateTime, Qt
 from PyQt5.QtCore import Qt, QSortFilterProxyModel
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
+from PyQt5.QtGui import QStandardItemModel, QStandardItem, QIntValidator
 from PyQt5.QtSql import QSqlDatabase, QSqlTableModel
 
 import sys
 import inventory as inventory
 import AddStock as AddStock
 import AddCategory as AddCategory
+import AddSupplier as AddSupplier
 import login as login
 import sales as sales
 import AddPurchase as AddPurchase
@@ -75,7 +76,6 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
                 text = "WRONG CREDENTIALS. TRY AGAIN!!"
                 showMessage(text)
                 self.frame_error.setStyleSheet(self.stylePopupError)
-           
             elif role == "ADMIN":
                 self.window = Main()
                 self.window.show()
@@ -109,10 +109,24 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 self.deleteStockBtn.clicked.connect(self.delete_product)
                 self.updateStockBtn.clicked.connect(self.edit_product)
                 self.stockTable.selectionModel().selectionChanged.connect(self.on_select)
-            #self.field.returnPressed.connect(self.radio_selected)
                 self.Showstatus()
+                if self.lineSearchProduct.text() == '':
+                    query = (" SELECT * FROM STOCK; ")
+                    r = c.execute(query)
+                    res = r.fetchall()
+                    self.stockTable.setRowCount(0)
+                    self.stockTable.setColumnCount(12)
+                    self.stockTable.setHorizontalHeaderLabels(
+                        ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remarks'])
+                    self.stockTable.hideColumn(0)
+                    for row_number, row_data in enumerate(res):
+                        self.stockTable.insertRow(row_number)
+                        for column_number, data in enumerate(row_data):
+                            self.stockTable.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+
         stylePopupOk = (
             "background-color:green; border-radius: 5px;")
+            
         def Showstatus(self):
             def hideframe():
                 self.frame_ok.hide()
@@ -131,68 +145,87 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
         def Addpurchase(self):
             self.window=purchaseWindow()
             self.window.show()
-
+        global cell_value
+        cell_value = ''
+        global current_row
+        current_row = -1
         def on_select(self, selected):
             for ix in selected.indexes():
-                #print('selected cell location row : {0}, column: {1}'.format(ix.row(), ix.column()))
+                print('selected cell location row : {0}, column: {1}'.format(ix.row(), ix.column()))
                 global current_row
                 current_row = self.stockTable.currentRow()
-                #print(current_row)
+                print(current_row)
                 global cell_value
                 cell_value = self.stockTable.item(current_row, 0).text()
                 break
 
         def delete_product(self):
             #cell_value = self.tableWidget.item(current_row, 0).text()
-            try:
-                q = ("DELETE FROM stock WHERE id = ?;")
-                c.execute(q, [cell_value])
-                connection.commit()
-                dialog("Item deleted from stock successfully!")
-            except:
-                warn("Error on delete!")
-            self.radio_selected()
+            if cell_value:
+                try:
+                    q = ("DELETE FROM stock WHERE id = ?;")
+                    c.execute(q, [cell_value])
+                    connection.commit()
+                    dialog("Item deleted from stock successfully!")
+                except:
+                    warn("Error on delete!")
+                self.radio_selected()
+            else:
+                warn("No row chosen!")
 
         def edit_product(self):
-            p_id = cell_value
-            current_column = self.stockTable.currentColumn()
-            if current_column == 1:
-                column = 'item_code'
-            elif current_column == 2:
-                column = 'category'
-            elif current_column == 3:
-                column = 'item_name'
-            elif current_column == 4:
-                column = 'description'
-            elif current_column == 5:
-                column = 'measurement'
-            elif current_column == 6:
-                column = 'quantity'
-            elif current_column == 7:
-                column = 'price'
-            elif current_column == 8:
-                column = 'supplier'
-            elif current_column == 9:
-                column = 'date_added'
-            elif current_column == 10:
-                column = 'exp_date'
-            elif current_column == 11:
-                column = 'remarks'
-            else:
-                column = ' '
-            current_text = self.stockTable.item(
-                current_row, current_column).text()
-            if current_column > 1:
-                try:
-                    q = ("UPDATE  stock SET ("+column+") = ? WHERE id = ?;")
-                    c.execute(q, [current_text, p_id])
-                    connection.commit()
-                    dialog("Stock updated successfully!")
-                except:
-                    warn("Error on update!")
-            else:
-                warn("wrong choice. try again!")
-            self.radio_selected()
+            try:
+                p_id = cell_value
+                current_column = self.stockTable.currentColumn()
+                if current_column == 1:
+                    column = 'item_code'
+                elif current_column == 2:
+                    column = 'category'
+                elif current_column == 3:
+                    column = 'item_name'
+                elif current_column == 4:
+                    column = 'description'
+                elif current_column == 5:
+                    column = 'measurement'
+                elif current_column == 6:
+                    column = 'quantity'
+                elif current_column == 7:
+                    column = 'price'
+                elif current_column == 8:
+                    column = 'supplier'
+                elif current_column == 9:
+                    column = 'date_added'
+                elif current_column == 10:
+                    column = 'exp_date'
+                elif current_column == 11:
+                    column = 'remarks'
+                else:
+                    column = ' '
+                current_txt = self.stockTable.item(current_row, current_column)
+                if current_txt:
+                    current_text = current_txt.text()
+                else:
+                    current_text = ''
+                    asd = -1
+                    warn("No value chosen!")
+                print(current_column)
+                #if cell_value != '' and current_row != -1:
+                if asd != -1 :
+                    if current_column > 1:
+                        try:
+                            q = ("UPDATE  stock SET ("+column+") = ? WHERE id = ?;")
+                            c.execute(q, [current_text, p_id])
+                            connection.commit()
+                            dialog("Stock updated successfully!")
+                        except:
+                            warn("Error on update!")
+                    else:
+                        warn("wrong choice. try again!")
+                    #else:
+                    #        warn("wrong choice. try again!")
+                    self.radio_selected()
+            except Exception as e:
+                print("error", e)
 
         def radio_selected(self):
             user_inp = self.lineSearchProduct.text()
@@ -284,6 +317,8 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
 
             global cb_stock
             cb_stock = self.comboBox
+            global s_list
+            s_list = self.comboBox_2
 
             d = connection.cursor()
             d.execute('''CREATE TABLE IF NOT EXISTS CATEGORIES (
@@ -294,13 +329,31 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             rows = c.fetchall()
             for row in rows:
                     self.comboBox.addItem(str(row[0]))
+            
+            c.execute('''CREATE TABLE IF NOT EXISTS SUPPLIERS (
+                id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+                supplier_name  VARCHAR UNIQUE NOT NULL ,
+                supplier_no  VARCHAR UNIQUE NOT NULL ,
+                email  VARCHAR UNIQUE NOT NULL ,
+                category  VARCHAR  NOT NULL ,
+                debt  VARCHAR  NOT NULL ,
+                time_stamp  timestamp);''')
+            c.execute("SELECT supplier_name FROM suppliers ORDER BY category ASC;")
+            rs = c.fetchall()
+            for row in rs:
+                self.comboBox_2.addItem(str(row[0]))
             #
             
             self.pushButton_2.clicked.connect(self.AddItem)
             self.pushButton_3.clicked.connect(self.addcatg)
+            self.pushButton_4.clicked.connect(self.addsupp)
 
         def addcatg(self):
             self.window = AddCategoryWindow()
+            self.window.show()
+
+        def addsupp(self):
+            self.window = AddSupplierWindow()
             self.window.show()
 
         def AddItem(self):
@@ -315,7 +368,7 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             price = self.spinBox.value()
             exp_temp = self.dateEdit_2.date()
             exp_date = exp_temp.toPyDate() 
-            supplier = self.lineEdit_6.text()
+            supplier = self.comboBox_2.currentText()
             remarks = self.textEdit.toPlainText()
             #db
             c = connection.cursor()
@@ -362,12 +415,35 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
                 self.lineEdit_4.clear()
                 self.lineEdit_5.clear()
                 self.lineEdit_5.clear()
-                self.lineEdit_6.clear()
-                self.comboBox.set('')
+                self.comboBox.clear()
+                self.comboBox_2.clear()
                 self.doubleSpinBox.setValue(0.00)
                 self.spinBox.setValue(0)
                 self.lineEdit_7.clear()
                 self.textEdit.clear()
+                #reset comboBox 
+                d = connection.cursor()
+                d.execute('''CREATE TABLE IF NOT EXISTS CATEGORIES (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+                    category  VARCHAR UNIQUE NOT NULL )''')
+                d.close()
+                c.execute("SELECT category FROM categories ORDER BY category ASC;")
+                rows = c.fetchall()
+                for row in rows:
+                        self.comboBox.addItem(str(row[0]))
+                
+                c.execute('''CREATE TABLE IF NOT EXISTS SUPPLIERS (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+                    supplier_name  VARCHAR UNIQUE NOT NULL ,
+                    supplier_no  VARCHAR UNIQUE NOT NULL ,
+                    email  VARCHAR UNIQUE NOT NULL ,
+                    category  VARCHAR  NOT NULL ,
+                    debt  VARCHAR  NOT NULL ,
+                    time_stamp  timestamp);''')
+                c.execute("SELECT supplier_name FROM suppliers ORDER BY category ASC;")
+                rs = c.fetchall()
+                for row in rs:
+                    self.comboBox_2.addItem(str(row[0]))
 
 class AddCategoryWindow(AddCategory.Ui_Dialog, QtWidgets.QDialog):
     def __init__(self):
@@ -399,7 +475,7 @@ class AddCategoryWindow(AddCategory.Ui_Dialog, QtWidgets.QDialog):
                     cb_stock.clear()
                     for row in rows:
                         cb_stock.addItem(str(row[0]))
-                        connection.commit()                    
+                    connection.commit()                    
                 except Exception as e:
                     warn("The sync not done!!!")
                     print("the sync not done!!", e)
@@ -408,7 +484,64 @@ class AddCategoryWindow(AddCategory.Ui_Dialog, QtWidgets.QDialog):
             except:                    
                 warn("The category already exists. Try again!")            
             self.lineEdit.clear()    
+class AddSupplierWindow(AddSupplier.Ui_Dialog, QtWidgets.QDialog):
+    def __init__(self):
+        super(AddSupplierWindow,self).__init__()
+        self.setupUi(self)
+        #connect buttons
+        self.comboBox.addItem("s1")
+        self.pushButton.clicked.connect(self.addsupplier)
+        onlyInt = QIntValidator()
+        self.lineEdit_2.setValidator(onlyInt)
 
+    def addsupplier(self):
+        sname = self.lineEdit.text()
+        s_no = self.lineEdit_2.text()
+        s_email= self.lineEdit_3.text()
+        s_catg = self.comboBox.currentText()
+        s_debt = self.doubleSpinBox.text()
+        time_stamp = datetime.datetime.now()
+        #print(sname, s_email, s_no, s_catg, s_debt, time_stamp)
+
+        d = connection.cursor()
+        d.execute('''CREATE TABLE IF NOT EXISTS SUPPLIERS (
+                id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+                supplier_name  VARCHAR UNIQUE NOT NULL ,
+                supplier_no  VARCHAR UNIQUE NOT NULL ,
+                email  VARCHAR UNIQUE NOT NULL ,
+                category  VARCHAR  NOT NULL ,
+                debt  VARCHAR  NOT NULL ,
+                time_stamp  timestamp);''')
+        d.close()
+        c = connection.cursor()
+        if not sname:
+                warn("category name is missing!")
+        else:
+            try:
+                sql = """INSERT INTO suppliers(supplier_name, supplier_no, email, category, debt, time_stamp) VALUES (?, ?, ?, ?, ?, ?);"""
+                c.execute(sql, [sname, s_no, s_email, s_catg, s_debt, time_stamp])            
+                connection.commit()
+                try:
+                    c.execute("SELECT category FROM categories ORDER BY category ASC;")
+                    rows = c.fetchall()
+                    print(rows)
+                    s_list.clear()
+                    for row in rows:
+                        s_list.addItem(str(row[0]))
+                    connection.commit()                    
+                except Exception as e:
+                    warn("The sync not done!!!")
+                    print("the sync not done!!", e)
+
+                dialog("supplier Saved Successfully")           
+            except Exception as e:
+                print('Error', e)                    
+                warn("The supplier already exists. Try again!")            
+            self.lineEdit.clear()    
+            self.lineEdit_2.clear()    
+            self.lineEdit_3.clear()    
+            #self.comboBox.clear()
+            self.doubleSpinBox.setValue(0.00)
 
 #informational msg
 def dialog(w):

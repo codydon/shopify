@@ -83,23 +83,22 @@ class Ui_Dialog(object):
         self.lineEdit_3.setGeometry(QtCore.QRect(220, 100, 201, 31))
         self.lineEdit_3.setStyleSheet("")
         self.lineEdit_3.setObjectName("lineEdit_3")
-        self.lineEdit_6 = QtWidgets.QLineEdit(Dialog)
-        self.lineEdit_6.setGeometry(QtCore.QRect(460, 220, 311, 31))
-        self.lineEdit_6.setStyleSheet("")
-        self.lineEdit_6.setObjectName("lineEdit_6")
         self.dateEdit = QtWidgets.QDateEdit(Dialog)
-        self.dateEdit.setGeometry(QtCore.QRect(20, 100, 131, 31))
+        self.dateEdit.setGeometry(QtCore.QRect(20, 100, 151, 31))
+        self.dateEdit.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.dateEdit.setStyleSheet("")
         self.dateEdit.setDateTime(QtCore.QDateTime(QtCore.QDate(2000, 1, 1), QtCore.QTime(0, 0, 0)))
         self.dateEdit.setCalendarPopup(True)
         self.dateEdit.setObjectName("dateEdit")
         self.dateEdit_2 = QtWidgets.QDateEdit(Dialog)
-        self.dateEdit_2.setGeometry(QtCore.QRect(20, 280, 131, 31))
+        self.dateEdit_2.setGeometry(QtCore.QRect(20, 280, 151, 31))
+        self.dateEdit_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.dateEdit_2.setStyleSheet("")
         self.dateEdit_2.setCalendarPopup(True)
         self.dateEdit_2.setObjectName("dateEdit_2")
         self.doubleSpinBox = QtWidgets.QDoubleSpinBox(Dialog)
-        self.doubleSpinBox.setGeometry(QtCore.QRect(20, 220, 131, 31))
+        self.doubleSpinBox.setGeometry(QtCore.QRect(20, 220, 151, 31))
+        self.doubleSpinBox.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.doubleSpinBox.setStyleSheet("padding-right: 15px; /* make room for the arrows */\n"
 "\n"
 " border-width: 3;\n"
@@ -114,6 +113,7 @@ class Ui_Dialog(object):
         self.doubleSpinBox.setObjectName("doubleSpinBox")
         self.textEdit = QtWidgets.QTextEdit(Dialog)
         self.textEdit.setGeometry(QtCore.QRect(220, 280, 361, 71))
+        self.textEdit.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.textEdit.setMouseTracking(True)
         self.textEdit.setTabletTracking(True)
         self.textEdit.setStyleSheet("\n"
@@ -141,18 +141,20 @@ class Ui_Dialog(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.label = QtWidgets.QLabel(self.frame)
-        self.label.setGeometry(QtCore.QRect(290, 20, 81, 21))
+        self.label.setGeometry(QtCore.QRect(340, 20, 81, 21))
         self.label.setStyleSheet("font: 63 12pt \"Yu Gothic UI Semibold\";\n"
 "")
         self.label.setObjectName("label")
         self.spinBox = QtWidgets.QSpinBox(Dialog)
         self.spinBox.setGeometry(QtCore.QRect(220, 220, 201, 31))
+        self.spinBox.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.spinBox.setStyleSheet("padding-right: 15px; /* make room for the arrows */\n"
 "\n"
 " border-width: 3;\n"
 "\n"
 " border: 1px solid gray;")
         self.spinBox.setAlignment(QtCore.Qt.AlignCenter)
+        self.spinBox.setProperty("showGroupSeparator", True)
         self.spinBox.setMaximum(1000000000)
         self.spinBox.setObjectName("spinBox")
         self.lineEdit_5 = QtWidgets.QLineEdit(Dialog)
@@ -164,7 +166,7 @@ class Ui_Dialog(object):
         self.label_10.setStyleSheet("font: 63 8pt \"Yu Gothic UI Semibold\";")
         self.label_10.setObjectName("label_10")
         self.comboBox = QtWidgets.QComboBox(Dialog)
-        self.comboBox.setGeometry(QtCore.QRect(20, 160, 131, 31))
+        self.comboBox.setGeometry(QtCore.QRect(20, 160, 151, 31))
         self.comboBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.comboBox.setObjectName("comboBox")
         self.label_11 = QtWidgets.QLabel(Dialog)
@@ -180,7 +182,7 @@ class Ui_Dialog(object):
         self.lineEdit_7.setStyleSheet("")
         self.lineEdit_7.setObjectName("lineEdit_7")
         self.pushButton_3 = QtWidgets.QPushButton(Dialog)
-        self.pushButton_3.setGeometry(QtCore.QRect(100, 140, 41, 21))
+        self.pushButton_3.setGeometry(QtCore.QRect(110, 140, 41, 21))
         self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_3.setStyleSheet("QPushButton{\n"
 "border:none;\n"
@@ -190,11 +192,27 @@ class Ui_Dialog(object):
 "background-color: rgb(85, 170, 255);\n"
 "}")
         self.pushButton_3.setObjectName("pushButton_3")
+        self.comboBox_2 = QtWidgets.QComboBox(Dialog)
+        self.comboBox_2.setGeometry(QtCore.QRect(470, 220, 301, 31))
+        self.comboBox_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.comboBox_2.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.comboBox_2.setObjectName("comboBox_2")
+        self.pushButton_4 = QtWidgets.QPushButton(Dialog)
+        self.pushButton_4.setGeometry(QtCore.QRect(720, 200, 41, 21))
+        self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_4.setStyleSheet("QPushButton{\n"
+"border:none;\n"
+"    background-color: rgb(57, 114, 171);\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_4.setObjectName("pushButton_4")
         self.label_2.setBuddy(self.dateEdit)
         self.label_3.setBuddy(self.lineEdit_3)
         self.label_4.setBuddy(self.doubleSpinBox)
         self.label_5.setBuddy(self.spinBox)
-        self.label_6.setBuddy(self.lineEdit_6)
+        self.label_6.setBuddy(self.comboBox_2)
         self.label_7.setBuddy(self.dateEdit_2)
         self.label_8.setBuddy(self.textEdit)
         self.label_9.setBuddy(self.lineEdit_4)
@@ -207,12 +225,14 @@ class Ui_Dialog(object):
         Dialog.setTabOrder(self.dateEdit, self.lineEdit_3)
         Dialog.setTabOrder(self.lineEdit_3, self.lineEdit_4)
         Dialog.setTabOrder(self.lineEdit_4, self.comboBox)
-        Dialog.setTabOrder(self.comboBox, self.lineEdit_5)
+        Dialog.setTabOrder(self.comboBox, self.pushButton_3)
+        Dialog.setTabOrder(self.pushButton_3, self.lineEdit_5)
         Dialog.setTabOrder(self.lineEdit_5, self.lineEdit_7)
         Dialog.setTabOrder(self.lineEdit_7, self.doubleSpinBox)
         Dialog.setTabOrder(self.doubleSpinBox, self.spinBox)
-        Dialog.setTabOrder(self.spinBox, self.lineEdit_6)
-        Dialog.setTabOrder(self.lineEdit_6, self.dateEdit_2)
+        Dialog.setTabOrder(self.spinBox, self.comboBox_2)
+        Dialog.setTabOrder(self.comboBox_2, self.pushButton_4)
+        Dialog.setTabOrder(self.pushButton_4, self.dateEdit_2)
         Dialog.setTabOrder(self.dateEdit_2, self.textEdit)
         Dialog.setTabOrder(self.textEdit, self.pushButton_2)
 
@@ -228,7 +248,6 @@ class Ui_Dialog(object):
         self.label_8.setText(_translate("Dialog", "REMARKS :"))
         self.pushButton_2.setToolTip(_translate("Dialog", "Save item to stock."))
         self.pushButton_2.setText(_translate("Dialog", "SAVE ITEM"))
-        self.lineEdit_6.setPlaceholderText(_translate("Dialog", "supplier\'s company name/ owner"))
         self.dateEdit.setDisplayFormat(_translate("Dialog", "d/M/yyyy"))
         self.label_9.setText(_translate("Dialog", "ITEM NAME :"))
         self.label.setText(_translate("Dialog", "ADD  ITEM"))
@@ -239,6 +258,8 @@ class Ui_Dialog(object):
         self.lineEdit_7.setPlaceholderText(_translate("Dialog", "e.g: ml, cm, kg, g, watts e.t.c"))
         self.pushButton_3.setToolTip(_translate("Dialog", "click to add new category"))
         self.pushButton_3.setText(_translate("Dialog", "+"))
+        self.pushButton_4.setToolTip(_translate("Dialog", "click to add new category"))
+        self.pushButton_4.setText(_translate("Dialog", "+"))
 
 
 if __name__ == "__main__":

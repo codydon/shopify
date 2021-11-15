@@ -30,6 +30,7 @@ class Ui_Dialog(object):
 "     selection-background-color: darkgray;\n"
 " }\n"
 "")
+        self.lineEdit.setClearButtonEnabled(True)
         self.pushButton = QPushButton(Dialog)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(140, 160, 131, 31))
@@ -65,6 +66,7 @@ class Ui_Dialog(object):
         self.label.setAlignment(Qt.AlignCenter)
 
         self.retranslateUi(Dialog)
+        Dialog.accepted.connect(self.lineEdit.setFocus)
 
         QMetaObject.connectSlotsByName(Dialog)
     # setupUi

@@ -425,7 +425,7 @@ background-color: #00394D;
 background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_4">
@@ -716,7 +716,7 @@ border-radius:5px;
 </string>
                </property>
                <property name="text">
-                <string>UPDATE</string>
+                <string>UPDATE VALUE</string>
                </property>
               </widget>
              </item>
@@ -757,7 +757,7 @@ border-radius:5px;
 </string>
                </property>
                <property name="text">
-                <string>DELETE</string>
+                <string>DELETE ROW</string>
                </property>
               </widget>
              </item>

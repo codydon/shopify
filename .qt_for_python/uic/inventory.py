@@ -465,7 +465,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -501,11 +501,11 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.updateStockBtn.setToolTip(QCoreApplication.translate("MainWindow", u"update item information", None))
 #endif // QT_CONFIG(tooltip)
-        self.updateStockBtn.setText(QCoreApplication.translate("MainWindow", u"UPDATE", None))
+        self.updateStockBtn.setText(QCoreApplication.translate("MainWindow", u"UPDATE VALUE", None))
 #if QT_CONFIG(tooltip)
         self.deleteStockBtn.setToolTip(QCoreApplication.translate("MainWindow", u"deletes an item", None))
 #endif // QT_CONFIG(tooltip)
-        self.deleteStockBtn.setText(QCoreApplication.translate("MainWindow", u"DELETE", None))
+        self.deleteStockBtn.setText(QCoreApplication.translate("MainWindow", u"DELETE ROW", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"VITAL STATS OVERVIEW", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"SEARCH", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Search :", None))
