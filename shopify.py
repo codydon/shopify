@@ -342,11 +342,11 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             rs = c.fetchall()
             for row in rs:
                 self.comboBox_2.addItem(str(row[0]))
-            #
-            
+            #            
             self.pushButton_2.clicked.connect(self.AddItem)
             self.pushButton_3.clicked.connect(self.addcatg)
             self.pushButton_4.clicked.connect(self.addsupp)
+            self.comboBox.activated.connect(self.filter_supplier)
 
         def addcatg(self):
             self.window = AddCategoryWindow()
@@ -356,6 +356,16 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             self.window = AddSupplierWindow()
             self.window.show()
 
+        def filter_supplier(self):
+            self.comboBox_2.clear()
+            v = self.comboBox.currentText()
+            print(v)
+            q = "SELECT supplier_name FROM suppliers where category = ?"
+            r = c.execute(q,[v])
+            rsl = r.fetchall()
+            print(rsl)
+            for row in rsl:
+                self.comboBox_2.addItem(str(row[0]))
         def AddItem(self):
             temp_date = self.dateEdit.date() 
             var_date = temp_date.toPyDate()
@@ -488,6 +498,11 @@ class AddSupplierWindow(AddSupplier.Ui_Dialog, QtWidgets.QDialog):
     def __init__(self):
         super(AddSupplierWindow,self).__init__()
         self.setupUi(self)
+
+        q = c.execute("SELECT category FROM categories ORDER BY category ASC;")
+        rsl = c.fetchall()
+        for row in rsl:
+                self.comboBox.addItem(str(row[0]))
         #connect buttons
         self.comboBox.addItem("s1")
         self.pushButton.clicked.connect(self.addsupplier)
@@ -513,7 +528,7 @@ class AddSupplierWindow(AddSupplier.Ui_Dialog, QtWidgets.QDialog):
                 debt  VARCHAR  NOT NULL ,
                 time_stamp  timestamp);''')
         d.close()
-        c = connection.cursor()
+        
         if not sname:
                 warn("category name is missing!")
         else:
@@ -522,7 +537,7 @@ class AddSupplierWindow(AddSupplier.Ui_Dialog, QtWidgets.QDialog):
                 c.execute(sql, [sname, s_no, s_email, s_catg, s_debt, time_stamp])            
                 connection.commit()
                 try:
-                    c.execute("SELECT category FROM categories ORDER BY category ASC;")
+                    c.execute("SELECT supplier_name FROM suppliers ORDER BY category ASC;")
                     rows = c.fetchall()
                     print(rows)
                     s_list.clear()
