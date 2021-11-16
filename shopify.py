@@ -100,7 +100,7 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 self.frame_ok.hide()
                 self.pushButton_14.clicked.connect(self.AddStock)
                 self.pushButton_3.clicked.connect(self.Addpurchase)
-                self.pushButton_2.clicked.connect(
+                self.pushButton_11.clicked.connect(
                     lambda: self.stackedWidget.setCurrentWidget(self.page_2))
                 self.pushButton.clicked.connect(
                     lambda: self.stackedWidget.setCurrentWidget(self.page))
@@ -259,7 +259,22 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 self.stockTable.insertRow(row_number)
                 for column_number, data in enumerate(row_data):
                     self.stockTable.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+        def show_expiry(self):
+            query = (" SELECT * FROM STOCK; ")
+            r = c.execute(query)
+            res = r.fetchall()
+            self.stockTable.setRowCount(0)
+            self.stockTable.setColumnCount(12)
+            self.stockTable.setHorizontalHeaderLabels(
+                ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remarks'])
+            self.stockTable.hideColumn(0)
+            for row_number, row_data in enumerate(res):
+                self.stockTable.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    self.stockTable.setItem(
+                        row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 
+            
 class salesWindow(sales.Ui_Sales, QtWidgets.QMainWindow):
     def __init__(self):
             super(salesWindow,self).__init__()
