@@ -306,59 +306,19 @@ class Ui_MainWindow(object):
         self.page_2.setObjectName("page_2")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.page_2)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        self.groupBox_4 = QtWidgets.QGroupBox(self.page_2)
-        self.groupBox_4.setMinimumSize(QtCore.QSize(581, 126))
-        self.groupBox_4.setMaximumSize(QtCore.QSize(16777215, 126))
-        self.groupBox_4.setStyleSheet("\n"
-"font: 63 10pt \"Yu Gothic UI Semibold\";\n"
-"QRadioButton::indicator {\n"
-"     width: 13px;\n"
-"     height: 13px;\n"
-"    font: 63 12pt \"Yu Gothic UI Semibold\";\n"
-" }\n"
-"")
-        self.groupBox_4.setObjectName("groupBox_4")
-        self.radioItemName_2 = QtWidgets.QRadioButton(self.groupBox_4)
-        self.radioItemName_2.setGeometry(QtCore.QRect(10, 68, 91, 21))
-        self.radioItemName_2.setObjectName("radioItemName_2")
-        self.radioItemCode_2 = QtWidgets.QRadioButton(self.groupBox_4)
-        self.radioItemCode_2.setGeometry(QtCore.QRect(120, 70, 86, 21))
-        self.radioItemCode_2.setObjectName("radioItemCode_2")
-        self.radioCategory_2 = QtWidgets.QRadioButton(self.groupBox_4)
-        self.radioCategory_2.setGeometry(QtCore.QRect(280, 70, 78, 21))
-        self.radioCategory_2.setMinimumSize(QtCore.QSize(0, 0))
-        self.radioCategory_2.setObjectName("radioCategory_2")
-        self.radioPrice_2 = QtWidgets.QRadioButton(self.groupBox_4)
-        self.radioPrice_2.setGeometry(QtCore.QRect(220, 70, 52, 21))
-        self.radioPrice_2.setObjectName("radioPrice_2")
-        self.radioSupplier_2 = QtWidgets.QRadioButton(self.groupBox_4)
-        self.radioSupplier_2.setGeometry(QtCore.QRect(460, 70, 72, 21))
-        self.radioSupplier_2.setObjectName("radioSupplier_2")
-        self.radioExpiryDate_2 = QtWidgets.QRadioButton(self.groupBox_4)
-        self.radioExpiryDate_2.setGeometry(QtCore.QRect(550, 70, 92, 21))
-        self.radioExpiryDate_2.setObjectName("radioExpiryDate_2")
-        self.radioDateAdded_2 = QtWidgets.QRadioButton(self.groupBox_4)
-        self.radioDateAdded_2.setGeometry(QtCore.QRect(360, 70, 95, 21))
-        self.radioDateAdded_2.setObjectName("radioDateAdded_2")
-        self.lineSearchProduct_2 = QtWidgets.QLineEdit(self.groupBox_4)
-        self.lineSearchProduct_2.setGeometry(QtCore.QRect(10, 27, 721, 35))
-        self.lineSearchProduct_2.setMinimumSize(QtCore.QSize(0, 35))
-        self.lineSearchProduct_2.setStyleSheet("QLineEdit {\n"
-"     border: 1px solid gray;\n"
-"     border-radius: 15px;\n"
-"     padding: 0 8px;\n"
-"     background: white;\n"
-"     selection-background-color: darkgray;\n"
-" }")
-        self.lineSearchProduct_2.setObjectName("lineSearchProduct_2")
-        self.gridLayout_3.addWidget(self.groupBox_4, 0, 0, 1, 1)
-        self.stockTable_2 = QtWidgets.QTableWidget(self.page_2)
-        self.stockTable_2.setMinimumSize(QtCore.QSize(691, 241))
-        self.stockTable_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.stockTable_2.setObjectName("stockTable_2")
-        self.stockTable_2.setColumnCount(0)
-        self.stockTable_2.setRowCount(0)
-        self.gridLayout_3.addWidget(self.stockTable_2, 1, 0, 1, 1)
+        self.scrollArea = QtWidgets.QScrollArea(self.page_2)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 738, 530))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.expiry_layout = QtWidgets.QVBoxLayout()
+        self.expiry_layout.setObjectName("expiry_layout")
+        self.verticalLayout.addLayout(self.expiry_layout)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.gridLayout_3.addWidget(self.scrollArea, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.page_2)
         self.gridLayout_2.addWidget(self.stackedWidget, 1, 1, 1, 1)
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
@@ -413,14 +373,6 @@ class Ui_MainWindow(object):
         self.deleteStockBtn.setToolTip(_translate("MainWindow", "deletes an item"))
         self.deleteStockBtn.setText(_translate("MainWindow", "DELETE ROW"))
         self.groupBox.setTitle(_translate("MainWindow", "VITAL STATS OVERVIEW"))
-        self.groupBox_4.setTitle(_translate("MainWindow", "search product"))
-        self.radioItemName_2.setText(_translate("MainWindow", "Item Name"))
-        self.radioItemCode_2.setText(_translate("MainWindow", "Item Code"))
-        self.radioCategory_2.setText(_translate("MainWindow", "Category"))
-        self.radioPrice_2.setText(_translate("MainWindow", "Price"))
-        self.radioSupplier_2.setText(_translate("MainWindow", "Supplier"))
-        self.radioExpiryDate_2.setText(_translate("MainWindow", "Expiry Date"))
-        self.radioDateAdded_2.setText(_translate("MainWindow", "Date Added"))
 
 
 if __name__ == "__main__":

@@ -2,9 +2,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtCore import QDate, QTime, QDateTime, Qt
+from PyQt5.QtWidgets import QMainWindow, QDialog, QFrame, QMessageBox, QTextEdit, QCompleter
 from PyQt5.QtCore import Qt, QSortFilterProxyModel
 from PyQt5.QtGui import QStandardItemModel, QStandardItem, QIntValidator
 from PyQt5.QtSql import QSqlDatabase, QSqlTableModel
+from notifyframe import Ui_notifyframe
 
 import sys
 import inventory as inventory
@@ -91,6 +93,7 @@ class LoginWindow(login.Ui_MainWindow, QtWidgets.QMainWindow):
                 
             
 class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
+        products_in_expiry = set()
         def __init__(self):
                 super(Main,self).__init__()
                 #setting up the first window
@@ -110,6 +113,7 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 self.updateStockBtn.clicked.connect(self.edit_product)
                 self.stockTable.selectionModel().selectionChanged.connect(self.on_select)
                 self.Showstatus()
+              
                 if self.lineSearchProduct.text() == '':
                     query = (" SELECT * FROM STOCK; ")
                     r = c.execute(query)
@@ -260,20 +264,84 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 for column_number, data in enumerate(row_data):
                     self.stockTable.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         def show_expiry(self):
-            query = (" SELECT * FROM STOCK; ")
-            r = c.execute(query)
-            res = r.fetchall()
-            self.stockTable.setRowCount(0)
-            self.stockTable.setColumnCount(12)
-            self.stockTable.setHorizontalHeaderLabels(
-                ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remarks'])
-            self.stockTable.hideColumn(0)
-            for row_number, row_data in enumerate(res):
-                self.stockTable.insertRow(row_number)
-                for column_number, data in enumerate(row_data):
-                    self.stockTable.setItem(
-                        row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+            
+            for product in self.product_list:
+                if product.name == self.searchItem.text():
+                    self.process_product(product)
+                    self.searchItem.clear()
+                    break
 
+
+
+            def process_product(self, product):
+                if not product.in_expiry:
+                    product.in_expiry = True
+                    self.products_in_expiry.add(product)
+                    self.add_create_product_layout(product)
+                    self.total_expiry()
+        
+            
+            def add_create_product_layout(self, product):
+                #print(self.products_in_checkout)
+                item = NotifyFrame(product, self.context, self)
+                self.expiry_layout.addWidget(item)
+             
+
+            def calculate_total(self):
+                self.total_label.setText(
+                    str(
+                        sum(product.subtotal for product in self.products_in_expiry)
+                        )
+                    )
+                
+                self.total_labelShow.setText(f'{int(self.total_label.text()):,}') #assign whenever total is computed
+
+            def get_product_list(self):
+                
+                    c.execute("SELECT * FROM products")
+                    results = c.fetchall()
+
+                    # Genexpr to get all items from database
+                    self.product_list = [self._Product(
+                        *value) for _, value in enumerate(results)]
+
+            class _Product:
+                """
+                    This is a private class that holds attributes of
+                    each product.
+                    """
+
+                def __init__(self, itemcode, name,category,expirydate,remaining_days):
+                    self.itemcode = itemcode
+                    self.name = name
+                    self.category=category
+                    self.text_1 = "will expire on"
+                    self.expirydate = expirydate
+                    self.text_2 = "remaining time"
+                    self.remaining_days = remaining_days
+                    self.in_checkout = False
+
+               
+
+                def __str__(self):
+                    return str(self.name)
+
+
+class NotifyFrame(QFrame, Ui_notifyframe):
+    """
+        Widget to hold each product in the checkout
+
+        product:    Instance of _Product class,
+                    contains product metadata.
+    """
+
+    def __init__(self, product, context, root, *args, **kwargs):
+        super(NotifyFrame, self).__init__(*args, **kwargs)
+        self.product = product
+        self.context = context
+        self.Main = root
+
+        self.setupUi(self)
             
 class salesWindow(sales.Ui_Sales, QtWidgets.QMainWindow):
     def __init__(self):
@@ -394,6 +462,7 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             exp_temp = self.dateEdit_2.date()
             exp_date = exp_temp.toPyDate() 
             supplier = self.comboBox_2.currentText()
+            remind=self.remind.text()
             remarks = self.textEdit.toPlainText()
             #db
             c = connection.cursor()
@@ -408,7 +477,9 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
                 price DOUBLE NOT NULL,
                 supplier VARCHAR NOT NULL,
                 date_added DATE NOT NULL,
-                exp_date DATE ,
+                exp_date DATE,
+                remindbefore VARCHAR,
+                time_remaining VARCHAR,
                 remarks LONGTEXT)''')
             if not item_code:
                 warn("item code is missing!")
@@ -427,9 +498,9 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             else:
                 #insert stock item
                 try:
-                    sql = """INSERT INTO STOCK (item_code, category, item_name, description,measurement, quantity, price, supplier, date_added, exp_date, remarks ) 
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"""
-                    vars = (item_code, category, item_name, description,measurement, quantity, price, supplier, var_date, exp_date, remarks,)
+                    sql = """INSERT INTO STOCK (item_code, category, item_name, description,measurement, quantity, price, supplier, date_added, exp_date,remindbefore,time_remaining, remarks ) 
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);"""
+                    vars = (item_code, category, item_name, description,measurement, quantity, price, supplier, var_date, exp_date,remind, remarks,)
                     c.execute(sql, vars,)            
                     connection.commit()
                     c.close
@@ -446,6 +517,8 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
                 self.spinBox.setValue(0)
                 self.lineEdit_7.clear()
                 self.textEdit.clear()
+                self.remind.clear()
+                
                 #reset comboBox 
                 d = connection.cursor()
                 d.execute('''CREATE TABLE IF NOT EXISTS CATEGORIES (
