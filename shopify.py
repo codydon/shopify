@@ -24,6 +24,7 @@ currentdatetime = datetime.datetime.now()
 try:
     connection = sqlite3.connect('shopify.db')
     c = connection.cursor()
+    
     print("Database created and Successfully Connected to SQLite")
 except sqlite3.Error as error:
     print("Error while connecting ")
@@ -113,15 +114,32 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 self.updateStockBtn.clicked.connect(self.edit_product)
                 self.stockTable.selectionModel().selectionChanged.connect(self.on_select)
                 self.Showstatus()
+                self.show_expiry()
               
                 if self.lineSearchProduct.text() == '':
+                    c.execute('''CREATE TABLE IF NOT EXISTS STOCK (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL,
+                    item_code  VARCHAR UNIQUE NOT NULL,
+                    category VARCHAR NOT NULL,
+                    item_name VARCHAR NOT NULL,
+                    description VARCHAR NOT NULL,
+                    measurement VARCHAR NOT NULL,
+                    quantity FLOAT NOT NULL,
+                    price DOUBLE NOT NULL,
+                    supplier VARCHAR NOT NULL,
+                    date_added DATE NOT NULL,
+                    exp_date DATE,
+                    remindbefore VARCHAR,
+                    time_remaining VARCHAR,
+                    remarks LONGTEXT)''')
+                    
                     query = (" SELECT * FROM STOCK; ")
                     r = c.execute(query)
                     res = r.fetchall()
                     self.stockTable.setRowCount(0)
-                    self.stockTable.setColumnCount(12)
+                    self.stockTable.setColumnCount(14)
                     self.stockTable.setHorizontalHeaderLabels(
-                        ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remarks'])
+                        ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remind before', 'time remaining', 'remarks'])
                     self.stockTable.hideColumn(0)
                     for row_number, row_data in enumerate(res):
                         self.stockTable.insertRow(row_number)
@@ -255,9 +273,9 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
             res = r.fetchall()
             #results = res[0]
             self.stockTable.setRowCount(0)
-            self.stockTable.setColumnCount(12)
+            self.stockTable.setColumnCount(14)
             self.stockTable.setHorizontalHeaderLabels(
-                ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remarks'])
+                ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date','remind before', 'time remaining', 'remarks'])
             self.stockTable.hideColumn(0)
             for row_number, row_data in enumerate(res):
                 self.stockTable.insertRow(row_number)
@@ -265,11 +283,15 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                     self.stockTable.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         def show_expiry(self):
             
-            for product in self.product_list:
-                if product.name == self.searchItem.text():
-                    self.process_product(product)
-                    self.searchItem.clear()
-                    break
+            c.execute("SELECT exp_date - date('now') AS time_remaining FROM STOCK")
+            
+
+            def add_to_checkout(self):
+                for product in self.product_list:
+                    if product.name == self.searchItem.text():
+                        self.process_product(product)
+                        self.searchItem.clear()
+                        break
 
 
 
@@ -397,6 +419,8 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
         def __init__(self):
             super(AddStockWindow,self).__init__()
             self.setupUi(self)
+            self.dateEdit.setDate(QDate.currentDate())
+            self.dateEdit_2.setDate(QDate.currentDate())
 
             global cb_stock
             cb_stock = self.comboBox
@@ -498,15 +522,16 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             else:
                 #insert stock item
                 try:
-                    sql = """INSERT INTO STOCK (item_code, category, item_name, description,measurement, quantity, price, supplier, date_added, exp_date,remindbefore,time_remaining, remarks ) 
+                    sql = """INSERT INTO STOCK (item_code, category, item_name, description,measurement, quantity, price, supplier, date_added, exp_date,remindbefore, remarks ) 
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);"""
                     vars = (item_code, category, item_name, description,measurement, quantity, price, supplier, var_date, exp_date,remind, remarks,)
                     c.execute(sql, vars,)            
                     connection.commit()
                     c.close
                     dialog("Item Saved Successfully")           
-                except:                    
+                except Exception as e:                    
                     warn("The Item Code already exists")
+                    #print("error!", e) 
                 self.lineEdit_3.clear()
                 self.lineEdit_4.clear()
                 self.lineEdit_5.clear()
