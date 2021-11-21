@@ -19,7 +19,8 @@ import AddPurchase as AddPurchase
 import datetime
 import sqlite3
 
-currentdatetime = datetime.datetime.now()
+currentdatetime = datetime.datetime.today().strftime('%Y-%m-%d')
+
 
 try:
     connection = sqlite3.connect('shopify.db')
@@ -282,9 +283,15 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                 for column_number, data in enumerate(row_data):
                     self.stockTable.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         def show_expiry(self):
+           
             
-            c.execute("SELECT exp_date - date('now') AS time_remaining FROM STOCK")
-            
+            c.execute("SELECT exp_date FROM STOCK")
+            expiry=c.fetchall()
+            for expire in expiry:
+                
+                remaining_time = datetime.datetime.strptime(
+                    str(expire[0]), '%Y-%m-%d')-currentdatetime
+                print(remaining_time)
 
             def add_to_checkout(self):
                 for product in self.product_list:
