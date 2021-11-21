@@ -19,7 +19,9 @@ import AddPurchase as AddPurchase
 import datetime
 import sqlite3
 
-currentdatetime = datetime.datetime.today().strftime('%Y-%m-%d')
+currentdatetime = datetime.datetime.now()
+
+
 
 
 try:
@@ -288,15 +290,16 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
             c.execute("SELECT exp_date FROM STOCK")
             expiry=c.fetchall()
             for expire in expiry:
-                print(currentdatetime)
-                
-                remaining_time = datetime.datetime.strptime(
-                    str(expire[0]), '%Y-%m-%d')-currentdatetime
-                print(remaining_time)
-
-            def add_to_checkout(self):
+               
+                remaining_time = (datetime.datetime.strptime(
+                    (expire[0]), '%Y-%m-%d')-currentdatetime).days
+                #c.execute("SELECT remindbefore FROM STOCK")
+                #reminds = c.fetchall()
+               # for remind in reminds:
+                   # if ((int(remind[0]))<=(remaining_time)):
+                        #print("about to expire")
                 for product in self.product_list:
-                    if product.name == self.searchItem.text():
+                    if product.remindbefore <= str(remaining_time):
                         self.process_product(product)
                         self.searchItem.clear()
                         break
@@ -328,7 +331,7 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
 
             def get_product_list(self):
                 
-                    c.execute("SELECT * FROM products")
+                    c.execute("SELECT item_code,category,item_name,exp_date,remindebefore* FROM STOCK")
                     results = c.fetchall()
 
                     # Genexpr to get all items from database
@@ -341,14 +344,13 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                     each product.
                     """
 
-                def __init__(self, itemcode, name,category,expirydate,remaining_days):
+                def __init__(self, itemcode, name,category,expirydate,remindbefore):
                     self.itemcode = itemcode
                     self.name = name
                     self.category=category
                     self.text_1 = "will expire on"
                     self.expirydate = expirydate
-                    self.text_2 = "remaining time"
-                    self.remaining_days = remaining_days
+                    self.remindbefore=remindbefore
                     self.in_checkout = False
 
                
