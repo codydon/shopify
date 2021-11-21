@@ -288,6 +288,7 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
             c.execute("SELECT exp_date FROM STOCK")
             expiry=c.fetchall()
             for expire in expiry:
+                print(currentdatetime)
                 
                 remaining_time = datetime.datetime.strptime(
                     str(expire[0]), '%Y-%m-%d')-currentdatetime
