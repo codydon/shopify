@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QMainWindow, QDialog, QFrame, QMessageBox, QTextEdit
 from PyQt5.QtCore import Qt, QSortFilterProxyModel
 from PyQt5.QtGui import QStandardItemModel, QStandardItem, QIntValidator
 from PyQt5.QtSql import QSqlDatabase, QSqlTableModel
-from notifyframe import Ui_notifyframe
+
 
 import sys
 import inventory as inventory
@@ -132,8 +132,7 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                     supplier VARCHAR NOT NULL,
                     date_added DATE NOT NULL,
                     exp_date DATE,
-                    remindbefore VARCHAR,
-                    time_remaining VARCHAR,
+                    remindbefore INTEGER,
                     remarks LONGTEXT)''')
                     
                     query = (" SELECT * FROM STOCK; ")
@@ -293,87 +292,31 @@ class Main(inventory.Ui_MainWindow, QtWidgets.QMainWindow):
                
                 remaining_time = (datetime.datetime.strptime(
                     (expire[0]), '%Y-%m-%d')-currentdatetime).days
+                c.execute("SELECT * FROM STOCK WHERE remindbefore >'"+str(remaining_time)+"'")
+                reminds=c.fetchall()
+                self.tableWidget.setRowCount(0)
+                self.tableWidget.setColumnCount(14)
+                self.tableWidget.setHorizontalHeaderLabels(
+                    ['id', 'item_code', 'category', 'item_name', 'description', 'measurement', 'quantity', 'price', 'supplier', 'date_added', 'exp_date', 'remind before','remarks'])
+                self.tableWidget.hideColumn(0)
+                for row_number, row_data in enumerate(reminds):
+                    self.tableWidget.insertRow(row_number)
+                    for column_number, data in enumerate(row_data):
+                        self.tableWidget.setItem(
+                            row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
                 #c.execute("SELECT remindbefore FROM STOCK")
                 #reminds = c.fetchall()
                # for remind in reminds:
                    # if ((int(remind[0]))<=(remaining_time)):
-                        #print("about to expire")
-                for product in self.product_list:
-                    if product.remindbefore <= str(remaining_time):
-                        self.process_product(product)
-                        self.searchItem.clear()
-                        break
+                        #print("about to expire"
+                for remind in reminds:
+                    print(remind[0])
+                
+                
 
 
 
-            def process_product(self, product):
-                if not product.in_expiry:
-                    product.in_expiry = True
-                    self.products_in_expiry.add(product)
-                    self.add_create_product_layout(product)
-                    self.total_expiry()
-        
             
-            def add_create_product_layout(self, product):
-                #print(self.products_in_checkout)
-                item = NotifyFrame(product, self.context, self)
-                self.expiry_layout.addWidget(item)
-             
-
-            def calculate_total(self):
-                self.total_label.setText(
-                    str(
-                        sum(product.subtotal for product in self.products_in_expiry)
-                        )
-                    )
-                
-                self.total_labelShow.setText(f'{int(self.total_label.text()):,}') #assign whenever total is computed
-
-            def get_product_list(self):
-                
-                    c.execute("SELECT item_code,category,item_name,exp_date,remindebefore* FROM STOCK")
-                    results = c.fetchall()
-
-                    # Genexpr to get all items from database
-                    self.product_list = [self._Product(
-                        *value) for _, value in enumerate(results)]
-
-            class _Product:
-                """
-                    This is a private class that holds attributes of
-                    each product.
-                    """
-
-                def __init__(self, itemcode, name,category,expirydate,remindbefore):
-                    self.itemcode = itemcode
-                    self.name = name
-                    self.category=category
-                    self.text_1 = "will expire on"
-                    self.expirydate = expirydate
-                    self.remindbefore=remindbefore
-                    self.in_checkout = False
-
-               
-
-                def __str__(self):
-                    return str(self.name)
-
-
-class NotifyFrame(QFrame, Ui_notifyframe):
-    """
-        Widget to hold each product in the checkout
-
-        product:    Instance of _Product class,
-                    contains product metadata.
-    """
-
-    def __init__(self, product, context, root, *args, **kwargs):
-        super(NotifyFrame, self).__init__(*args, **kwargs)
-        self.product = product
-        self.context = context
-        self.Main = root
-
-        self.setupUi(self)
             
 class salesWindow(sales.Ui_Sales, QtWidgets.QMainWindow):
     def __init__(self):
@@ -496,7 +439,7 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
             exp_temp = self.dateEdit_2.date()
             exp_date = exp_temp.toPyDate() 
             supplier = self.comboBox_2.currentText()
-            remind=self.remind.text()
+            remind=int(self.remind.text())
             remarks = self.textEdit.toPlainText()
             #db
             c = connection.cursor()
@@ -512,8 +455,7 @@ class AddStockWindow(AddStock.Ui_Dialog, QtWidgets.QDialog):
                 supplier VARCHAR NOT NULL,
                 date_added DATE NOT NULL,
                 exp_date DATE,
-                remindbefore VARCHAR,
-                time_remaining VARCHAR,
+                remindbefore INTEGER,
                 remarks LONGTEXT)''')
             if not item_code:
                 warn("item code is missing!")

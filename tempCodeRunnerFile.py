@@ -1,3 +1,1 @@
-for remind in reminds:
-                    if remind =
-                
+ self.show_expiry()
