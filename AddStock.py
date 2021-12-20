@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'AddStock.ui'
+# Form implementation generated from reading ui file '.\AddStock.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -208,13 +208,6 @@ class Ui_Dialog(object):
 "background-color: rgb(85, 170, 255);\n"
 "}")
         self.pushButton_4.setObjectName("pushButton_4")
-        self.label_13 = QtWidgets.QLabel(Dialog)
-        self.label_13.setGeometry(QtCore.QRect(20, 320, 91, 16))
-        self.label_13.setStyleSheet("font: 63 8pt \"Yu Gothic UI Semibold\";")
-        self.label_13.setObjectName("label_13")
-        self.remind = QtWidgets.QLineEdit(Dialog)
-        self.remind.setGeometry(QtCore.QRect(20, 340, 91, 31))
-        self.remind.setObjectName("remind")
         self.label_2.setBuddy(self.dateEdit)
         self.label_3.setBuddy(self.lineEdit_3)
         self.label_4.setBuddy(self.doubleSpinBox)
@@ -226,7 +219,6 @@ class Ui_Dialog(object):
         self.label_10.setBuddy(self.lineEdit_5)
         self.label_11.setBuddy(self.comboBox)
         self.label_12.setBuddy(self.lineEdit_7)
-        self.label_13.setBuddy(self.dateEdit_2)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -268,7 +260,6 @@ class Ui_Dialog(object):
         self.pushButton_3.setText(_translate("Dialog", "+"))
         self.pushButton_4.setToolTip(_translate("Dialog", "click to add new category"))
         self.pushButton_4.setText(_translate("Dialog", "+"))
-        self.label_13.setText(_translate("Dialog", "REMIND BEFORE"))
 
 
 if __name__ == "__main__":
