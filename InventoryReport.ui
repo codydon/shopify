@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>954</width>
+    <width>942</width>
     <height>579</height>
    </rect>
   </property>
@@ -465,6 +465,12 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;
      <string notr="true">border:1px solid grey;
 border-radius:10px;
 font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+    <property name="insertPolicy">
+     <enum>QComboBox::InsertAtBottom</enum>
     </property>
     <item>
      <property name="text">
